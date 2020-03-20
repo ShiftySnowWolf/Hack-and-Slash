@@ -13,6 +13,7 @@ public class generateCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
         if (sender instanceof Player) {
             ifPlayer(sender, args);
         } else if (sender instanceof CommandBlock) {
