@@ -2,8 +2,8 @@ package bonnett;
 
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
-
 import com.sk89q.worldedit.WorldEditException;
+import com.sk89q.worldedit.bukkit.BukkitWorld;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
@@ -13,6 +13,7 @@ import com.sk89q.worldedit.function.operation.Operations;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.world.World;
+
 import org.bukkit.Location;
 import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
@@ -33,7 +34,6 @@ public class generateCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
         String type = args[0];
         File typePath = null;
         int size;
@@ -80,16 +80,15 @@ public class generateCommand implements CommandExecutor {
     }
 
     public void generateDungeon(File typePath, int size, Location loc) throws IOException {
-        World world = (World) loc.getWorld();
         //Generate boss room. <THIS IS AN UNFINISHED CODE BLOCK>
-        File bossRoom = new File(typePath + "\\rooms\\boss\\bossRoom" + extension);
+        File bossRoom = new File(typePath + "\\rooms\\boss\\bossTemplate" + extension);
         System.out.println(bossRoom);
         ClipboardFormat format = ClipboardFormats.findByFile(bossRoom);
         assert format != null;
         try (ClipboardReader reader = format.getReader(new FileInputStream(bossRoom))) {
             clipboard = (Clipboard) reader.read();
         }
-        try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory().getEditSession(world, -1)) {
+        try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory().getEditSession(new BukkitWorld(loc.getWorld()), -1)) {
             Operation operation = new ClipboardHolder(clipboard)
                     .createPaste(editSession)
                     .to(BlockVector3.at(loc.getChunk().getX(), loc.getY(), loc.getChunk().getZ()))
