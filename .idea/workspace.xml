@@ -29,11 +29,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/HackAndSlash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/HackAndSlash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/generateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/rooms/boss/bossTemplate.schem" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584676204360</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="File Structure Changes with schematics">
+      <created>1584678914552</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1584678914552</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -178,26 +180,46 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="42" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1584666649256" />
-    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1584676200869">
+    <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584679849725">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584676200869" />
+    <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1584679849724" />
+    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1584683463699">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584683463699" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1584669670185">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1584669670185" />
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1584682699354">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584682699354" />
+    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1584682699354">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584682699354" />
+    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1584682699352">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584682699352" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1584682699354">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584682699354" />
     <state x="164" y="53" key="SettingsEditor" timestamp="1584676168324">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="164" y="53" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584676168324" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584676210501">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584678919868">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584676210501" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584669374517">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584678919868" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584679551943">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584669374517" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584679551943" />
     <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584670974907">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

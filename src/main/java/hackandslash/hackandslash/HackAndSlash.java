@@ -3,13 +3,14 @@ package hackandslash.hackandslash;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.nio.file.DirectoryStream;
+import java.util.Arrays;
+import java.util.Objects;
 
 public final class HackAndSlash extends JavaPlugin {
 
     public static HackAndSlash plugin;
     public static String[] validTypes;
+    public static File directoryPath;
 
     @Override
     public void onEnable() {
@@ -17,12 +18,12 @@ public final class HackAndSlash extends JavaPlugin {
         System.out.println("Hack and slash loading!");
 
         //Commands.
-        this.getCommand("generatedungeon").setExecutor(new generateCommand());
+        Objects.requireNonNull(this.getCommand("generatedungeon")).setExecutor(new generateCommand());
 
-        //Dungeon schematic getter.
-        File directoryPath = new File(getDataFolder() + File.separator + "dungeonSchematics");
+        //Dungeon type getter.
+        directoryPath = new File(getDataFolder() + File.separator + "dungeonSchematics");
         validTypes = directoryPath.list();
-        System.out.println(validTypes);
+        System.out.println(Arrays.toString(validTypes));
     }
 
     @Override
