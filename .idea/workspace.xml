@@ -34,6 +34,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/genResourceDir.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/fourway/fourWayTemplate.schem" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" afterDir="false" />
@@ -47,26 +48,28 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/HackAndSlash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/HackAndSlash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/boss/bossTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/corner/cornerTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/fourway/fourWayTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/straight/straightTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/threeway/threeWayTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/boss/bossTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/boss/bossTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/fourDoorTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/oneDoorTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/threeDoorTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/twoDoorTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/hallways/small/corner/cornerTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/hallways/small/fourway/fourWayTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/hallways/small/straight/straightTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/hallways/small/threeway/threeWayTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/boss/bossTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/rooms/boss/bossTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/rooms/oneChunk/fourDoorTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/rooms/oneChunk/oneDoorTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/rooms/oneChunk/threeDoorTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeonSchematics/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dungeon Templates/Template/rooms/oneChunk/twoDoorTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/boss/bossTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeonSchematics/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +82,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Hack-and-Slash" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -249,6 +259,7 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Basic Changes" />
     <MESSAGE value="File Structure Changes" />
@@ -258,7 +269,9 @@
     <MESSAGE value="Got generation algorithm to its first testing point." />
     <MESSAGE value="Updated commit" />
     <MESSAGE value="Attempt at resource saving." />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt at resource saving." />
+    <MESSAGE value="File System Implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="File System Implemented" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="42" key="#Notifications" timestamp="1584722520556">
@@ -269,30 +282,38 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1584679849724" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584732632854">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584741088689">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584732632854" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584741088689" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1584730414242">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1584730414242" />
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1584732604551">
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1584736777415">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584732604551" />
-    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1584732604550">
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584736777415" />
+    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1584736777413">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584732604550" />
-    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1584732604550">
+    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584736777413" />
+    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1584736777413">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584732604550" />
-    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1584732604550">
+    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584736777413" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1584736777414">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584732604550" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584736777414" />
+    <state x="129" y="59" key="MergeDialog" timestamp="1584741336287">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584741336287" />
+    <state x="395" y="100" key="MultipleFileMergeDialog" timestamp="1584741346133">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="395" y="100" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584741346133" />
     <state x="167" y="42" key="SettingsEditor" timestamp="1584730591776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -305,10 +326,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584722503621" />
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584736438028">
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584741128022">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584736438028" />
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584741128022" />
     <state x="0" y="0" width="607" height="768" key="find.popup" timestamp="1584673479776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -317,16 +338,5 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="373" y="175" key="git4idea.merge.GitPullDialog/0.0.1366.768@0.0.1366.768" timestamp="1584670962976" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
