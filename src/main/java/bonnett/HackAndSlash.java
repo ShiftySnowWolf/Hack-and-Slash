@@ -26,6 +26,7 @@ public class HackAndSlash extends JavaPlugin {
         //Commands.
         //noinspection ConstantConditions
         this.getCommand("generatedungeon").setExecutor(new generateCommand());
+        getCommand("generatedungeon").setTabCompleter(new tabCompleter());
     }
 
     @Override
