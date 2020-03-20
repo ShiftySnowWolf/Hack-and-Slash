@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Objects;
 
-public final class HackAndSlash extends JavaPlugin {
+public class HackAndSlash extends JavaPlugin {
 
     public static HackAndSlash plugin;
     public static String[] validTypes;
@@ -15,10 +15,8 @@ public final class HackAndSlash extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        System.out.println("Hack and slash loading!");
-
         //Commands.
-        Objects.requireNonNull(this.getCommand("generatedungeon")).setExecutor(new generateCommand());
+        this.getCommand("generatedungeon").setExecutor(new generateCommand());
 
         //Dungeon type getter.
         directoryPath = new File(getDataFolder() + File.separator + "dungeonSchematics");

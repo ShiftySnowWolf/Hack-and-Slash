@@ -7,3 +7,7 @@ authors:
   - Bonn2
 depend:
   - WorldEdit
+commands:
+  generatedungeon:
+    description: Generates a dungeon.
+    usage: /generatedungeon <TYPE> <SIZE>
