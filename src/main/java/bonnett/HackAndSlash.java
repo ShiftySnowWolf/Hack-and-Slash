@@ -1,4 +1,4 @@
-package hackandslash.hackandslash;
+package bonnett;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

@@ -1,5 +1,9 @@
 name: HackAndSlash
 version: ${project.version}
-main: hackandslash.hackandslash.HackAndSlash
-api-version: 1.13
-authors: [ShiftySnowWolf, Bonn2]
+main: bonnett.HackAndSlash
+api-version: "1.13"
+authors:
+  - ShiftySnowWolf
+  - Bonn2
+depend:
+  - WorldEdit
