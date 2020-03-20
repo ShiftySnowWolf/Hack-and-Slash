@@ -26,23 +26,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_bukkit_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_core_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_libs_bukkit_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_libs_core_7_0_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_schlichtherle_truezip_6_8_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_papermc_paperlib_1_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_slf4j_impl_2_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bstats_bstats_bukkit_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_13_2_R0_1_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__rhino_js_1_7R2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/HackAndSlash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/HackAndSlash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/generateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/duncgeon schematics/rooms/boss/bossTemplate.schem" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +77,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\duncgeon schematics\Template" />
+      <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\duncgeon schematics\Template\rooms" />
       <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\duncgeon schematics\rooms" />
     </key>
   </component>
@@ -163,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584676067766</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="File Structure Changes with schematics">
+      <created>1584676204360</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584676204360</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -178,10 +178,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="42" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1584666649256" />
-    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1584676063850">
+    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1584676200869">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584676063850" />
+    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584676200869" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1584669670185">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -190,10 +190,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="164" y="53" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584676168324" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584675639513">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584676210501">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584675639513" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584676210501" />
     <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584669374517">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
