@@ -25,11 +25,7 @@
     <option name="showStatusBarWidget" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/HackAndSlash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/HackAndSlash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/generateCommand.java" afterDir="false" />
-    </list>
+    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584678914552</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added to file sorting system. Implemented the beginning of the schematic getter and the boss room generation.">
+      <created>1584683575618</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1584683575618</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -173,7 +176,9 @@
     <MESSAGE value="Basic Changes" />
     <MESSAGE value="File Structure Changes" />
     <MESSAGE value="File Structure Changes with schematics" />
-    <option name="LAST_COMMIT_MESSAGE" value="File Structure Changes with schematics" />
+    <MESSAGE value="In" />
+    <MESSAGE value="Added to file sorting system. Implemented the beginning of the schematic getter and the boss room generation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added to file sorting system. Implemented the beginning of the schematic getter and the boss room generation." />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="42" key="#Notifications" timestamp="1584666649256">
@@ -184,10 +189,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1584679849724" />
-    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1584683463699">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1584683675615">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584683463699" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584683675615" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1584669670185">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -212,10 +217,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="164" y="53" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584676168324" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584678919868">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584683582867">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584678919868" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584683582867" />
     <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584679551943">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
