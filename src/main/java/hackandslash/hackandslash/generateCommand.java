@@ -22,7 +22,7 @@ public class generateCommand implements CommandExecutor {
     }
 
     public void generateType1Dungeon(String name, int size, Location loc) {
-        
+
     }
 
     public void generateType2Dungeon(String name, int size, Location loc) {
@@ -30,7 +30,7 @@ public class generateCommand implements CommandExecutor {
     }
 
     public void generateType3Dungeon(String name, int size, Location loc) {
-
+        
     }
 
     public void ifPlayer(CommandSender sender, String[] args) {
