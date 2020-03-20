@@ -1,5 +1,7 @@
 package hackandslash.hackandslash;
 
+import com.sk89q.worldedit.WorldEdit;
+
 import org.bukkit.Location;
 import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
@@ -22,7 +24,7 @@ public class generateCommand implements CommandExecutor {
     }
 
     public void generateType1Dungeon(String name, int size, Location loc) {
-
+        
     }
 
     public void generateType2Dungeon(String name, int size, Location loc) {
@@ -53,12 +55,10 @@ public class generateCommand implements CommandExecutor {
                     default: {
                         sender.sendMessage("Invalid Dungeon Type!");
                     }
-     
                 }
             } catch (NumberFormatException exception) {
                 sender.sendMessage("Size must be a number!");
             }
-                
         } else {
             sender.sendMessage("Usage: /generatedungeon <name> <type> <sizeInChunks>");
         }
@@ -84,12 +84,10 @@ public class generateCommand implements CommandExecutor {
                     default: {
                         sender.sendMessage("Invalid Dungeon Type!");
                     }
-      
                 }
             } catch (NumberFormatException exception) {
                 sender.sendMessage("Size must be a number!");
             }
-                
         } else {
             sender.sendMessage("Usage: /generatedungeon <name> <type> <sizeInChunks>");
         }
