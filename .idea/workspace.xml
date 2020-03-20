@@ -25,7 +25,10 @@
     <option name="showStatusBarWidget" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="" />
+    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="Added to file sorting system. Implemented the beginning of the schematic getter and the boss room generation.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackandslash/hackandslash/generateCommand.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,10 +184,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added to file sorting system. Implemented the beginning of the schematic getter and the boss room generation." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="42" key="#Notifications" timestamp="1584666649256">
+    <state x="275" y="42" key="#Notifications" timestamp="1584722520556">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="42" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1584666649256" />
+    <state x="275" y="42" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1584722520556" />
     <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584679849725">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -197,22 +200,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1584669670185" />
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1584682699354">
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1584722937205">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584682699354" />
-    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1584682699354">
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584722937205" />
+    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1584722937205">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584682699354" />
-    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1584682699352">
+    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584722937205" />
+    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1584722937204">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584682699352" />
-    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1584682699354">
+    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584722937204" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1584722937205">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584682699354" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584722937205" />
     <state x="164" y="53" key="SettingsEditor" timestamp="1584676168324">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -221,10 +224,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584683582867" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584679551943">
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584722503621">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584679551943" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584722503621" />
     <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584670974907">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
