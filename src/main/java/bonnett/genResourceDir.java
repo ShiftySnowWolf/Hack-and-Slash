@@ -2,7 +2,7 @@ package bonnett;
 
 import java.io.File;
 
-public class genResourceDir extends HackAndSlash {
+public class genResourceDir {
     public static void main(String[] args) {
         String pathName = "..\\dungeon_templates\\Template";
         String[] numToWord = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
@@ -109,6 +109,5 @@ public class genResourceDir extends HackAndSlash {
                 }
             }
         }
-
     }
 }

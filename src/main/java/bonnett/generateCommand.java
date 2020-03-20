@@ -25,6 +25,8 @@ import java.io.IOException;
 
 public class generateCommand implements CommandExecutor {
 
+    public Location alignedLoc;
+
     private String[] types = HackAndSlash.validTypes;
     private File dir = HackAndSlash.directoryPath;
 
@@ -58,9 +60,11 @@ public class generateCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             loc = player.getLocation();
+            alignedLoc = new Location(loc.getWorld(), loc.getChunk().getX() * 16 + 15, loc.getY(), loc.getChunk().getZ() * 16 + 15);
         } else if (sender instanceof CommandBlock) {
             CommandBlock commBlock = (CommandBlock) sender;
             loc = commBlock.getLocation();
+            alignedLoc = new Location(loc.getWorld(), loc.getChunk().getX() * 16 + 15, loc.getY(), loc.getChunk().getZ() * 16 + 15);
         } else {
             sender.sendMessage("This command cannot be run from console!");
             return false;
@@ -89,7 +93,7 @@ public class generateCommand implements CommandExecutor {
         try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory().getEditSession(new BukkitWorld(loc.getWorld()), -1)) {
             Operation operation = new ClipboardHolder(clipboard)
                     .createPaste(editSession)
-                    .to(BlockVector3.at(loc.getChunk().getX(), loc.getY(), loc.getChunk().getZ()))
+                    .to(BlockVector3.at(alignedLoc.getX(), alignedLoc.getY(), alignedLoc.getZ()))
                     //Configure here.
                     .build();
             Operations.complete(operation);
