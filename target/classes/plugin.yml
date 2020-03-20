@@ -1,0 +1,5 @@
+name: HackAndSlash
+version: 1.0-SNAPSHOT
+main: hackandslash.hackandslash.HackAndSlash
+api-version: 1.13
+authors: [ShiftySnowWolf, Bonn2]
