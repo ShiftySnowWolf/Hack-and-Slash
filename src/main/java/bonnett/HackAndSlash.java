@@ -14,10 +14,12 @@ public class HackAndSlash extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+
+        //Dungeon template directory generation
+        new genResourceDir();
         
         //Dungeon type getter.
         directoryPath = new File(getDataFolder() + File.separator + "dungeonSchematics");
-        
         validTypes = directoryPath.list();
         System.out.println(Arrays.toString(validTypes));
 

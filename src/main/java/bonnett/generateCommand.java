@@ -12,8 +12,6 @@ import com.sk89q.worldedit.function.operation.Operation;
 import com.sk89q.worldedit.function.operation.Operations;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.session.ClipboardHolder;
-import com.sk89q.worldedit.world.World;
-
 import org.bukkit.Location;
 import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
@@ -27,10 +25,8 @@ import java.io.IOException;
 
 public class generateCommand implements CommandExecutor {
 
-    Clipboard clipboard;
-    String[] types = HackAndSlash.validTypes;
-    File dir = HackAndSlash.directoryPath;
-    String extension = ".schem";
+    private String[] types = HackAndSlash.validTypes;
+    private File dir = HackAndSlash.directoryPath;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -81,12 +77,14 @@ public class generateCommand implements CommandExecutor {
 
     public void generateDungeon(File typePath, int size, Location loc) throws IOException {
         //Generate boss room. <THIS IS AN UNFINISHED CODE BLOCK>
+        String extension = ".schem";
         File bossRoom = new File(typePath + "\\rooms\\boss\\bossTemplate" + extension);
         System.out.println(bossRoom);
         ClipboardFormat format = ClipboardFormats.findByFile(bossRoom);
         assert format != null;
+        Clipboard clipboard;
         try (ClipboardReader reader = format.getReader(new FileInputStream(bossRoom))) {
-            clipboard = (Clipboard) reader.read();
+            clipboard = reader.read();
         }
         try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory().getEditSession(new BukkitWorld(loc.getWorld()), -1)) {
             Operation operation = new ClipboardHolder(clipboard)
