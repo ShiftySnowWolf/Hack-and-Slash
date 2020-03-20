@@ -4,7 +4,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Objects;
 
 public class HackAndSlash extends JavaPlugin {
 
@@ -16,10 +15,15 @@ public class HackAndSlash extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         //Commands.
+        //noinspection ConstantConditions
         this.getCommand("generatedungeon").setExecutor(new generateCommand());
 
         //Dungeon type getter.
         directoryPath = new File(getDataFolder() + File.separator + "dungeonSchematics");
+        //Generate Dungeon Resources
+        if (directoryPath.list() == null) {
+            saveResource("dungeonschematics\\README.txt", false);
+        }
         validTypes = directoryPath.list();
         System.out.println(Arrays.toString(validTypes));
     }
