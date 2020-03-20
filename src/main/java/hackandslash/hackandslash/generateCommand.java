@@ -30,69 +30,69 @@ public class generateCommand implements CommandExecutor {
     }
 
     public void generateType3Dungeon(String name, int size, Location loc) {
-        
+
     }
 
     public void ifPlayer(CommandSender sender, String[] args) {
         Player player = (Player) sender;
-            if (args.length == 3) {
-                try {
-                    switch (args[1].toUpperCase()) {
-                        case "STRENGTH":{
-                            generateType1Dungeon(args[0], Integer.parseInt(args[2]), player.getLocation());
-                            break;
-                        }
-                        case "INTELECT":{
-                            generateType2Dungeon(args[0], Integer.parseInt(args[2]), player.getLocation());
-                            break;
-                        }
-                        case "WALKTHROUGH":{
-                            generateType3Dungeon(args[0], Integer.parseInt(args[2]), player.getLocation());
-                            break;
-                        }
-                        default: {
-                            sender.sendMessage("Invalid Dungeon Type!");
-                        }
-        
+        if (args.length == 3) {
+            try {
+                switch (args[1].toUpperCase()) {
+                    case "STRENGTH":{
+                        generateType1Dungeon(args[0], Integer.parseInt(args[2]), player.getLocation());
+                        break;
                     }
-                } catch (NumberFormatException exception) {
-                    sender.sendMessage("Size must be a number!");
+                    case "INTELECT":{
+                        generateType2Dungeon(args[0], Integer.parseInt(args[2]), player.getLocation());
+                        break;
+                    }
+                    case "WALKTHROUGH":{
+                        generateType3Dungeon(args[0], Integer.parseInt(args[2]), player.getLocation());
+                        break;
+                    }
+                    default: {
+                        sender.sendMessage("Invalid Dungeon Type!");
+                    }
+     
                 }
-                
-            } else {
-                sender.sendMessage("Usage: /generatedungeon <name> <type> <sizeInChunks>");
+            } catch (NumberFormatException exception) {
+                sender.sendMessage("Size must be a number!");
             }
+                
+        } else {
+            sender.sendMessage("Usage: /generatedungeon <name> <type> <sizeInChunks>");
+        }
     }
 
     public void ifCommBlock(CommandSender sender, String[] args) {
         CommandBlock commBlock = (CommandBlock) sender;
-            if (args.length == 3) {
-                try {
-                    switch (args[1].toUpperCase()) {
-                        case "STRENGTH":{
-                            generateType1Dungeon(args[0], Integer.parseInt(args[2]), commBlock.getLocation());
-                            break;
-                        }
-                        case "INTELECT":{
-                            generateType2Dungeon(args[0], Integer.parseInt(args[2]), commBlock.getLocation());
-                            break;
-                        }
-                        case "WALKTHROUGH":{
-                            generateType3Dungeon(args[0], Integer.parseInt(args[2]), commBlock.getLocation());
-                            break;
-                        }
-                        default: {
-                            sender.sendMessage("Invalid Dungeon Type!");
-                        }
-        
+        if (args.length == 3) {
+            try {
+                switch (args[1].toUpperCase()) {
+                    case "STRENGTH":{
+                        generateType1Dungeon(args[0], Integer.parseInt(args[2]), commBlock.getLocation());
+                        break;
                     }
-                } catch (NumberFormatException exception) {
-                    sender.sendMessage("Size must be a number!");
+                    case "INTELECT":{
+                        generateType2Dungeon(args[0], Integer.parseInt(args[2]), commBlock.getLocation());
+                        break;
+                    }
+                    case "WALKTHROUGH":{
+                        generateType3Dungeon(args[0], Integer.parseInt(args[2]), commBlock.getLocation());
+                        break;
+                    }
+                    default: {
+                        sender.sendMessage("Invalid Dungeon Type!");
+                    }
+      
                 }
-                
-            } else {
-                sender.sendMessage("Usage: /generatedungeon <name> <type> <sizeInChunks>");
+            } catch (NumberFormatException exception) {
+                sender.sendMessage("Size must be a number!");
             }
+                
+        } else {
+            sender.sendMessage("Usage: /generatedungeon <name> <type> <sizeInChunks>");
+        }
     }
 
 }
