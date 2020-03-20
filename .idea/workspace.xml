@@ -33,13 +33,27 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="File System Implemented">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/genResourceDir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/genResourceDir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/hallways/small/corner/cornerTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/hallways/small/fourway/fourWayTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/hallways/small/straight/straightTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/hallways/small/threeway/threeWayTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/boss/bossTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/fourDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/oneDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/threeDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/twoDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/fourway/fourWayTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/threeway/threeWayTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/boss/bossTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/fourDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/oneDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/threeDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/twoDoorTemplate.schem" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584741891371</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Minor Bug Fixes">
+      <created>1584743911772</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1584743911772</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -257,7 +278,8 @@
     <MESSAGE value="Updated commit" />
     <MESSAGE value="Attempt at resource saving." />
     <MESSAGE value="File System Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="File System Implemented" />
+    <MESSAGE value="Minor Bug Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor Bug Fixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -273,10 +295,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1584679849724" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584742908580">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584744027520">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584742908580" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584744027520" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1584730414242">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
