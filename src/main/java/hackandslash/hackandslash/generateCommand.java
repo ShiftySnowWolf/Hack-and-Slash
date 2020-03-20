@@ -23,16 +23,8 @@ public class generateCommand implements CommandExecutor {
         return false;
     }
 
-    public void generateType1Dungeon(String name, int size, Location loc) {
+    public void generateDungeon(String name, int size, Location loc) {
         
-    }
-
-    public void generateType2Dungeon(String name, int size, Location loc) {
-
-    }
-
-    public void generateType3Dungeon(String name, int size, Location loc) {
-
     }
 
     public void ifPlayer(CommandSender sender, String[] args) {
