@@ -55,4 +55,12 @@ public class generateCommand implements CommandExecutor {
 
     }
 
+    public void ifPlayer() {
+
+    }
+
+    public void ifCommBlock() {
+
+    }
+
 }
