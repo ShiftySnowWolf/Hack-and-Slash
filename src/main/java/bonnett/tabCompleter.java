@@ -14,6 +14,10 @@ public class tabCompleter implements TabCompleter {
         List<String> output;
         String[] validTypes = HackAndSlash.validTypes;
         if (args.length == 1) {
+            if (validTypes == null) {
+                output = new ArrayList<String>(0);
+                return output;
+            }
             output = new ArrayList<String>(validTypes.length);
             for (String string : validTypes) {
                 if (string.startsWith(args[0]) || args[0] == "") {
@@ -22,6 +26,7 @@ public class tabCompleter implements TabCompleter {
             }
             return output;
         }
-        return null;
+        output = new ArrayList<String>(0);
+        return output;
     }
 }
