@@ -17,6 +17,7 @@ public class HackAndSlash extends JavaPlugin {
 
         //Dungeon template directory generation
         new genResourceDir();
+        genResourceDir.main();
         
         //Dungeon type getter.
         directoryPath = new File(getDataFolder() + File.separator + "dungeonSchematics");

@@ -3,111 +3,86 @@ package bonnett;
 import java.io.File;
 
 public class genResourceDir {
-    public static void main(String[] args) {
-        String pathName = "..\\dungeon_templates\\Template";
+    public static void main() {
+        String pathName = ".." + File.separator + "dungeon_templates" + File.separator + "Template";
         String[] numToWord = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
         boolean dunTemp = (new File(pathName).mkdirs());
         if (!dunTemp) {
             System.out.println("[HackandSlash]: Error in generating resource directory!");
-        } else {
-            for (int i = 0; i < 6; i++) {
-                //Rooms
-                switch (i) {
-                    case 0: { for (int x = 0; x < 4; x++) {
-                        String door = numToWord[x];
-                        if (!new File(pathName + "\\rooms\\oneChunk\\" + door + "\\Door").mkdir()) {
-                            System.err.println("Could not generate: oneChunk folder");
-                        }
-                    }
-                    } break;
-                    case 1: { for (int x = 0; x < 6; x++) {
-                        String door = numToWord[x];
-                        if (!new File(pathName + "\\rooms\\twoChunk\\" + door + "\\Door").mkdir()) {
-                            System.err.println("Could not generate: twoChunk folder");
-                        }
-                    }
-                    } break;
-                    case 2: { for (int x = 0; x < 8; x++) {
-                        String door = numToWord[x];
-                        if (!new File(pathName + "\\rooms\\threeChunk\\" + door + "\\Door").mkdir()) {
-                            System.err.println("Could not generate: threeChunk folder");
-                        }
-                    }
-                    } break;
-                    case 3: { for (int x = 0; x < 8; x++) {
-                        String door = numToWord[x];
-                        if (!new File(pathName + "\\rooms\\fourChunk\\" + door + "\\Door").mkdir()) {
-                            System.err.println("Could not generate: fourChunk folder");
-                        }
-                    }
-                    } break;
-                    case 4: { for (int x = 0; x < 10; x++) {
-                        String door = numToWord[x];
-                        if (!new File(pathName + "\\rooms\\sixChunk\\" + door + "\\Door").mkdir()) {
-                            System.err.println("Could not generate: sixChunk folder");
-                        }
-                    }
-                    } break;
-                    case 5: {
-                        if (!new File(pathName + "\\rooms\\boss").mkdir()) {
-                            System.err.println("Could not generate: boss_room folder");
-                        }
-                    } break;
-                    default: {System.err.println("Could not generate: Room parent folder");}
-                }
+        }
+        for (int x = 0; x < 4; x++) {
+            String door = numToWord[x];
+                
+            if (!(new File(pathName + File.separator + "rooms" + File.separator + "one_chunk" + File.separator + door + File.separator + "Door").mkdirs())) {
+                System.err.println("Could not generate: one_chunk folder");
             }
+        }
+        for (int x = 0; x < 6; x++) {
+            String door = numToWord[x];
+                
+            if (!(new File(pathName + File.separator + "rooms" + File.separator + "two_chunk" + File.separator + door + File.separator + "Door").mkdirs())) {
+                System.err.println("Could not generate: two_chunk folder");
+            }
+        }
+        for (int x = 0; x < 8; x++) {
+            String door = numToWord[x];
+                
+            if (!(new File(pathName + File.separator + "rooms" + File.separator + "three_chunk" + File.separator + door + File.separator + "Door").mkdirs())) {
+                System.err.println("Could not generate: three_chunk folder");
+            }
+        }
+        for (int x = 0; x < 8; x++) {
+            String door = numToWord[x];
+                
+            if (!(new File(pathName + File.separator + "rooms" + File.separator + "four_chunk" + File.separator + door + File.separator + "Door").mkdirs())) {
+                System.err.println("Could not generate: four_chunk folder");
+            }
+        }
+        for (int x = 0; x < 10; x++) {
+            String door = numToWord[x];
+                
+            if (!(new File(pathName + File.separator + "rooms" + File.separator + "six_chunk" + File.separator + door + File.separator + "Door").mkdirs())) {
+                System.err.println("Could not generate: six_chunk folder");
+            }
+        }
 
-            for (int i = 0; i < 4; i++) {
-                //Small hallways
-                switch (i) {
-                    case 0: {
-                        if (!new File(pathName + "\\small_hallways\\straight").mkdir()) {
-                            System.err.println("Could not generate: small_hallway straight");
-                        }
-                    } break;
-                    case 1: {
-                        if (!new File(pathName + "\\small_hallways\\three_way").mkdir()) {
-                            System.err.println("Could not generate: small_hallway three_way");
-                        }
-                    } break;
-                    case 2: {
-                        if (!new File(pathName + "\\small_hallways\\four_way").mkdir()) {
-                            System.err.println("Could not generate: small_hallway four_way");
-                        }
-                    } break;
-                    case 3: {
-                        if (!new File(pathName + "\\small_hallways\\corner").mkdir()) {
-                            System.err.println("Could not generate: small_hallway corner");
-                        }
-                    } break;
-                }
-            }
+            
+        if (!(new File(pathName + File.separator + "rooms" + File.separator + "boss").mkdirs())) {
+            System.err.println("Could not generate: boss_room folder");
+        }
 
-            for (int i = 0; i < 4; i++) {
-                //Large hallways
-                switch (i) {
-                    case 0: {
-                        if (!new File(pathName + "\\large_hallways\\straight").mkdir()) {
-                            System.err.println("Could not generate: large_hallway straight");
-                        }
-                    } break;
-                    case 1: {
-                        if (!new File(pathName + "\\large_hallways\\three_way").mkdir()) {
-                            System.err.println("Could not generate: large_hallway three_way");
-                        }
-                    } break;
-                    case 2: {
-                        if (!new File(pathName + "\\large_hallways\\four_way").mkdir()) {
-                            System.err.println("Could not generate: large_hallway four_way");
-                        }
-                    } break;
-                    case 3: {
-                        if (!new File(pathName + "\\large_hallways\\corner").mkdir()) {
-                            System.err.println("Could not generate: large_hallway corner");
-                        }
-                    } break;
-                }
-            }
+        
+        if (!(new File(pathName + File.separator + "small_hallways" + File.separator + "straight").mkdirs())) {
+            System.err.println("Could not generate: small_hallway straight");
+        }
+        
+        if (!(new File(pathName + File.separator + "small_hallways" + File.separator + "three_way").mkdirs())) {
+            System.err.println("Could not generate: small_hallway three_way");
+        }
+        
+        if (!(new File(pathName + File.separator + "small_hallways" + File.separator + "four_way").mkdirs())) {
+            System.err.println("Could not generate: small_hallway four_way");
+        }
+        
+        if (!(new File(pathName + File.separator + "small_hallways" + File.separator + "corner").mkdirs())) {
+            System.err.println("Could not generate: small_hallway corner");
+        }
+        
+        //Large hallways
+        if (!(new File(pathName + File.separator + "large_hallways" + File.separator + "straight").mkdirs())) {
+            System.err.println("Could not generate: large_hallway straight");
+        }
+        
+        if (!(new File(pathName + File.separator + "large_hallways" + File.separator + "three_way").mkdirs())) {
+            System.err.println("Could not generate: large_hallway three_way");
+        }
+        
+        if (!(new File(pathName + File.separator + "large_hallways" + File.separator + "four_way").mkdirs())) {
+            System.err.println("Could not generate: large_hallway four_way");
+        }
+        
+        if (!(new File(pathName + File.separator + "large_hallways" + File.separator + "corner").mkdirs())) {
+            System.err.println("Could not generate: large_hallway corner");
         }
     }
 }

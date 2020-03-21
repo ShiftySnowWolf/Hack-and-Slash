@@ -82,7 +82,7 @@ public class generateCommand implements CommandExecutor {
     public void generateDungeon(File typePath, int size, Location loc) throws IOException {
         //Generate boss room. <THIS IS AN UNFINISHED CODE BLOCK>
         String extension = ".schem";
-        File bossRoom = new File(typePath + "\\rooms\\boss\\bossTemplate" + extension);
+        File bossRoom = new File(typePath + "\\rooms\\boss\\bossRoom" + extension);
         System.out.println(bossRoom);
         ClipboardFormat format = ClipboardFormats.findByFile(bossRoom);
         assert format != null;
