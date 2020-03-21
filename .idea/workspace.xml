@@ -33,21 +33,39 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="Major Bug Fixes">
+    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/ResourceCopy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/four_way/fourWayTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/three_way/threeWayTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/fourDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/oneDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/threeDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/twoDoorCornerTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/twoDoorTemplate.schem" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/HackAndSlash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/HackAndSlash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/genResourceDir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/genResourceDir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/boss/bossTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dungeon Templates/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/boss/bossTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584748983734</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Major Bug Fixes">
+      <created>1584750157374</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1584750157374</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -311,30 +336,34 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1584679849724" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584749361746">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584772597329">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584749361746" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584772597329" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1584730414242">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1584730414242" />
-    <state width="1322" height="192" key="GridCell.Tab.0.bottom" timestamp="1584749889278">
+    <state width="1323" height="191" key="GridCell.Tab.0.bottom" timestamp="1584772599595">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1322" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584749889278" />
-    <state width="1322" height="192" key="GridCell.Tab.0.center" timestamp="1584749889277">
+    <state width="1323" height="191" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584772599595" />
+    <state width="1323" height="191" key="GridCell.Tab.0.center" timestamp="1584772599595">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1322" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584749889277" />
-    <state width="1322" height="192" key="GridCell.Tab.0.left" timestamp="1584749889277">
+    <state width="1323" height="191" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584772599595" />
+    <state width="1323" height="191" key="GridCell.Tab.0.left" timestamp="1584772599595">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1322" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584749889277" />
-    <state width="1322" height="192" key="GridCell.Tab.0.right" timestamp="1584749889277">
+    <state width="1323" height="191" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584772599595" />
+    <state width="1323" height="191" key="GridCell.Tab.0.right" timestamp="1584772599595">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1322" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584749889277" />
+    <state width="1323" height="191" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584772599595" />
+    <state x="213" y="39" key="Maven.ArtifactSearchDialog" timestamp="1584755366518">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="213" y="39" key="Maven.ArtifactSearchDialog/0.0.1366.768@0.0.1366.768" timestamp="1584755366518" />
     <state x="129" y="59" key="MergeDialog" timestamp="1584741336287">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -347,14 +376,14 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="167" y="42" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584748503131" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584748986168">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584750160275">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584748986168" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584744489518">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584750160275" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584805826787">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584744489518" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584805826787" />
     <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584742546333">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -367,6 +396,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="373" y="175" key="git4idea.merge.GitPullDialog/0.0.1366.768@0.0.1366.768" timestamp="1584670962976" />
+    <state x="389" y="3" key="refactoring.ChangeSignatureDialog" timestamp="1584755814083">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="389" y="3" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1584755814083" />
     <state x="339" y="172" key="run.anything.popup" timestamp="1584744859034">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

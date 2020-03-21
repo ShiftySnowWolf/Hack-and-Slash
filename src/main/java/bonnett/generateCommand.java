@@ -27,7 +27,7 @@ public class generateCommand implements CommandExecutor {
 
     public Location alignedLoc;
 
-    private String[] types = HackAndSlash.validTypes;
+    private String[] types = HackAndSlash.validTemplates;
     private File dir = HackAndSlash.directoryPath;
 
     @Override

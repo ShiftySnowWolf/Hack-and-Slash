@@ -1,18 +1,18 @@
 package bonnett;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class tabCompleter implements TabCompleter {
     
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> output;
-        String[] validTypes = HackAndSlash.validTypes;
+        String[] validTypes = HackAndSlash.validTemplates;
         if (args.length == 1) {
             if (validTypes == null) {
                 output = new ArrayList<String>(0);

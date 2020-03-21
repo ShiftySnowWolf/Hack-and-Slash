@@ -3,12 +3,14 @@ package bonnett;
 import java.io.File;
 
 public class genResourceDir {
-    public static void main() {
+    public final void main() {
 
+        //Pre Declaration
         System.out.println("[HackandSlash]: Attempting to generate file system!");
-        
         String pathName = HackAndSlash.plugin.getDataFolder() + File.separator + "dungeon_templates" + File.separator + "Template";
         String[] numToWord = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+
+        //File structure generation
         if (!(new File(pathName).mkdirs())) {
             System.err.println("[HackandSlash]: Could not generate resource directory!");
         }
@@ -86,5 +88,8 @@ public class genResourceDir {
         if (!(new File(pathName + File.separator + "large_hallways" + File.separator + "corner").mkdirs())) {
             System.err.println("[HackandSlash]: Could not generate: large_hallway corner");
         }
+
+        //Schematic file generation
+
     }
 }

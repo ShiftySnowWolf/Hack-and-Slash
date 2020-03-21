@@ -1,5 +1,5 @@
 name: HackAndSlash
-version: ${project.version}
+version: Dev-Re-1.0
 main: bonnett.HackAndSlash
 api-version: "1.13"
 authors:
