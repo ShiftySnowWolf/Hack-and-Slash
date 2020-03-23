@@ -1,5 +1,7 @@
 package bonnett;
 
+import bonnett.commands.generateCommand;
+import bonnett.data.tabCompleter;
 import com.google.common.collect.ObjectArrays;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -10,58 +12,43 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Main extends JavaPlugin {
 
-
+    //Configuration Files
     public FileConfiguration templateYML = null;
     public FileConfiguration defaultEerieYML = null;
     public FileConfiguration defaultMineYML = null;
     public FileConfiguration defaultOvergrowthYML = null;
+    public FileConfiguration config = null;
+
+    //Configuration
+    public int generation_speed;
+    public int max_size;
+    public int min_size;
+    public boolean generate_peaceful;
+    public boolean include_template;
+
+    //File Paths
     public File localLibs = new File(getDataFolder().toString() + File.separator + "libs");
     public String libStr = localLibs.toString().replace("\\", "/");
-    public File templateYMLPath = new File(libStr + "/template.yml");
-    public File defaultEerieYMLPath = new File(libStr + "/default_eerie.yml");
-    public File defaultMineYMLPath = new File(libStr + "/default_mine.yml");
-    public File defaultOvergrowthYMLPath = new File(libStr + "/default_overgrowth.yml");
 
-    public static String pluginJarName = "chunkDungeons";
+    //Plugin Info
     public static String pluginName = "[Chunk_Dungeons]";
-    public static String pluginVersion = "Dev-Re-1.0";
 
     public static Main plugin;
-    public static String[] validTemplates;
-    public static File externalTemplates;
-    public static String jarUntrimmedPath;
-    public static String jarPath;
-    public static Path dataFolderPath;
-    public static String[] localTemplates = {"Template", "Default_Eerie", "Default_Mine", "Default_Overgrowth"};
+    public static String[] validPalettes;
+    public static File externalPalettes;
+    public static String[] localPalettes;
 
     @SuppressWarnings({"ConstantConditions"})
     @Override
     public void onEnable() {
-        //Instancing needed variables
         plugin = this;
-        jarUntrimmedPath = getServer().getWorldContainer().getAbsolutePath();
-        int pathLength = jarUntrimmedPath.length();
-        jarPath = jarUntrimmedPath.substring(0, pathLength - 1) + "/plugins/" + pluginJarName + "-" + pluginVersion + ".jar!";
-        System.out.println(pluginName + " >>>> Jar Location: " + jarPath);
-        dataFolderPath = getDataFolder().toPath();
 
-        //Generate data folder if it doesn't exist
-        try { genDataFolder();
-        } catch (IOException e) { e.printStackTrace(); }
-
-        //Dungeon template getter.
-        if ((new File(jarUntrimmedPath + "/dungeon_templates").exists())) {
-            System.out.println("Found local templates!!!!");
-        } else { System.out.println("Didn't Find local templates!!!!"); }
-
-        externalTemplates = new File(getDataFolder() + File.separator + "dungeon_schematics");
-        if (externalTemplates.isDirectory()) {
-            validTemplates = ObjectArrays.concat(localTemplates, externalTemplates.list(), String.class);
-        } else { validTemplates = localTemplates; }
-        System.out.println(pluginName + " >>>> Loaded Templates: " + Arrays.toString(validTemplates));
+        //Plugin setup.
+        pluginSetup();
 
         //Commands initialization
         this.getCommand("generatedungeon").setExecutor(new generateCommand());
@@ -69,24 +56,45 @@ public class Main extends JavaPlugin {
     }
 
     @Override
-    public void onDisable() { /*Plugin shutdown logic*/ }
+    public void onDisable() {
+    }
 
-    public final void genDataFolder() throws IOException {
+    private void pluginSetup() {
+        loadConfig();
+
+        try { genDataFolder();
+        } catch (IOException e) { e.printStackTrace(); }
+
+        externalPalettes = new File(getDataFolder().toString() + File.separator + "dungeon_schematics");
+        if (externalPalettes.isDirectory()) {
+            validPalettes = ObjectArrays.concat(localPalettes, Objects.requireNonNull(externalPalettes.list()), String.class);
+        } else { validPalettes = localPalettes; }
+        System.out.println(pluginName + " >>>> Loaded Templates: " + Arrays.toString(validPalettes));
+    }
+
+    private void genDataFolder() throws IOException {
         //Location of the data folder
-        Path dataFolder = Paths.get(String.valueOf(Main.plugin.getDataFolder()));
+        Path dataFolder = Paths.get(String.valueOf(getDataFolder()));
         Path templateFolder = Paths.get(dataFolder + File.separator + "dungeon_template");
         Path localYMLFolder = Paths.get(dataFolder + File.separator + "libs");
 
+        //Generate config.
+        saveResource("config.yml", false);
+        config = getConfig();
+
+        //Generate files
         if (!Files.isDirectory(dataFolder)) {
             dataFolder.toFile().mkdirs();
             templateFolder.toFile().mkdirs();
             localYMLFolder.toFile().mkdirs();
         }
-        if (!localLibs.exists()) {
-            localLibs.mkdirs();
-        }
+        if (!localLibs.exists()) { localLibs.mkdirs(); }
         extractLocalTemplateYMLS();
         loadTemplateYMLS();
+    }
+
+    private void loadConfig() {
+        config.getInt("");
     }
 
     private void extractLocalTemplateYMLS() throws IOException {
@@ -124,10 +132,10 @@ public class Main extends JavaPlugin {
         os.close();
     }
 
-    public final void loadTemplateYMLS() {
-        templateYML = YamlConfiguration.loadConfiguration(templateYMLPath);
-        defaultEerieYML = YamlConfiguration.loadConfiguration(defaultEerieYMLPath);
-        defaultMineYML = YamlConfiguration.loadConfiguration(defaultMineYMLPath);
-        defaultOvergrowthYML = YamlConfiguration.loadConfiguration(defaultOvergrowthYMLPath);
+    public void loadTemplateYMLS() {
+        templateYML = YamlConfiguration.loadConfiguration(new File(libStr + "/template.yml"));
+        defaultEerieYML = YamlConfiguration.loadConfiguration(new File(libStr + "/default_eerie.yml"));
+        defaultMineYML = YamlConfiguration.loadConfiguration(new File(libStr + "/default_mine.yml"));
+        defaultOvergrowthYML = YamlConfiguration.loadConfiguration(new File(libStr + "/default_overgrowth.yml"));
     }
 }

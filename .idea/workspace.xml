@@ -33,9 +33,17 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
+    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="Conflic fix">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/jj420.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/devRandSchem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/selectRandomSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/selectRandomSchematic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/generateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/selectRandomSchematic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/tabCompleter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +114,7 @@
       <module name="Hack-and-Slash" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bonnett.*" />
+          <option name="PATTERN" value="bonnett.commands.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -317,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584979971287</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Conflic fix">
+      <created>1584980646053</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1584980646053</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -337,7 +352,8 @@
     <MESSAGE value="90% of the battle&#10;NullPointerException" />
     <MESSAGE value="Random Schematic halfway done." />
     <MESSAGE value="Random Schematic write finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="Random Schematic write finished." />
+    <MESSAGE value="Conflic fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Conflic fix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -361,10 +377,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.768@0.0.1366.768" timestamp="1584936956663" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584979967127">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584999133222">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584979967127" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584999133222" />
     <state x="441" y="99" key="DetectedRootsChooserDialog" timestamp="1584909899220">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -377,22 +393,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="72" y="129" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1584909897788" />
-    <state width="1323" height="331" key="GridCell.Tab.0.bottom" timestamp="1584979889383">
+    <state width="1323" height="331" key="GridCell.Tab.0.bottom" timestamp="1584981745365">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="331" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584979889383" />
-    <state width="1323" height="331" key="GridCell.Tab.0.center" timestamp="1584979889382">
+    <state width="1323" height="331" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584981745365" />
+    <state width="1323" height="331" key="GridCell.Tab.0.center" timestamp="1584981745365">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="331" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584979889382" />
-    <state width="1323" height="331" key="GridCell.Tab.0.left" timestamp="1584979889382">
+    <state width="1323" height="331" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584981745365" />
+    <state width="1323" height="331" key="GridCell.Tab.0.left" timestamp="1584981745364">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="331" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584979889382" />
-    <state width="1323" height="331" key="GridCell.Tab.0.right" timestamp="1584979889383">
+    <state width="1323" height="331" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584981745364" />
+    <state width="1323" height="331" key="GridCell.Tab.0.right" timestamp="1584981745365">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="331" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584979889383" />
+    <state width="1323" height="331" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584981745365" />
     <state x="263" y="127" key="IDE.errors.dialog" timestamp="1584932255895">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -413,22 +429,26 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="152" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584928114837" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584979982459">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584980649839">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584979982459" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584968915309">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584980649839" />
+    <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584992707878">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584968915309" />
+    <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1584992707878" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584982724177">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584982724177" />
     <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1584909879359">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.768@0.0.1366.768" timestamp="1584909879359" />
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584980611718">
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584981053252">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584980611718" />
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584981053252" />
     <state x="0" y="0" width="607" height="768" key="find.popup" timestamp="1584673479776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

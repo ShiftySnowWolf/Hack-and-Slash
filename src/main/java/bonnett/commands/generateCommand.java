@@ -1,5 +1,6 @@
-package bonnett;
+package bonnett.commands;
 
+import bonnett.Main;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.WorldEditException;
@@ -33,8 +34,8 @@ public class generateCommand implements CommandExecutor {
     public BlockVector3 absMinLocation;
     public int arraySize;
     
-    private String[] types = Main.validTemplates;
-    private File extSchematic = Main.externalTemplates;
+    private String[] types = Main.validPalettes;
+    private File extSchematic = Main.externalPalettes;
     private File typePath;
     
     @Override
@@ -254,7 +255,7 @@ public class generateCommand implements CommandExecutor {
     * Clipboard containing the .schem being added to the dungeon
     * @param loc
     * Location at lowest corner of the region
-    * @param minLocation
+    * @param absMinLocation
     * Location at the lowest possible corner of the dungeon
     * @param usedChunks
     * Array of usedChunks to append new used chunks to
@@ -299,8 +300,6 @@ public class generateCommand implements CommandExecutor {
     * Prints used chunks to console
     * @param usedChunks
     * Array to mark new used chunks onto
-    * @param arraySize
-    * Size of usedChunks
     */
     
     public void printUsedChunks(int[][] usedChunks) {
