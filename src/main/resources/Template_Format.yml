@@ -1,0 +1,29 @@
+#This YML shows the file structure of how dungeons are read by the plugin.
+#Use this file structure for creating a dungeon of your own.
+#NOTE: <TEMPLATE NAME> will be used to auto-fill at /generatedungeon <TEMPLATE NAME> <SIZE>
+#WIKI: https//www.github.com/shifty-snow-wolf/project/wiki
+
+dungeon_templates:
+  TEMPLATE NAME:
+    rooms:
+      one_chunk:
+        - <ROOM NAME>.schem
+      two_chunk:
+        - <ROOM NAME>.schem
+      three_chunk:
+        - <ROOM NAME>.schem
+      four_chunk:
+        - <ROOM NAME>.schem
+      six_chunk:
+        - <ROOM NAME>.schem
+      boss:
+        - <ROOM NAME>.schem
+    hallways:
+      straight:
+        - <ROOM NAME>.schem
+      three_way:
+        - <ROOM NAME>.schem
+      four_way:
+        - <ROOM NAME>.schem
+      corner:
+        - <ROOM NAME>.schem

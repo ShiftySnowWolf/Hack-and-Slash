@@ -34,34 +34,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/ResourceCopy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/four_way/fourWayTemplate.schem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/three_way/threeWayTemplate.schem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/fourDoorTemplate.schem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/oneDoorTemplate.schem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/threeDoorTemplate.schem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/twoDoorCornerTemplate.schem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/twoDoorTemplate.schem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/selectRandomSchematic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Template_Format.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_eerie.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_mine.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_overgrowth.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tempYMLS/template.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_libs_bukkit_7_0_0_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sk89q_worldedit_worldedit_libs_bukkit_7_0_0_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/HackAndSlash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/HackAndSlash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/genResourceDir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/genResourceDir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hack-and-Slash.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hack-and-Slash.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/HackAndSlash.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/ResourceCopy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/genResourceDir.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/fourway/fourWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/threeway/threeWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/fourDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/oneDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/threeDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/twoDoorCornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/oneChunk/twoDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
@@ -109,22 +104,41 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/commons-io-2.6" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\tempYMLS" />
       <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\duncgeon schematics\Template" />
       <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\duncgeon schematics\Template\rooms" />
       <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\duncgeon schematics\rooms" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.Hack and Slash build">
+    <configuration name="codeTest" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bonnett.codeTest" />
+      <module name="Hack-and-Slash" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bonnett.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Hack and Slash build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -151,6 +165,10 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.codeTest" />
+      <item itemvalue="Maven.Hack and Slash build" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -303,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584750157374</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="90% of the battle&#10;NullPointerException">
+      <created>1584805896619</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1584805896620</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -320,74 +345,99 @@
     <MESSAGE value="File System Implemented" />
     <MESSAGE value="Minor Bug Fixes" />
     <MESSAGE value="Major Bug Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Major Bug Fixes" />
+    <MESSAGE value="90% of the battle&#10;NullPointerException" />
+    <option name="LAST_COMMIT_MESSAGE" value="90% of the battle&#10;NullPointerException" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="42" key="#Notifications" timestamp="1584742177865">
+    <state x="275" y="42" key="#Notifications" timestamp="1584909923131">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="42" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1584742177865" />
+    <state x="275" y="42" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1584909923131" />
     <state x="275" y="42" key="#Project_Structure" timestamp="1584743218588">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="42" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1584743218588" />
-    <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584679849725">
+    <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584925197491">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1584679849724" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584772597329">
+    <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1584925197491" />
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584929780076">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584772597329" />
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1584929780076" />
+    <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584936956663">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.768@0.0.1366.768" timestamp="1584936956663" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584805891284">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584805891284" />
+    <state x="441" y="99" key="DetectedRootsChooserDialog" timestamp="1584909899220">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="441" y="99" key="DetectedRootsChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1584909899220" />
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1584730414242">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1584730414242" />
-    <state width="1323" height="191" key="GridCell.Tab.0.bottom" timestamp="1584772599595">
+    <state x="72" y="129" key="FileChooserDialogImpl" timestamp="1584909897788">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="191" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584772599595" />
-    <state width="1323" height="191" key="GridCell.Tab.0.center" timestamp="1584772599595">
+    <state x="72" y="129" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1584909897788" />
+    <state width="1323" height="331" key="GridCell.Tab.0.bottom" timestamp="1584940088209">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="191" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584772599595" />
-    <state width="1323" height="191" key="GridCell.Tab.0.left" timestamp="1584772599595">
+    <state width="1323" height="331" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584940088209" />
+    <state width="1323" height="331" key="GridCell.Tab.0.center" timestamp="1584940088209">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="191" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584772599595" />
-    <state width="1323" height="191" key="GridCell.Tab.0.right" timestamp="1584772599595">
+    <state width="1323" height="331" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584940088209" />
+    <state width="1323" height="331" key="GridCell.Tab.0.left" timestamp="1584940088208">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="191" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584772599595" />
+    <state width="1323" height="331" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584940088208" />
+    <state width="1323" height="331" key="GridCell.Tab.0.right" timestamp="1584940088209">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="331" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584940088209" />
+    <state x="263" y="127" key="IDE.errors.dialog" timestamp="1584932255895">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="263" y="127" key="IDE.errors.dialog/0.0.1366.768@0.0.1366.768" timestamp="1584932255895" />
     <state x="213" y="39" key="Maven.ArtifactSearchDialog" timestamp="1584755366518">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="213" y="39" key="Maven.ArtifactSearchDialog/0.0.1366.768@0.0.1366.768" timestamp="1584755366518" />
-    <state x="129" y="59" key="MergeDialog" timestamp="1584741336287">
+    <state x="129" y="59" key="MergeDialog" timestamp="1584969557749">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584741336287" />
-    <state x="395" y="100" key="MultipleFileMergeDialog" timestamp="1584741346133">
+    <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584969557749" />
+    <state x="395" y="100" key="MultipleFileMergeDialog" timestamp="1584969557770">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="395" y="100" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584741346133" />
-    <state x="167" y="42" key="SettingsEditor" timestamp="1584748503131">
+    <state x="395" y="100" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584969557770" />
+    <state x="152" y="0" key="SettingsEditor" timestamp="1584928114837">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="167" y="42" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584748503131" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584750160275">
+    <state x="152" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584928114837" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584805901320">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584750160275" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584805826787">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584805901320" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584968915309">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584805826787" />
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584742546333">
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584968915309" />
+    <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1584909879359">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584742546333" />
+    <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.768@0.0.1366.768" timestamp="1584909879359" />
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584969183891">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584969183891" />
     <state x="0" y="0" width="607" height="768" key="find.popup" timestamp="1584673479776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
