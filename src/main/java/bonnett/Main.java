@@ -95,24 +95,28 @@ public class Main extends JavaPlugin {
         InputStream is = getResource("tempYMLS/template.yml");
         assert is != null;
         byte[] buffer = new byte[is.available()];
+        is.read(buffer);
         OutputStream os = new FileOutputStream(libStr + "/template.yml");
         os.write(buffer);
 
         is = getResource("tempYMLS/default_eerie.yml");
         assert is != null;
         buffer = new byte[is.available()];
+        is.read(buffer);
         os = new FileOutputStream(libStr + "/default_eerie.yml");
         os.write(buffer);
 
         is = getResource("tempYMLS/default_mine.yml");
         assert is != null;
         buffer = new byte[is.available()];
+        is.read(buffer);
         os = new FileOutputStream(libStr + "/default_mine.yml");
         os.write(buffer);
 
         is = getResource("tempYMLS/default_overgrowth.yml");
         assert is != null;
         buffer = new byte[is.available()];
+        is.read(buffer);
         os = new FileOutputStream(libStr + "/default_overgrowth.yml");
         os.write(buffer);
 

@@ -15,7 +15,6 @@ import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.world.block.BlockState;
 import com.sk89q.worldedit.world.block.BlockType;
-
 import org.bukkit.Location;
 import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
@@ -31,8 +30,8 @@ public class generateCommand implements CommandExecutor {
     
     public Location alignedLoc;
     
-    private String[] types = HackAndSlash.validTemplates;
-    private File dir = HackAndSlash.directoryPath;
+    private String[] types = Main.validTemplates;
+    private File extSchematic = Main.externalTemplates;
     
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -43,7 +42,7 @@ public class generateCommand implements CommandExecutor {
         // Type folder location finder.
         for (String s : types) {
             if (s.compareToIgnoreCase(type) == 0) {
-                typePath = new File(dir + "\\" + s.toLowerCase()); // Jon Jon told me to do types => s
+                typePath = new File(extSchematic + "\\" + s);
             } else {
                 sender.sendMessage("There is no dungeon type called: " + type.toUpperCase());
                 return false;
@@ -107,25 +106,25 @@ public class generateCommand implements CommandExecutor {
         BlockVector3 copyLoc = clipboard.getOrigin();
         BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
         BlockVector3 offset = BlockVector3.at(
-        cornerMin.getX() - copyLoc.getX(), 
-        cornerMin.getY() - copyLoc.getY(), 
+        cornerMin.getX() - copyLoc.getX(),
+        cornerMin.getY() - copyLoc.getY(),
         cornerMin.getZ() - copyLoc.getZ());
         BlockVector3 adjLoc = BlockVector3.at(
         loc.getX() - offset.getX(),
-        loc.getY() - offset.getY(), 
+        loc.getY() - offset.getY(),
         loc.getZ() - offset.getZ());
         BlockVector3 minLocation = BlockVector3.at(
-        loc.getX() + (size * 16), 
-        loc.getY(), 
+        loc.getX() + (size * 16),
+        loc.getY(),
         loc.getZ() + (size * 16));
-        
+
         try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
         .getEditSession(new BukkitWorld(loc.getWorld()), -1)) {
             Operation operation = new ClipboardHolder(clipboard).createPaste(editSession)
             .to(adjLoc)
             // Configure here.
             .build();
-            
+
             Operations.complete(operation);
             usedChunks = markUsedChunks(clipboard, loc, minLocation, usedChunks);
             printUsedChunks(usedChunks, arraySize);
@@ -149,17 +148,17 @@ public class generateCommand implements CommandExecutor {
      * @return
      * int[][] of usedChunks after appending.
      */
-    
+
     public int[][] markUsedChunks(Clipboard clipboard, Location loc, BlockVector3 minLocation, int[][] usedChunks) {
         BlockVector3 sizeInChunks = BlockVector3.at(
-        clipboard.getDimensions().getX() / 16, 
-        clipboard.getDimensions().getY(), 
+        clipboard.getDimensions().getX() / 16,
+        clipboard.getDimensions().getY(),
         clipboard.getDimensions().getZ() / 16);
         BlockVector2 distanceFromMin = BlockVector2.at(
-        minLocation.getX() - loc.getX(), 
+        minLocation.getX() - loc.getX(),
         minLocation.getZ() - loc.getZ());
         BlockVector2 chunkDistFromMin = distanceFromMin.divide(16);
-        
+
         for (int i = 0; i < sizeInChunks.getX(); i++) {
             for (int j = 0; j < sizeInChunks.getZ(); j++) {
                 usedChunks[chunkDistFromMin.getX() + i][chunkDistFromMin.getZ() + j] = 1;
@@ -180,11 +179,7 @@ public class generateCommand implements CommandExecutor {
      */
 
     public boolean isChunkOccupied(int[][] usedChunks, int x, int z) {
-        if (usedChunks[x][z] > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return usedChunks[x][z] > 0;
     }
 
     /**
@@ -193,7 +188,7 @@ public class generateCommand implements CommandExecutor {
      * @param arraySize
      * Size of usedChunks
      */
-    
+
     public void printUsedChunks(int[][] usedChunks, int arraySize) {
         System.out.println("Printing used chunks array:");
         for (int i = 0; i < arraySize; i++) {
@@ -204,7 +199,7 @@ public class generateCommand implements CommandExecutor {
             System.out.println(line);
         }
     }
-    
+
     /**
     * @param clipboard
     * Clipboard that contains the schematic to check
@@ -239,7 +234,7 @@ public class generateCommand implements CommandExecutor {
         }
         return doorLocations;
     }
-    
+
     /**
     * @param clipboard
     * Clipboard that contains the schematic to check.
@@ -247,7 +242,7 @@ public class generateCommand implements CommandExecutor {
     * int[] containing doors in order of lowest X to highest X, where
     * -1 = No door; > -1 == Y coordinate of door
     */
-    
+
     public int[] getSouthDoors(Clipboard clipboard) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         int[] doorLocations = new int[arraySize];
@@ -275,7 +270,7 @@ public class generateCommand implements CommandExecutor {
         }
         return doorLocations;
     }
-    
+
     /**
     * @param clipboard
     * Clipboard that contains the schematic to check.
@@ -283,7 +278,7 @@ public class generateCommand implements CommandExecutor {
     * int[] containing doors in order of lowest Z to highest Z, where
     * -1 = No door; > -1 == Y coordinate of door
     */
-    
+
     public int[] getWestDoors(Clipboard clipboard) {
         int arraySize = clipboard.getDimensions().getZ() / 16;
         int[] doorLocations = new int[arraySize];
@@ -310,7 +305,7 @@ public class generateCommand implements CommandExecutor {
         }
         return doorLocations;
     }
-    
+
     /**
     * @param clipboard
     * Clipboard that contains the schematic to check.
@@ -318,7 +313,7 @@ public class generateCommand implements CommandExecutor {
     * int[] containing doors in order of lowest Z to highest Z, where
     * -1 = No door; > -1 == Y coordinate of door
     */
-    
+
     public int[] getEastDoors(Clipboard clipboard) {
         int arraySize = clipboard.getDimensions().getZ() / 16;
         int[] doorLocations = new int[arraySize];
