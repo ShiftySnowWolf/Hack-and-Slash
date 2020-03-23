@@ -1,6 +1,6 @@
-name: HackAndSlash
+name: Chunk_Dungeons
 version: Dev-Re-1.0
-main: bonnett.HackAndSlash
+main: bonnett.Main
 api-version: "1.13"
 authors:
   - ShiftySnowWolf

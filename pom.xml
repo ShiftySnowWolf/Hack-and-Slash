@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>hackAndSlash</groupId>
-    <artifactId>hackAndSlash</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>chunkDungeons</groupId>
+    <artifactId>chunkDungeons</artifactId>
+    <version>Dev-Re-1.0</version>
     <packaging>jar</packaging>
 
     <name>HackAndSlash</name>
@@ -48,6 +48,10 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/dungeon_templates</directory>
                 <filtering>false</filtering>
             </resource>
         </resources>
@@ -75,6 +79,7 @@
             <version>1.15.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.sk89q.worldedit</groupId>
             <artifactId>worldedit-bukkit</artifactId>

@@ -1,5 +1,4 @@
 bonnett\generateCommand.class
 bonnett\tabCompleter.class
-bonnett\genResourceDir.class
-bonnett\ResourceCopy.class
-bonnett\HackAndSlash.class
+bonnett\selectRandomSchematic.class
+bonnett\Main.class
