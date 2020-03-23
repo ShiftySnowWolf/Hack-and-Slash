@@ -12,6 +12,7 @@ import com.sk89q.worldedit.function.operation.Operation;
 import com.sk89q.worldedit.function.operation.Operations;
 import com.sk89q.worldedit.math.BlockVector2;
 import com.sk89q.worldedit.math.BlockVector3;
+import com.sk89q.worldedit.math.transform.AffineTransform;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.world.block.BlockState;
 import com.sk89q.worldedit.world.block.BlockType;
@@ -30,14 +31,17 @@ import java.io.IOException;
 public class generateCommand implements CommandExecutor {
     
     public Location alignedLoc;
+    public BlockVector3 absMinLocation;
+    public int arraySize;
     
     private String[] types = HackAndSlash.validTemplates;
     private File dir = HackAndSlash.directoryPath;
+    File typePath;
     
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         String type = args[0];
-        File typePath = null;
+        typePath = null;
         int size;
         Location loc;
         // Type folder location finder.
@@ -77,7 +81,7 @@ public class generateCommand implements CommandExecutor {
         }
         
         try {
-            return generateDungeon(typePath, size, alignedLoc);
+            return generateDungeon(size, alignedLoc);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,15 +89,15 @@ public class generateCommand implements CommandExecutor {
         return false;
     }
     
-    public boolean generateDungeon(File typePath, int size, Location loc) throws IOException {
-        int arraySize = size * 2 + 3;
+    public boolean generateDungeon(int size, Location loc) throws IOException {
+        arraySize = size * 2 + 3;
         int[][] usedChunks = new int[arraySize][arraySize];
         for (int i = 0; i < arraySize; i++) {
             for (int j = 0; j < arraySize; j++) {
                 usedChunks[i][j] = 0;
             }
         }
-        printUsedChunks(usedChunks, arraySize);
+        printUsedChunks(usedChunks);
         // Generate boss room. <THIS IS AN UNFINISHED CODE BLOCK>
         String extension = ".schem";
         File bossRoom = new File(typePath + "\\rooms\\boss\\bossRoom" + extension);
@@ -114,7 +118,7 @@ public class generateCommand implements CommandExecutor {
         loc.getX() - offset.getX(),
         loc.getY() - offset.getY(), 
         loc.getZ() - offset.getZ());
-        BlockVector3 minLocation = BlockVector3.at(
+        absMinLocation = BlockVector3.at(
         loc.getX() + (size * 16), 
         loc.getY(), 
         loc.getZ() + (size * 16));
@@ -127,8 +131,20 @@ public class generateCommand implements CommandExecutor {
             .build();
             
             Operations.complete(operation);
-            usedChunks = markUsedChunks(clipboard, loc, minLocation, usedChunks);
-            printUsedChunks(usedChunks, arraySize);
+            usedChunks = markUsedChunks(clipboard, loc, absMinLocation, usedChunks);
+            printUsedChunks(usedChunks);
+            if (hasNorthDoors(clipboard)) {
+                Location doorLoc;
+                int[] doors = getNorthDoors(clipboard);
+                for (int i = 0; i < doors.length; i++) {
+                    if (doors[i] > -1) {
+                        doorLoc = new Location(loc.getWorld(), loc.getX() + (8 + (16 * i)), loc.getY() + doors[i], loc.getZ());
+                        generateNorthRoom(typePath, doorLoc, usedChunks);
+                    }
+                }
+            } else if (hasSouthDoors(clipboard)) {
+                
+            }
         } catch (WorldEditException e) {
             e.printStackTrace();
             return false;
@@ -136,28 +152,125 @@ public class generateCommand implements CommandExecutor {
         // <END OF UNFINISHED CODE BLOCK>'
         return true;
     }
-
-    /**
-     * @param clipboard
-     * Clipboard containing the .schem being added to the dungeon.
-     * @param loc
-     * Location at lowest corner of the region.
-     * @param minLocation
-     * Location at the lowest possible corner of the dungeon.
-     * @param usedChunks
-     * Array of usedChunks to append new used chunks to.
-     * @return
-     * int[][] of usedChunks after appending.
-     */
     
-    public int[][] markUsedChunks(Clipboard clipboard, Location loc, BlockVector3 minLocation, int[][] usedChunks) {
+    public int[][] generateNorthRoom(File typePath, Location doorLoc, int[][] usedChunks) throws IOException {
+        String extension = ".schem";
+        File room = new File(typePath + "\\rooms\\one_chunk\\testRoom" + extension);
+        Location transLoc;
+        Clipboard clipboard;
+        ClipboardFormat format = ClipboardFormats.findByFile(room);
+        try (ClipboardReader reader = format.getReader(new FileInputStream(room))) {
+            clipboard = reader.read();
+        }
+        BlockVector3 dim = clipboard.getDimensions();
+        Location loc = doorLoc.subtract(8 + dim.getX() - 16, 0, dim.getZ());
+
+        int rotation, doorHeight = 0;
+        int[] doors;
+        if (hasNorthDoors(clipboard)) {
+            System.out.println("Found north doors");
+            rotation = 180;
+            doors = getNorthDoors(clipboard);
+            for (int i = 0; i < doors.length; i++) {
+                if (doors[i] > -1) {
+                    doorHeight = doors[i];
+                    break;
+                }
+            }
+            transLoc = loc.add(dim.getX(), -1 * doorHeight, dim.getZ());
+            
+        } else if (hasSouthDoors(clipboard)) {
+            System.out.println("Found south doors");
+            rotation = 0;
+            doors = getSouthDoors(clipboard);
+            for (int i = 0; i < doors.length; i++) {
+                if (doors[i] > -1) {
+                    doorHeight = doors[i];
+                    break;
+                }
+            }
+            transLoc = loc.add(0, -1 * doorHeight, 0);
+        } else if (hasEastDoors(clipboard)) {
+            System.out.println("Found east doors");
+            rotation = 90;
+            doors = getEastDoors(clipboard);
+            for (int i = 0; i < doors.length; i++) {
+                if (doors[i] > -1) {
+                    doorHeight = doors[i];
+                    break;
+                }
+            }
+            transLoc = loc.add(dim.getX(), -1 * doorHeight, 0);
+        } else if (hasWestDoors(clipboard)) {
+            System.out.println("Found west doors");
+            rotation = -90;
+            doors = getWestDoors(clipboard);
+            int i;
+            for (i = 0; i < doors.length; i++) {
+                if (doors[i] > -1) {
+                    doorHeight = doors[i];
+                    break;
+                }
+            }
+            transLoc = loc.add(16 * i, -1 * doorHeight, dim.getZ());
+        } else {
+            System.err.println("File doesn't have a valid door!");
+            return usedChunks;
+        }
+        System.out.println("transLoc: " + transLoc.toString());
+        
+        BlockVector3 copyLoc = clipboard.getOrigin();
+        BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
+        BlockVector3 offset = BlockVector3.at(
+        cornerMin.getX() - copyLoc.getX(), 
+        cornerMin.getY() - copyLoc.getY(), 
+        cornerMin.getZ() - copyLoc.getZ());
+        BlockVector3 adjLoc = BlockVector3.at(
+        transLoc.getX() - offset.getX(),
+        transLoc.getY() - offset.getY(),
+        transLoc.getZ() - offset.getZ());
+        System.out.println("adjLoc: " + adjLoc.toString());
+        
+        ClipboardHolder holder = new ClipboardHolder(clipboard);
+        holder.setTransform(new AffineTransform().rotateY(rotation));
+
+        try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
+        .getEditSession(new BukkitWorld(loc.getWorld()), -1)) {
+            Operation operation = holder.createPaste(editSession).to(adjLoc).build();
+            
+            Operations.complete(operation);
+            System.out.println("Dimensions: " + clipboard.getDimensions().toString());
+            usedChunks = markUsedChunks(clipboard, loc, absMinLocation, usedChunks);
+            printUsedChunks(usedChunks);
+        } catch (WorldEditException e) {
+            e.printStackTrace();
+            
+        }
+        
+        return usedChunks;
+    }
+    
+    /**
+    * @param clipboard
+    * Clipboard containing the .schem being added to the dungeon
+    * @param loc
+    * Location at lowest corner of the region
+    * @param minLocation
+    * Location at the lowest possible corner of the dungeon
+    * @param usedChunks
+    * Array of usedChunks to append new used chunks to
+    * @return
+    * int[][] of usedChunks after appending, 0 = unused, 1 = used
+    */
+    
+    public int[][] markUsedChunks(Clipboard clipboard, Location loc, BlockVector3 absMinLocation, int[][] usedChunks) {
         BlockVector3 sizeInChunks = BlockVector3.at(
         clipboard.getDimensions().getX() / 16, 
         clipboard.getDimensions().getY(), 
         clipboard.getDimensions().getZ() / 16);
         BlockVector2 distanceFromMin = BlockVector2.at(
-        minLocation.getX() - loc.getX(), 
-        minLocation.getZ() - loc.getZ());
+        absMinLocation.getX() - loc.getX(), 
+        absMinLocation.getZ() - loc.getZ());
         BlockVector2 chunkDistFromMin = distanceFromMin.divide(16);
         
         for (int i = 0; i < sizeInChunks.getX(); i++) {
@@ -167,18 +280,18 @@ public class generateCommand implements CommandExecutor {
         }
         return usedChunks;
     }
-
+    
     /**
-     * @param usedChunks
-     * int[][] of all used chunks
-     * @param x
-     * Chunk X coord to check
-     * @param z
-     * Chunk Z coord to check
-     * @return
-     * True if occupied, False if available
-     */
-
+    * @param usedChunks
+    * int[][] of all used chunks
+    * @param x
+    * Chunk X coord to check
+    * @param z
+    * Chunk Z coord to check
+    * @return
+    * True if occupied, False if available
+    */
+    
     public boolean isChunkOccupied(int[][] usedChunks, int x, int z) {
         if (usedChunks[x][z] > 0) {
             return true;
@@ -186,15 +299,16 @@ public class generateCommand implements CommandExecutor {
             return false;
         }
     }
-
-    /**
-     * @param usedChunks
-     * Array to mark new used chunks onto
-     * @param arraySize
-     * Size of usedChunks
-     */
     
-    public void printUsedChunks(int[][] usedChunks, int arraySize) {
+    /**
+    * Prints used chunks to console
+    * @param usedChunks
+    * Array to mark new used chunks onto
+    * @param arraySize
+    * Size of usedChunks
+    */
+    
+    public void printUsedChunks(int[][] usedChunks) {
         System.out.println("Printing used chunks array:");
         for (int i = 0; i < arraySize; i++) {
             String line = "";
@@ -206,11 +320,83 @@ public class generateCommand implements CommandExecutor {
     }
     
     /**
+    * Checks if clipboard has north doors
+    * @param clipboard
+    * Clipboard containing schematic to check
+    * @return
+    * True if has north doors, False if not
+    */
+    
+    public boolean hasNorthDoors(Clipboard clipboard) {
+        int[] doors = getNorthDoors(clipboard);
+        for (int i = 0; i < doors.length; i++) {
+            if (doors[i] > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+    * Checks if clipboard has south doors
+    * @param clipboard
+    * Clipboard containing schematic to check
+    * @return
+    * True if has south doors, False if not
+    */
+    
+    public boolean hasSouthDoors(Clipboard clipboard) {
+        int[] doors = getSouthDoors(clipboard);
+        for (int i = 0; i < doors.length; i++) {
+            if (doors[i] > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+    * Checks if clipboard has west doors
+    * @param clipboard
+    * Clipboard containing schematic to check
+    * @return
+    * True if has west doors, False if not
+    */
+    
+    public boolean hasWestDoors(Clipboard clipboard) {
+        int[] doors = getWestDoors(clipboard);
+        for (int i = 0; i < doors.length; i++) {
+            if (doors[i] > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+    * Checks if clipboard has east doors
+    * @param clipboard
+    * Clipboard containing schematic to check
+    * @return
+    * True if has east doors, False if not
+    */
+    
+    public boolean hasEastDoors(Clipboard clipboard) {
+        int[] doors = getEastDoors(clipboard);
+        for (int i = 0; i < doors.length; i++) {
+            if (doors[i] > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
     * @param clipboard
     * Clipboard that contains the schematic to check
     * @return
     * int[] containing doors in order of lowest X to highest X, where
-    * -1 = No door; > -1 == Y coordinate of door
+    * -1 = No door; > -1 == Y offset of door
     */
     
     public int[] getNorthDoors(Clipboard clipboard) {
@@ -230,7 +416,7 @@ public class generateCommand implements CommandExecutor {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
-                    doorLocations[i] = yLocation;
+                    doorLocations[i] = yLocation - startingYLocation;
                     break;
                 }
             }
@@ -245,7 +431,7 @@ public class generateCommand implements CommandExecutor {
     * Clipboard that contains the schematic to check.
     * @return
     * int[] containing doors in order of lowest X to highest X, where
-    * -1 = No door; > -1 == Y coordinate of door
+    * -1 = No door; > -1 == Y offset of door
     */
     
     public int[] getSouthDoors(Clipboard clipboard) {
@@ -266,7 +452,7 @@ public class generateCommand implements CommandExecutor {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
-                    doorLocations[i] = yLocation;
+                    doorLocations[i] = yLocation - startingYLocation;
                     break;
                 }
             }
@@ -281,7 +467,7 @@ public class generateCommand implements CommandExecutor {
     * Clipboard that contains the schematic to check.
     * @return
     * int[] containing doors in order of lowest Z to highest Z, where
-    * -1 = No door; > -1 == Y coordinate of door
+    * -1 = No door; > -1 == Y offset of door
     */
     
     public int[] getWestDoors(Clipboard clipboard) {
@@ -301,7 +487,7 @@ public class generateCommand implements CommandExecutor {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
-                    doorLocations[i] = yLocation;
+                    doorLocations[i] = yLocation - startingYLocation;
                     break;
                 }
             }
@@ -316,7 +502,7 @@ public class generateCommand implements CommandExecutor {
     * Clipboard that contains the schematic to check.
     * @return
     * int[] containing doors in order of lowest Z to highest Z, where
-    * -1 = No door; > -1 == Y coordinate of door
+    * -1 = No door; > -1 == Y offset of door
     */
     
     public int[] getEastDoors(Clipboard clipboard) {
@@ -337,7 +523,7 @@ public class generateCommand implements CommandExecutor {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
-                    doorLocations[i] = yLocation;
+                    doorLocations[i] = yLocation - startingYLocation;
                     break;
                 }
             }
