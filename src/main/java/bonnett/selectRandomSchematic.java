@@ -26,7 +26,7 @@ public class selectRandomSchematic {
         Random rand = new Random();
 
         //Decision of which type of schematic to load.
-        String path = null;
+        String path;
         int roomOrHall = rand.nextInt(2); //Range: 0-1 >> 0 = Room | 1 = Hall
         int roomType; //Range: 0-4 >> 0 = One Chunk | 1 = Two Chunk | 2 = Three Chunk | 3 = Four Chunk | 4 = Six Chunk
         int hallType; //Range: 0-3 >> 0 = Straight | 1 = Two Way | 2 = Three Way | 3 = Corner

@@ -33,20 +33,9 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="Random Schematic halfway done.">
+    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_eerie.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_eerie.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_mine.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_mine.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_overgrowth.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_overgrowth.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/selectRandomSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/selectRandomSchematic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584969688763</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Random Schematic write finished.">
+      <created>1584979971287</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1584979971287</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -340,14 +336,15 @@
     <MESSAGE value="Major Bug Fixes" />
     <MESSAGE value="90% of the battle&#10;NullPointerException" />
     <MESSAGE value="Random Schematic halfway done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Random Schematic halfway done." />
+    <MESSAGE value="Random Schematic write finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="Random Schematic write finished." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="42" key="#Notifications" timestamp="1584909923131">
+    <state x="275" y="42" key="#Notifications" timestamp="1584980602847">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="42" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1584909923131" />
+    <state x="275" y="42" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1584980602847" />
     <state x="275" y="42" key="#Project_Structure" timestamp="1584743218588">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -364,10 +361,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.768@0.0.1366.768" timestamp="1584936956663" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584969686408">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584979967127">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584969686408" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584979967127" />
     <state x="441" y="99" key="DetectedRootsChooserDialog" timestamp="1584909899220">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -416,10 +413,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="152" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584928114837" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584969692828">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584979982459">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584969692828" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584979982459" />
     <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584968915309">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -428,10 +425,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.768@0.0.1366.768" timestamp="1584909879359" />
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584969183891">
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584980611718">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584969183891" />
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584980611718" />
     <state x="0" y="0" width="607" height="768" key="find.popup" timestamp="1584673479776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

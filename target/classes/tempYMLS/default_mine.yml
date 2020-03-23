@@ -1,0 +1,12 @@
+rooms:
+  one_chunk: dmOnR.schem
+  two_chunk: dmTwR.schem
+  trhee_chunk: dmTrR.schem
+  four_chunk: dmFoR.schem
+  six_chunk: dmSiR.schem
+  boss: boss.schem
+halls:
+  straight: dmStH.schem
+  three_way: dmTrH.schem
+  four_way: dmFoH.schem
+  corner: dmCoH.schem
