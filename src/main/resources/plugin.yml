@@ -11,3 +11,6 @@ commands:
   generatedungeon:
     description: Generates a dungeon.
     usage: /generatedungeon <TYPE> <SIZE>
+  generaterand:
+    description: Generates random schem from template
+    usage: /generaterand <TYPE>

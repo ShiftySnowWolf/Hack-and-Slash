@@ -1,5 +1,6 @@
 package bonnett;
 
+import bonnett.commands.devRandSchem;
 import bonnett.commands.generateCommand;
 import bonnett.data.tabCompleter;
 import com.google.common.collect.ObjectArrays;
@@ -53,6 +54,8 @@ public class Main extends JavaPlugin {
         //Commands initialization
         this.getCommand("generatedungeon").setExecutor(new generateCommand());
         getCommand("generatedungeon").setTabCompleter(new tabCompleter());
+        this.getCommand("generaterand").setExecutor(new devRandSchem());
+        getCommand("generaterand").setTabCompleter(new tabCompleter());
     }
 
     @Override
@@ -94,7 +97,7 @@ public class Main extends JavaPlugin {
     }
 
     private void loadConfig() {
-        config.getInt("");
+        //config.getInt("");
     }
 
     private void extractLocalTemplateYMLS() throws IOException {

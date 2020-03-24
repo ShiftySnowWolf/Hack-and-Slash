@@ -13,23 +13,23 @@ import java.util.Objects;
 import java.util.Random;
 
 public class selectRandomSchematic {
-
+    
     private Main plugin = Main.plugin;
     private Random rand = new Random();
     private String schem;
-
+    
     public Clipboard getNext(String template, boolean isBoss) throws IOException {
         //ClipboardFormat format = null;
         Clipboard returnSchem;
         boolean isLocal = false;
         String temp = template.toUpperCase();
-
+        
         if (temp.equals("TEMPLATE") || temp.equals("DEFAULT_EERIE") || temp.equals("DEFAULT_MINE") || temp.equals("DEFAULT_OVERGROWTH")) { isLocal = true; }
-
+        
         if (isBoss) {
             returnSchem = selectBossRoom(template, isLocal);
         } else {
-
+            
             //Decision of which type of schematic to load.
             String path;
             int roomOrHall = rand.nextInt(2); //Range: 0-1 >> 0 = Room | 1 = Hall
@@ -60,15 +60,15 @@ public class selectRandomSchematic {
             path = template + File.separator + type + File.separator + subType;
             returnSchem =  selectSubRoom(template, isLocal, type, subType, path);
         }
-
+        
         return returnSchem;
     }
-
+    
     private Clipboard selectSubRoom(String template, boolean isLocal, String type, String subType, String path) throws IOException {
         ClipboardFormat format = null;
         Clipboard schematic;
-
-
+        
+        
         //Grabs a schematic from Local or External respectively.
         if (isLocal) {
             path = "dungeon_palettes" + File.separator + template + type + File.separator + subType;
@@ -79,12 +79,12 @@ public class selectRandomSchematic {
             switch(template.toUpperCase()) {
                 case "TEMPLATE": {
                     schemList = new ArrayList<>(
-                            Objects.requireNonNull(plugin.templateYML.getList(type + "s." + subType)));
+                    Objects.requireNonNull(plugin.templateYML.getList(type + "s." + subType)));
                     listSize = schemList.size();
                     list = rand.nextInt(listSize + 1);
                     selectRand = new String[listSize];
                     schemList.toArray(selectRand);
-
+                    
                     schem = (String) selectRand[list];
                     path = path + File.separator + schem;
                     assert false;
@@ -93,15 +93,15 @@ public class selectRandomSchematic {
                         return schematic;
                     }
                 }
-
+                
                 case "DEFAULT_EERIE": {
                     schemList = new ArrayList<>(
-                            Objects.requireNonNull(plugin.defaultEerieYML.getList(type + "s." + subType)));
+                    Objects.requireNonNull(plugin.defaultEerieYML.getList(type + "s." + subType)));
                     listSize = schemList.size();
                     list = rand.nextInt(listSize + 1);
                     selectRand = new String[listSize];
                     schemList.toArray(selectRand);
-
+                    
                     schem = (String) selectRand[list];
                     path = path + File.separator + schem;
                     assert false;
@@ -110,15 +110,15 @@ public class selectRandomSchematic {
                         return schematic;
                     }
                 }
-
+                
                 case "DEFAULT_MINE": {
                     schemList = new ArrayList<>(
-                            Objects.requireNonNull(plugin.defaultMineYML.getList(type + "s." + subType)));
+                    Objects.requireNonNull(plugin.defaultMineYML.getList(type + "s." + subType)));
                     listSize = schemList.size();
                     list = rand.nextInt(listSize + 1);
                     selectRand = new String[listSize];
                     schemList.toArray(selectRand);
-
+                    
                     schem = (String) selectRand[list];
                     path = path + File.separator + schem;
                     assert false;
@@ -127,15 +127,15 @@ public class selectRandomSchematic {
                         return schematic;
                     }
                 }
-
+                
                 case "DEFAULT_OVERGROWTH": {
                     schemList = new ArrayList<>(
-                            Objects.requireNonNull(plugin.defaultOvergrowthYML.getList(type + "s." + subType)));
+                    Objects.requireNonNull(plugin.defaultOvergrowthYML.getList(type + "s." + subType)));
                     listSize = schemList.size();
                     list = rand.nextInt(listSize + 1);
                     selectRand = new String[listSize];
                     schemList.toArray(selectRand);
-
+                    
                     schem = (String) selectRand[list];
                     path = path + File.separator + schem;
                     assert false;
@@ -145,35 +145,35 @@ public class selectRandomSchematic {
                     }
                 }
             }
-
-
+            
+            
         } else {
             path = plugin.getDataFolder().toString() + File.separator + "dungeon_templates" + path;
         }
-
+        
         return null;
     }
-
+    
     private Clipboard selectBossRoom(String template, boolean isLocal) throws IOException {
         ClipboardFormat format = null;
         Clipboard schematic;
-
+        
         if (isLocal) {
             String path = "dungeon_palettes" + File.separator + template + "room" + File.separator + "boss";
             List<?> schemList;
             Object[] selectRand;
             int listSize;
             int list;
-
+            
             switch(template.toUpperCase()) {
                 case "TEMPLATE": {
                     schemList = new ArrayList<>(
-                            Objects.requireNonNull(plugin.templateYML.getList("rooms.boss")));
+                    Objects.requireNonNull(plugin.templateYML.getList("rooms.boss")));
                     listSize = schemList.size();
                     list = rand.nextInt(listSize + 1);
                     selectRand = new String[listSize];
                     schemList.toArray(selectRand);
-
+                    
                     schem = (String) selectRand[list];
                     path = path + File.separator + schem;
                     assert false;
@@ -182,15 +182,15 @@ public class selectRandomSchematic {
                         return schematic;
                     }
                 }
-
+                
                 case "DEFAULT_EERIE": {
                     schemList = new ArrayList<>(
-                            Objects.requireNonNull(plugin.defaultEerieYML.getList("rooms.boss")));
+                    Objects.requireNonNull(plugin.defaultEerieYML.getList("rooms.boss")));
                     listSize = schemList.size();
                     list = rand.nextInt(listSize + 1);
                     selectRand = new String[listSize];
                     schemList.toArray(selectRand);
-
+                    
                     schem = (String) selectRand[list];
                     path = path + File.separator + schem;
                     assert false;
@@ -199,15 +199,15 @@ public class selectRandomSchematic {
                         return schematic;
                     }
                 }
-
+                
                 case "DEFAULT_MINE": {
                     schemList = new ArrayList<>(
-                            Objects.requireNonNull(plugin.defaultMineYML.getList("rooms.boss")));
+                    Objects.requireNonNull(plugin.defaultMineYML.getList("rooms.boss")));
                     listSize = schemList.size();
                     list = rand.nextInt(listSize + 1);
                     selectRand = new String[listSize];
                     schemList.toArray(selectRand);
-
+                    
                     schem = (String) selectRand[list];
                     path = path + File.separator + schem;
                     assert false;
@@ -216,15 +216,15 @@ public class selectRandomSchematic {
                         return schematic;
                     }
                 }
-
+                
                 case "DEFAULT_OVERGROWTH": {
                     schemList = new ArrayList<>(
-                            Objects.requireNonNull(plugin.defaultOvergrowthYML.getList("rooms.boss")));
+                    Objects.requireNonNull(plugin.defaultOvergrowthYML.getList("rooms.boss")));
                     listSize = schemList.size();
                     list = rand.nextInt(listSize + 1);
                     selectRand = new String[listSize];
                     schemList.toArray(selectRand);
-
+                    
                     schem = (String) selectRand[list];
                     path = path + File.separator + schem;
                     assert false;
