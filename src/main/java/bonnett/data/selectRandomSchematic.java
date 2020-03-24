@@ -68,7 +68,6 @@ public class selectRandomSchematic {
         ClipboardFormat format = null;
         Clipboard schematic;
 
-
         //Grabs a schematic from Local or External respectively.
         if (isLocal) {
             path = "dungeon_palettes" + File.separator + template + type + File.separator + subType;

@@ -33,17 +33,13 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="Conflic fix">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/jj420.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/devRandSchem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" afterDir="false" />
+    <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/generateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/selectRandomSchematic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/tabCompleter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/corner/cornerTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/four_way/fourWayTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/four_way/fourWayTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/straight/straightTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/three_way/threeWayTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/three_way/threeWayTemplate.schem" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584980646053</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Local Schematic getter implemented.">
+      <created>1585001928064</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1585001928064</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -353,7 +356,8 @@
     <MESSAGE value="Random Schematic halfway done." />
     <MESSAGE value="Random Schematic write finished." />
     <MESSAGE value="Conflic fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Conflic fix" />
+    <MESSAGE value="Local Schematic getter implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Local Schematic getter implemented." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -377,10 +381,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.768@0.0.1366.768" timestamp="1584936956663" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1584999133222">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1585001924738">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1584999133222" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585001924738" />
     <state x="441" y="99" key="DetectedRootsChooserDialog" timestamp="1584909899220">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -429,18 +433,18 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="152" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584928114837" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1584980649839">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1585001931016">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1584980649839" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585001931016" />
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584992707878">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1584992707878" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1584982724177">
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1585008169699">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584982724177" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1585008169699" />
     <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1584909879359">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
