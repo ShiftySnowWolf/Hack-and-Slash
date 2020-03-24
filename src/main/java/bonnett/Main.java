@@ -36,7 +36,7 @@ public class Main extends JavaPlugin {
     public String libStr = localLibs.toString().replace("\\", "/");
 
     //Plugin Info
-    public static String pluginName = "[Chunk_Dungeons]";
+    public static String pluginName = "[ChunkDungeons]";
 
     public static Main plugin;
     public static String[] validPalettes;

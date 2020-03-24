@@ -1,7 +1,7 @@
 rooms:
   one_chunk: tOnR.schem
   two_chunk: tTwR.schem
-  trhee_chunk: tTrR.schem
+  three_chunk: tTrR.schem
   four_chunk: tFoR.schem
   six_chunk: tSiR.schem
   boss: boss.schem
