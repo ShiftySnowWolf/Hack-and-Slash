@@ -11,6 +11,10 @@ public class Doors {
     Location[] southDoors;
     Location[] eastDoors;
     Location[] westDoors;
+    BlockVector3[] northDoorsNoLoc;
+    BlockVector3[] southDoorsNoLoc;
+    BlockVector3[] eastDoorsNoLoc;
+    BlockVector3[] westDoorsNoLoc;
     boolean hasNorthDoors;
     boolean hasSouthDoors;
     boolean hasEastDoors;
@@ -28,7 +32,14 @@ public class Doors {
     }
 
     public Doors(Clipboard clipboard) {
-
+        northDoorsNoLoc = getNorthDoorsNoLoc(clipboard);
+        southDoorsNoLoc= getSouthDoorsNoLoc(clipboard);
+        eastDoorsNoLoc = getEastDoorsNoLoc(clipboard);
+        westDoorsNoLoc = getWestDoorsNoLoc(clipboard);
+        hasNorthDoors = hasDoors(northDoors);
+        hasSouthDoors = hasDoors(southDoors);
+        hasEastDoors = hasDoors(eastDoors);
+        hasWestDoors = hasDoors(westDoors);
     }
 
     public Location[] getNorthDoors() {
@@ -47,6 +58,22 @@ public class Doors {
         return westDoors;
     }
 
+    public BlockVector3[] getNorthDoorsNoLoc() {
+        return northDoorsNoLoc;
+    }
+
+    public BlockVector3[] getSouthDoorsNoLoc() {
+        return southDoorsNoLoc;
+    }
+
+    public BlockVector3[] getEastDoorsNoLoc() {
+        return eastDoorsNoLoc;
+    }
+
+    public BlockVector3[] getWestDoorsNoLoc() {
+        return westDoorsNoLoc;
+    }
+
     public boolean hasNorthDoors() {
         return hasNorthDoors;
     }
@@ -63,28 +90,12 @@ public class Doors {
         return hasWestDoors;
     }
 
-    /**
-     * Checks if clipboard has north doors
-     * @param doors
-     * int[] containing door values
-     * @return
-     * True if has north doors, False if not
-     */
-
     private boolean hasDoors(Location[] doors) {
         for (Location door : doors) {
             if (door.getY() > -1) {return true;}
         }
         return false;
     }
-
-    /**
-     * @param clipboard
-     * Clipboard that contains the schematic to check
-     * @return
-     * int[] containing doors in order of lowest X to highest X, where
-     * -1 = No door; > -1 == Y offset of door
-     */
 
     private Location[] getNorthDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getX() / 16;
@@ -116,14 +127,6 @@ public class Doors {
         }
         return doorLocations;
     }
-
-    /**
-     * @param clipboard
-     * Clipboard that contains the schematic to check.
-     * @return
-     * int[] containing doors in order of lowest X to highest X, where
-     * -1 = No door; > -1 == Y offset of door
-     */
 
     private Location[] getSouthDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getX() / 16;
@@ -157,14 +160,6 @@ public class Doors {
         return doorLocations;
     }
 
-    /**
-     * @param clipboard
-     * Clipboard that contains the schematic to check.
-     * @return
-     * int[] containing doors in order of lowest Z to highest Z, where
-     * -1 = No door; > -1 == Y offset of door
-     */
-
     private Location[] getWestDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getZ() / 16;
         Location[] doorLocations = new Location[arraySize];
@@ -196,14 +191,6 @@ public class Doors {
         return doorLocations;
     }
 
-    /**
-     * @param clipboard
-     * Clipboard that contains the schematic to check.
-     * @return
-     * int[] containing doors in order of lowest Z to highest Z, where
-     * -1 = No door; > -1 == Y offset of door
-     */
-
     private Location[] getEastDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getZ() / 16;
         Location[] doorLocations = new Location[arraySize];
@@ -226,6 +213,128 @@ public class Doors {
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
                     doorLocations[i].setY(yLocation - startingYLocation);
+                    break;
+                }
+            }
+            zLocation += 16;
+            zOffset += 16;
+            yLocation = cornerMin.getY();
+        }
+        return doorLocations;
+    }
+
+    private BlockVector3[] getNorthDoorsNoLoc(Clipboard clipboard) {
+        int arraySize = clipboard.getDimensions().getX() / 16;
+        BlockVector3[] doorLocations = new BlockVector3[arraySize];
+        int clipboardHeight = clipboard.getDimensions().getY();
+        BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
+        int xOffset = 8;
+        int xLocation = cornerMin.getX() + xOffset;
+        int yLocation = cornerMin.getY();
+        int zLocation = cornerMin.getZ();
+
+        // First run offsets 8. Subsequent runs offset 16.
+        for (int i = 0; i < arraySize; i++) {
+            doorLocations[i] = doorLocations[i].withY(-1);
+            doorLocations[i] = doorLocations[i].withX(xOffset);
+            doorLocations[i] = doorLocations[i].withZ(0);
+            for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
+                BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
+                BlockState checkBlock = clipboard.getBlock(checkLoc);
+                if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
+                    doorLocations[i] = doorLocations[i].withY(yLocation - startingYLocation);
+                    break;
+                }
+            }
+            xLocation += 16;
+            xOffset += 16;
+            yLocation = cornerMin.getY();
+        }
+        return doorLocations;
+    }
+
+    private BlockVector3[] getSouthDoorsNoLoc(Clipboard clipboard) {
+        int arraySize = clipboard.getDimensions().getX() / 16;
+        BlockVector3[] doorLocations = new BlockVector3[arraySize];
+        int clipboardHeight = clipboard.getDimensions().getY();
+        BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
+        BlockVector3 cornerMax = clipboard.getRegion().getMaximumPoint();
+        int xOffset = 8;
+        int xLocation = cornerMin.getX() + xOffset;
+        int yLocation = cornerMin.getY();
+        int zLocation = cornerMax.getZ();
+
+        // First run offsets 8. Subsequent runs offset 16.
+        for (int i = 0; i < arraySize; i++) {
+            doorLocations[i] = doorLocations[i].withY(-1);
+            doorLocations[i] = doorLocations[i].withX(xOffset);
+            doorLocations[i] = doorLocations[i].withZ(0);
+            for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
+                BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
+                BlockState checkBlock = clipboard.getBlock(checkLoc);
+                if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
+                    doorLocations[i] = doorLocations[i].withY(yLocation - startingYLocation);
+                    break;
+                }
+            }
+            xLocation += 16;
+            xOffset += 16;
+            yLocation = cornerMin.getY();
+        }
+        return doorLocations;
+    }
+
+    private BlockVector3[] getWestDoorsNoLoc(Clipboard clipboard) {
+        int arraySize = clipboard.getDimensions().getZ() / 16;
+        BlockVector3[] doorLocations = new BlockVector3[arraySize];
+        int clipboardHeight = clipboard.getDimensions().getY();
+        BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
+        int zOffset = 8;
+        int xLocation = cornerMin.getX();
+        int yLocation = cornerMin.getY();
+        int zLocation = cornerMin.getZ() + zOffset;
+
+        // First run offsets 8. Subsequent runs offset 16.
+        for (int i = 0; i < arraySize; i++) {
+            doorLocations[i] = doorLocations[i].withY(-1);
+            doorLocations[i] = doorLocations[i].withX(0);
+            doorLocations[i] = doorLocations[i].withZ(zOffset);
+            for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
+                BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
+                BlockState checkBlock = clipboard.getBlock(checkLoc);
+                if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
+                    doorLocations[i] = doorLocations[i].withY(yLocation - startingYLocation);
+                    break;
+                }
+            }
+            zLocation += 16;
+            zOffset += 16;
+            yLocation = cornerMin.getY();
+        }
+        return doorLocations;
+    }
+
+    private BlockVector3[] getEastDoorsNoLoc(Clipboard clipboard) {
+        int arraySize = clipboard.getDimensions().getZ() / 16;
+        BlockVector3[] doorLocations = new BlockVector3[arraySize];
+        int clipboardHeight = clipboard.getDimensions().getY();
+        BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
+        BlockVector3 cornerMax = clipboard.getRegion().getMaximumPoint();
+        int zOffset = 8;
+        int xLocation = cornerMax.getX();
+        int yLocation = cornerMin.getY();
+        int zLocation = cornerMin.getZ() + zOffset;
+
+        // First run offsets 8. Subsequent runs offset 16.
+        for (int i = 0; i < arraySize; i++) {
+            doorLocations[i] = doorLocations[i].withY(-1);
+            doorLocations[i] = doorLocations[i].withX(0);
+            doorLocations[i] = doorLocations[i].withZ(zOffset);
+            for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
+                BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
+                BlockState checkBlock = clipboard.getBlock(checkLoc);
+                if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
+                    doorLocations[i] = doorLocations[i].withY(yLocation - startingYLocation);
                     break;
                 }
             }

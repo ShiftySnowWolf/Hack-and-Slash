@@ -7,6 +7,10 @@ import org.bukkit.Location;
 public class PasteLocation {
     Location pasteLocation;
 
+    /**
+      * Generates the location to paste a schematic so that the minLocation where blocks appear is at a given destination
+      */
+
     public PasteLocation(Location destination, Clipboard clipboard) {
         pasteLocation = findPasteLocation(destination, clipboard);
     }

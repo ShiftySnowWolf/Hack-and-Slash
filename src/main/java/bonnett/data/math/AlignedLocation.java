@@ -21,15 +21,15 @@ public class AlignedLocation {
     }
 
     public int getX() {
-        return (int) alignedLocation.getX();
+        return alignedLocation.getBlockX();
     }
 
     public int getY() {
-        return (int) alignedLocation.getY();
+        return alignedLocation.getBlockY();
     }
 
     public int getZ() {
-        return (int) alignedLocation.getZ();
+        return alignedLocation.getBlockZ();
     }
 
     public double getStartingX() {

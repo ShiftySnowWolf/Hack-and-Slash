@@ -6,8 +6,8 @@ import org.bukkit.Location;
 public class DungeonMinLocation {
     Location dungeonMinLocation;
 
-    public DungeonMinLocation(Location bossRoomMinLocation, int dungeonSize) {
-        dungeonMinLocation = findDungeonMinLocation(bossRoomMinLocation, dungeonSize);
+    public DungeonMinLocation(BossRoomMinLocation bossRoomMinLocation, int dungeonSize) {
+        dungeonMinLocation = findDungeonMinLocation(bossRoomMinLocation.toLocation(), dungeonSize);
     }
 
     public Location toLocation() {
