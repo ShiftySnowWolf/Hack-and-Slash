@@ -29,8 +29,4 @@ public class PasteLocation {
         return pasteLocation;
     }
 
-    private BlockVector3 locationToBlockVector3(Location location) {
-        return BlockVector3.at(location.getX(), location.getY(), location.getZ());
-    }
-
 }
