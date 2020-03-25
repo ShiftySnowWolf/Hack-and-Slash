@@ -1,7 +1,7 @@
 package bonnett.data;
 
-import bonnett.commands.generate;
-import bonnett.commands.reloadTemplates;
+import bonnett.commands.Generate;
+import bonnett.commands.ReloadTemplates;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class commandGetter implements CommandExecutor {
+public class CommandGetter implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
@@ -22,11 +22,11 @@ public class commandGetter implements CommandExecutor {
 
         switch (strings[0]) {
             case "generate": {
-                generate generate = new generate();
+                Generate generate = new Generate();
                 generate.onCommand(commandSender, command, s, strings);
             } break;
             case "reloadTemplates": {
-                reloadTemplates reload = new reloadTemplates();
+                ReloadTemplates reload = new ReloadTemplates();
                 reload.onCommand(commandSender, command, s, strings);
             } break;
         }

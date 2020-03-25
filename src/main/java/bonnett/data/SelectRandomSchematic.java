@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
-public class selectRandomSchematic {
+public class SelectRandomSchematic {
     
     private Main plugin = Main.plugin;
     private Random rand = new Random();

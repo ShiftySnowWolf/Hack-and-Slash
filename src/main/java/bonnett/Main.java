@@ -1,6 +1,6 @@
 package bonnett;
 
-import bonnett.data.commandGetter;
+import bonnett.data.CommandGetter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -42,7 +42,7 @@ public class Main extends JavaPlugin {
         pluginSetup();
 
         //Commands initialization
-        this.getCommand("ChunkDungeons").setExecutor(new commandGetter());
+        this.getCommand("ChunkDungeons").setExecutor(new CommandGetter());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package bonnett.commands;
 
 import bonnett.Main;
+import bonnett.data.Doors;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.WorldEditException;
@@ -27,7 +28,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class generate {
+public class Generate {
     
     public Location alignedLoc;
     public BlockVector3 absMinLocation;
@@ -131,12 +132,13 @@ public class generate {
             Operations.complete(operation);
             usedChunks = markUsedChunks(clipboard, loc, absMinLocation, usedChunks);
             printUsedChunks(usedChunks);
+            Doors doors = new Doors(clipboard, loc);
             if (hasNorthDoors(clipboard)) {
                 Location doorLoc;
-                int[] doors = getNorthDoors(clipboard);
-                for (int i = 0; i < doors.length; i++) {
-                    if (doors[i] > -1) {
-                        doorLoc = new Location(loc.getWorld(), loc.getX() + (8 + (16 * i)), loc.getY() + doors[i], loc.getZ());
+                Location[] northDoors = doors.getNorthDoors();
+                for (int i = 0; i < northDoors.length; i++) {
+                    if (northDoors[i].getY() > -1) {
+                        doorLoc = new Location(loc.getWorld(), loc.getX() + (8 + (16 * i)), loc.getY() + northDoors[i].getY(), loc.getZ());
                         generateNorthRoom(typePath, doorLoc, usedChunks);
                     }
                 }
@@ -312,13 +314,13 @@ public class generate {
     }
 
     /**
-    * Checks if clipboard has north doors
-    * @param clipboard
-    * Clipboard containing schematic to check
-    * @return
-    * True if has north doors, False if not
-    */
-    
+     * Checks if clipboard has north doors
+     * @param clipboard
+     * Clipboard containing schematic to check
+     * @return
+     * True if has north doors, False if not
+     */
+
     public boolean hasNorthDoors(Clipboard clipboard) {
         int[] doors = getNorthDoors(clipboard);
         for (int i = 0; i < doors.length; i++) {
@@ -328,7 +330,7 @@ public class generate {
         }
         return false;
     }
-    
+
     /**
     * Checks if clipboard has south doors
     * @param clipboard
@@ -336,7 +338,7 @@ public class generate {
     * @return
     * True if has south doors, False if not
     */
-    
+
     public boolean hasSouthDoors(Clipboard clipboard) {
         int[] doors = getSouthDoors(clipboard);
         for (int i = 0; i < doors.length; i++) {
@@ -346,7 +348,7 @@ public class generate {
         }
         return false;
     }
-    
+
     /**
     * Checks if clipboard has west doors
     * @param clipboard
@@ -354,7 +356,7 @@ public class generate {
     * @return
     * True if has west doors, False if not
     */
-    
+
     public boolean hasWestDoors(Clipboard clipboard) {
         int[] doors = getWestDoors(clipboard);
         for (int i = 0; i < doors.length; i++) {
@@ -364,7 +366,7 @@ public class generate {
         }
         return false;
     }
-    
+
     /**
     * Checks if clipboard has east doors
     * @param clipboard
@@ -372,7 +374,7 @@ public class generate {
     * @return
     * True if has east doors, False if not
     */
-    
+
     public boolean hasEastDoors(Clipboard clipboard) {
         int[] doors = getEastDoors(clipboard);
         for (int i = 0; i < doors.length; i++) {
@@ -382,7 +384,7 @@ public class generate {
         }
         return false;
     }
-    
+
     /**
     * @param clipboard
     * Clipboard that contains the schematic to check
@@ -390,7 +392,7 @@ public class generate {
     * int[] containing doors in order of lowest X to highest X, where
     * -1 = No door; > -1 == Y offset of door
     */
-    
+
     public int[] getNorthDoors(Clipboard clipboard) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         int[] doorLocations = new int[arraySize];
@@ -400,7 +402,7 @@ public class generate {
         int xLocation = cornerMin.getX() + xOffset;
         int yLocation = cornerMin.getY();
         int zLocation = cornerMin.getZ();
-        
+
         // First run offests 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
             doorLocations[i] = -1;
@@ -436,7 +438,7 @@ public class generate {
         int xLocation = cornerMin.getX() + xOffset;
         int yLocation = cornerMin.getY();
         int zLocation = cornerMax.getZ();
-        
+
         // First run offests 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
             doorLocations[i] = -1;
@@ -471,7 +473,7 @@ public class generate {
         int xLocation = cornerMin.getX();
         int yLocation = cornerMin.getY();
         int zLocation = cornerMin.getZ() + zOffset;
-        
+
         // First run offests 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
             doorLocations[i] = -1;
@@ -507,7 +509,7 @@ public class generate {
         int xLocation = cornerMax.getX();
         int yLocation = cornerMin.getY();
         int zLocation = cornerMin.getZ() + zOffset;
-        
+
         // First run offests 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
             doorLocations[i] = -1;
