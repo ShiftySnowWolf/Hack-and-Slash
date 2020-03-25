@@ -34,55 +34,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/reloadTemplates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/commandGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/commands/devRandSchem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/commands/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/generate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/tabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleters/generateTabCompleter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/corner/cornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/four_way/fourWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/straight/straightTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/three_way/threeWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/boss/boss.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/four_chunk/tFoR.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/tOnR.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/six_chunk/tSiR.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/three_chunk/tTrR.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/two_chunk/tTwR.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_eerie.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_mine.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_overgrowth.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/template.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/hallways/small/four_way/fourWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/hallways/small/three_way/threeWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/boss/bossRoom.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/fourDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/oneDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/threeDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/twoDoorCornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/twoDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/four_way/fourWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/three_way/threeWayTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/boss/bossRoom.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/fourDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/oneDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/threeDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/twoDoorCornerTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/twoDoorTemplate.schem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tempYMLS/template.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tempYMLS/template.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/commands/generate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/Generate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/commands/reloadTemplates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/ReloadTemplates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/commandGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/CommandGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/SelectRandomSchematic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleters/generateTabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/PluginTabCompleter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -386,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585011307827</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Cleanup phase 1">
+      <created>1585105692562</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1585105692562</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -409,7 +374,8 @@
     <MESSAGE value="Conflic fix" />
     <MESSAGE value="Local Schematic getter implemented." />
     <MESSAGE value="Room schematics included" />
-    <option name="LAST_COMMIT_MESSAGE" value="Room schematics included" />
+    <MESSAGE value="Cleanup phase 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup phase 1" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -437,10 +403,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.768@0.0.1366.768" timestamp="1584936956663" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1585011305178">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1585105687676">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585011305178" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585105687676" />
     <state x="441" y="99" key="DetectedRootsChooserDialog" timestamp="1584909899220">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -477,22 +443,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="213" y="39" key="Maven.ArtifactSearchDialog/0.0.1366.768@0.0.1366.768" timestamp="1584755366518" />
-    <state x="129" y="59" key="MergeDialog" timestamp="1584969557749">
+    <state x="29" y="59" width="1283" height="650" key="MergeDialog" timestamp="1585107805738">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584969557749" />
-    <state x="395" y="100" key="MultipleFileMergeDialog" timestamp="1584969557770">
+    <state x="29" y="59" width="1283" height="650" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1585107805738" />
+    <state x="395" y="100" key="MultipleFileMergeDialog" timestamp="1585107805772">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="395" y="100" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584969557770" />
+    <state x="395" y="100" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1585107805772" />
     <state x="152" y="0" key="SettingsEditor" timestamp="1585012707138">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="152" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1585012707138" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1585011311057">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1585105695132">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585011311057" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585105695132" />
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584992707878">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -505,10 +471,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.768@0.0.1366.768" timestamp="1584909879359" />
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585105659714">
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585107635689">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1585105659714" />
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1585107635689" />
     <state x="0" y="0" width="607" height="768" key="find.popup" timestamp="1584673479776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

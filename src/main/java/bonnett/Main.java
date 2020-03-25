@@ -13,10 +13,6 @@ import java.util.Arrays;
 public class Main extends JavaPlugin {
 
     //Configuration Files
-    public FileConfiguration templateYML = null;
-    public FileConfiguration defaultEerieYML = null;
-    public FileConfiguration defaultMineYML = null;
-    public FileConfiguration defaultOvergrowthYML = null;
     public FileConfiguration config = null;
 
     //Configuration

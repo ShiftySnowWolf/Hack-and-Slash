@@ -3,16 +3,19 @@ package bonnett.data;
 import bonnett.Main;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
 import java.util.Random;
 
 public class SelectRandomSchematic {
     
     private Main plugin = Main.plugin;
     private Random rand = new Random();
+    private String paletteFolder = plugin.getDataFolder().toString() + File.separator + "dungeon_palettes" + File.separator;
 
     public Clipboard getNext(String template, boolean isBoss) throws IOException {
         Clipboard returnSchem;
@@ -22,7 +25,7 @@ public class SelectRandomSchematic {
         if (temp.equals("TEMPLATE") || temp.equals("DEFAULT_EERIE") || temp.equals("DEFAULT_MINE") || temp.equals("DEFAULT_OVERGROWTH")) { isLocal = true; }
         
         if (isBoss) {
-            returnSchem = selectBossRoom(template, isLocal);
+            returnSchem = selectBossRoom(template);
         } else {
             
             //Decision of which type of schematic to load.
@@ -33,7 +36,7 @@ public class SelectRandomSchematic {
             String type;
             String subType = null;
             if (roomOrHall == 0) {
-                type = "room";
+                type = "rooms";
                 roomType = rand.nextInt(5);
                 switch (roomType) {
                     case 0: { subType = "one_chunk";} break;
@@ -43,7 +46,7 @@ public class SelectRandomSchematic {
                     case 4: { subType = "six_chunk"; } break;
                 }
             } else {
-                type = "hall";
+                type = "halls";
                 hallType = rand.nextInt(4);
                 switch (hallType) {
                     case 0: { subType = "straight"; } break;
@@ -53,31 +56,56 @@ public class SelectRandomSchematic {
                 }
             }
             path = template + File.separator + type + File.separator + subType;
-            returnSchem =  selectSubRoom(template, type, subType, path);
+            returnSchem =  selectSubRoom(path);
         }
         
         return returnSchem;
     }
     
-    private Clipboard selectSubRoom(String template, String type, String subType, String path) throws IOException {
+    private Clipboard selectSubRoom(String path) {
         Clipboard schematic;
 
         //Grabs the designated schematic.
-        
+        File schemLocation = new File(paletteFolder + path);
+        if (schemLocation.isDirectory()) {
+            String[] subSchem = schemLocation.list();
+            assert subSchem != null;
+            int selection = rand.nextInt(subSchem.length + 1);
+            schemLocation = new File(schemLocation + File.separator + subSchem[selection]);
+        } else { return null; }
+
+        ClipboardFormat format = ClipboardFormats.findByFile(schemLocation);
+
+        assert format != null;
+        try (ClipboardReader reader = format.getReader(new FileInputStream(schemLocation))) {
+            schematic = reader.read();
+            return schematic;
+        } catch (IOException e) { e.printStackTrace(); }
+
         return null;
     }
     
-    private Clipboard selectBossRoom(String template, boolean isLocal) throws IOException {
-        ClipboardFormat format = null;
+    private Clipboard selectBossRoom(String template) throws IOException {
+        String path = template + File.separator + "rooms" + File.separator + "boss";
         Clipboard schematic;
 
-            String path = "dungeon_palettes" + File.separator + template + "room" + File.separator + "boss";
-            List<?> schemList;
-            Object[] selectRand;
-            int listSize;
-            int list;
+        //Grabs the designated schematic.
+        File schemLocation = new File(paletteFolder + path);
+        if (schemLocation.isDirectory()) {
+            String[] subSchem = schemLocation.list();
+            assert subSchem != null;
+            int selection = rand.nextInt(subSchem.length + 1);
+            schemLocation = new File(schemLocation + File.separator + subSchem[selection]);
+        } else { return null; }
 
-            String schem;
+        ClipboardFormat format = ClipboardFormats.findByFile(schemLocation);
+
+        assert format != null;
+        try (ClipboardReader reader = format.getReader(new FileInputStream(schemLocation))) {
+            schematic = reader.read();
+            return schematic;
+        } catch (IOException e) { e.printStackTrace(); }
+
         return null;
     }
 }
