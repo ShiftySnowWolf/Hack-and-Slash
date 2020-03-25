@@ -27,6 +27,10 @@ public class Doors {
         hasWestDoors = hasDoors(westDoors);
     }
 
+    public Doors(Clipboard clipboard) {
+
+    }
+
     public Location[] getNorthDoors() {
         return northDoors;
     }

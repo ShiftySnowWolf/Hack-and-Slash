@@ -11,7 +11,7 @@ public class PasteLocation {
         pasteLocation = findPasteLocation(destination, clipboard);
     }
 
-    public Location getPasteLocation() {
+    public Location toLocation() {
         return pasteLocation;
     }
 
@@ -26,11 +26,10 @@ public class PasteLocation {
                 cornerMin.getX() - copyLoc.getX(),
                 cornerMin.getY() - copyLoc.getY(),
                 cornerMin.getZ() - copyLoc.getZ());
-        Location pasteLocation = new Location(destination.getWorld(),
+        return new Location(destination.getWorld(),
                 destination.getX() - offset.getX(),
                 destination.getY() - offset.getY(),
                 destination.getZ() - offset.getZ());
-        return pasteLocation;
     }
 
 }
