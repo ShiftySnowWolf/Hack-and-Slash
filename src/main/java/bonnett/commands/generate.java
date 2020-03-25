@@ -20,7 +20,6 @@ import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Location;
 import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -28,55 +27,54 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class generateCommand implements CommandExecutor {
+public class generate {
     
     public Location alignedLoc;
     public BlockVector3 absMinLocation;
     public int arraySize;
     
     private String[] types = Main.validPalettes;
-    private File extSchematic = Main.externalPalettes;
+    private File paletteList = Main.paletteList;
     private File typePath;
-    
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        String type = args[0];
+
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+        String type = strings[0];
         typePath = null;
         int size;
         Location loc;
         // Type folder location finder.
-        for (String s : types) {
-            if (s.compareToIgnoreCase(type) == 0) {
-                typePath = new File(extSchematic + "\\" + s);
+        for (String t : types) {
+            if (t.compareToIgnoreCase(type) == 0) {
+                typePath = new File(paletteList + "\\" + t);
             } else {
-                sender.sendMessage("There is no dungeon type called: " + type.toUpperCase());
+                commandSender.sendMessage("There is no dungeon type called: " + type.toUpperCase());
                 return false;
             }
         }
         // Size integer parsing.
         try {
-            size = Integer.parseInt(args[1]);
+            size = Integer.parseInt(strings[1]);
             if (size < 1) {
-                sender.sendMessage("Size must be greater than 0!");
+                commandSender.sendMessage("Size must be greater than 0!");
                 return false;
             }
         } catch (NumberFormatException e) {
-            sender.sendMessage("Size entered was not a whole number!");
+            commandSender.sendMessage("Size entered was not a whole number!");
             return false;
         }
         // Sender type detection and location getter.
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
+        if (commandSender instanceof Player) {
+            Player player = (Player) commandSender;
             loc = player.getLocation();
             alignedLoc = new Location(loc.getWorld(), loc.getChunk().getX() * 16, loc.getY(),
             loc.getChunk().getZ() * 16);
-        } else if (sender instanceof CommandBlock) {
-            CommandBlock commBlock = (CommandBlock) sender;
+        } else if (commandSender instanceof CommandBlock) {
+            CommandBlock commBlock = (CommandBlock) commandSender;
             loc = commBlock.getLocation();
             alignedLoc = new Location(loc.getWorld(), loc.getChunk().getX() * 16, loc.getY(),
             loc.getChunk().getZ() * 16);
         } else {
-            sender.sendMessage("This command cannot be run from console!");
+            commandSender.sendMessage("This command cannot be run from console!");
             return false;
         }
         

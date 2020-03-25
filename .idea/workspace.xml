@@ -34,12 +34,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/reloadTemplates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/commandGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_2_R0_1_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/commands/devRandSchem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/commands/generateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/generate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/corner/cornerTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/four_way/fourWayTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/four_way/fourWayTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/straight/straightTemplate.schem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/hallways/small/three_way/threeWayTemplate.schem" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/three_way/threeWayTemplate.schem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/tabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleters/generateTabCompleter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/corner/cornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/four_way/fourWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/straight/straightTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/halls/small/three_way/threeWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/boss/boss.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/four_chunk/tFoR.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/one_chunk/tOnR.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/six_chunk/tSiR.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/three_chunk/tTrR.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dungeon_templates/Template/rooms/two_chunk/tTwR.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_eerie.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_mine.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/default_overgrowth.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tempYMLS/template.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/hallways/small/four_way/fourWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/hallways/small/three_way/threeWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/boss/bossRoom.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/fourDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/oneDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/threeDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/twoDoorCornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Template/rooms/one_chunk/twoDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/corner/cornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/four_way/fourWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/straight/straightTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/hallways/small/three_way/threeWayTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/boss/bossRoom.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/fourDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/oneDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/threeDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/twoDoorCornerTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dungeon_templates/Template/rooms/one_chunk/twoDoorTemplate.schem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tempYMLS/template.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tempYMLS/template.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,10 +137,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources" />
       <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\tempYMLS" />
       <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\duncgeon schematics\Template" />
       <recent name="C:\Users\jj420\My Files\Intellij Projects\Minecraft\Hack-and-Slash\src\main\resources\duncgeon schematics\Template\rooms" />
@@ -335,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585001928064</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Room schematics included">
+      <created>1585011307827</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1585011307827</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -357,7 +408,8 @@
     <MESSAGE value="Random Schematic write finished." />
     <MESSAGE value="Conflic fix" />
     <MESSAGE value="Local Schematic getter implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="Local Schematic getter implemented." />
+    <MESSAGE value="Room schematics included" />
+    <option name="LAST_COMMIT_MESSAGE" value="Room schematics included" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -373,18 +425,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="175" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1584925197491" />
-    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584929780076">
+    <state x="488" y="93" key="#com.intellij.ide.util.MemberChooser" timestamp="1585103493003">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1584929780076" />
+    <state x="488" y="93" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1585103493003" />
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585104453651">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1585104453651" />
     <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584936956663">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.768@0.0.1366.768" timestamp="1584936956663" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1585001924738">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1585011305178">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585001924738" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585011305178" />
     <state x="441" y="99" key="DetectedRootsChooserDialog" timestamp="1584909899220">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -397,22 +453,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="72" y="129" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1584909897788" />
-    <state width="1323" height="331" key="GridCell.Tab.0.bottom" timestamp="1584981745365">
+    <state width="1323" height="331" key="GridCell.Tab.0.bottom" timestamp="1585102407412">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="331" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584981745365" />
-    <state width="1323" height="331" key="GridCell.Tab.0.center" timestamp="1584981745365">
+    <state width="1323" height="331" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1585102407412" />
+    <state width="1323" height="331" key="GridCell.Tab.0.center" timestamp="1585102407411">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="331" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584981745365" />
-    <state width="1323" height="331" key="GridCell.Tab.0.left" timestamp="1584981745364">
+    <state width="1323" height="331" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1585102407411" />
+    <state width="1323" height="331" key="GridCell.Tab.0.left" timestamp="1585102407411">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="331" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584981745364" />
-    <state width="1323" height="331" key="GridCell.Tab.0.right" timestamp="1584981745365">
+    <state width="1323" height="331" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1585102407411" />
+    <state width="1323" height="331" key="GridCell.Tab.0.right" timestamp="1585102407412">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="331" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584981745365" />
+    <state width="1323" height="331" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1585102407412" />
     <state x="263" y="127" key="IDE.errors.dialog" timestamp="1584932255895">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -429,30 +485,30 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="395" y="100" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1584969557770" />
-    <state x="152" y="0" key="SettingsEditor" timestamp="1584928114837">
+    <state x="152" y="0" key="SettingsEditor" timestamp="1585012707138">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="152" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584928114837" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1585001931016">
+    <state x="152" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1585012707138" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1585011311057">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585001931016" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585011311057" />
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584992707878">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1584992707878" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1585008169699">
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1585094338625">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1585008169699" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1585094338625" />
     <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1584909879359">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.768@0.0.1366.768" timestamp="1584909879359" />
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584981053252">
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585105659714">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1584981053252" />
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1585105659714" />
     <state x="0" y="0" width="607" height="768" key="find.popup" timestamp="1584673479776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

@@ -1,12 +1,22 @@
 rooms:
-  one_chunk: tOnR.schem
-  two_chunk: tTwR.schem
-  trhee_chunk: tTrR.schem
-  four_chunk: tFoR.schem
-  six_chunk: tSiR.schem
-  boss: boss.schem
+  one_chunk:
+    - tOnR.schem
+  two_chunk:
+    - tTwR.schem
+  three_chunk:
+    - tTrR.schem
+  four_chunk:
+    - tFoR.schem
+  six_chunk:
+    - tSiR.schem
+  boss:
+    - boss.txt
 halls:
-  straight: tStH.schem
-  three_way: tTrH.schem
-  four_way: tFoH.schem
-  corner: tCoH.schem
+  straight:
+    - tStH.schem
+  three_way:
+    - tTrH.schem
+  four_way:
+    - tFoH.schem
+  corner:
+    - tCoH.schem

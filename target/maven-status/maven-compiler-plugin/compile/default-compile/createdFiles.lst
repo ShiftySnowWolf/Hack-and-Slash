@@ -1,4 +1,5 @@
-bonnett\generateCommand.class
-bonnett\tabCompleter.class
-bonnett\selectRandomSchematic.class
+bonnett\commands\generateCommand.class
+bonnett\data\selectRandomSchematic.class
+bonnett\data\tabCompleter.class
+bonnett\commands\randomSchematicCommand.class
 bonnett\Main.class
