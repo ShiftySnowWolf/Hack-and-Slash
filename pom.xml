@@ -50,10 +50,6 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-            <resource>
-                <directory>src/main/resources/dungeon_templates</directory>
-                <filtering>false</filtering>
-            </resource>
         </resources>
     </build>
 
