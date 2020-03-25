@@ -1,8 +1,8 @@
 # IDE autogen files
-~/.idea
-~/.settings
-~/.vscode
-~/target
+.idea/
+.settings/
+.vscode/
+target/
 # Compiled class file
 *.class
 
