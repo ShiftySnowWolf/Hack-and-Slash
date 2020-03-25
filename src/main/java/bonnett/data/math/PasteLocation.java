@@ -15,6 +15,10 @@ public class PasteLocation {
         return pasteLocation;
     }
 
+    public BlockVector3 toBlockVector3() {
+        return BlockVector3.at(pasteLocation.getX(), pasteLocation.getY(), pasteLocation.getZ());
+    }
+
     private Location findPasteLocation(Location destination, Clipboard clipboard) {
         BlockVector3 copyLoc = clipboard.getOrigin();
         BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();

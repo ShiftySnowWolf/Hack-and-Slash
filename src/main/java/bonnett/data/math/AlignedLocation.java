@@ -2,11 +2,11 @@ package bonnett.data.math;
 
 import org.bukkit.Location;
 
-public class AlignLocation {
+public class AlignedLocation {
     Location startingLocation;
     Location alignedLocation;
 
-    public AlignLocation(Location location) {
+    public AlignedLocation(Location location) {
         startingLocation = location;
         alignLocation();
     }

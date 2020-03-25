@@ -2,7 +2,8 @@ package bonnett.commands;
 
 import bonnett.Main;
 import bonnett.data.Doors;
-import bonnett.data.math.AlignLocation;
+import bonnett.data.math.AlignedLocation;
+import bonnett.data.math.PasteLocation;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.WorldEditException;
@@ -68,11 +69,11 @@ public class Generate {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             senderLoc = player.getLocation();
-            alignedLoc = new AlignLocation(senderLoc).getAlignedLocation();
+            alignedLoc = new AlignedLocation(senderLoc).getAlignedLocation();
         } else if (commandSender instanceof CommandBlock) {
             CommandBlock commBlock = (CommandBlock) commandSender;
             senderLoc = commBlock.getLocation();
-            alignedLoc = new AlignLocation(senderLoc).getAlignedLocation();
+            alignedLoc = new AlignedLocation(senderLoc).getAlignedLocation();
         } else {
             commandSender.sendMessage("This command cannot be run from console!");
             return false;
@@ -106,16 +107,7 @@ public class Generate {
         try (ClipboardReader reader = format.getReader(new FileInputStream(bossRoom))) {
             clipboard = reader.read();
         }
-        BlockVector3 copyLoc = clipboard.getOrigin();
-        BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
-        BlockVector3 offset = BlockVector3.at(
-        cornerMin.getX() - copyLoc.getX(),
-        cornerMin.getY() - copyLoc.getY(),
-        cornerMin.getZ() - copyLoc.getZ());
-        BlockVector3 adjLoc = BlockVector3.at(
-        alignedLoc.getX() - offset.getX(),
-        alignedLoc.getY() - offset.getY(),
-        alignedLoc.getZ() - offset.getZ());
+        PasteLocation pasteLoc = new PasteLocation(alignedLoc, clipboard);
         absMinLocation = BlockVector3.at(
         alignedLoc.getX() + (size * 16),
         alignedLoc.getY(),
@@ -124,7 +116,7 @@ public class Generate {
         try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
         .getEditSession(new BukkitWorld(alignedLoc.getWorld()), -1)) {
             Operation operation = new ClipboardHolder(clipboard).createPaste(editSession)
-            .to(adjLoc)
+            .to(pasteLoc.toBlockVector3())
             // Configure here.
             .build();
 
