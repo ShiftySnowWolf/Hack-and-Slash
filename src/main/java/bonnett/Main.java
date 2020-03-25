@@ -78,5 +78,6 @@ public class Main extends JavaPlugin {
         max_size = config.getInt("max_size");
         min_size = config.getInt("min_size");
         generate_peaceful = config.getBoolean("generate_peaceful");
+        include_template = config.getBoolean("include_template");
     }
 }

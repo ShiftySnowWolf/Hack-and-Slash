@@ -81,7 +81,7 @@ public class SelectRandomSchematic {
         return null;
     }
     
-    private Clipboard selectBossRoom(String template) throws IOException {
+    private Clipboard selectBossRoom(String template) {
         String path = template + File.separator + "rooms" + File.separator + "boss";
         Clipboard schematic;
 
