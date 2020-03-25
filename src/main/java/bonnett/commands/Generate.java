@@ -2,6 +2,7 @@ package bonnett.commands;
 
 import bonnett.Main;
 import bonnett.data.Doors;
+import bonnett.data.math.AlignLocation;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.WorldEditException;
@@ -42,7 +43,7 @@ public class Generate {
         String type = strings[0];
         typePath = null;
         int size;
-        Location loc;
+        Location senderLoc;
         // Type folder location finder.
         for (String t : types) {
             if (t.compareToIgnoreCase(type) == 0) {
@@ -66,14 +67,12 @@ public class Generate {
         // Sender type detection and location getter.
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            loc = player.getLocation();
-            alignedLoc = new Location(loc.getWorld(), loc.getChunk().getX() * 16, loc.getY(),
-            loc.getChunk().getZ() * 16);
+            senderLoc = player.getLocation();
+            alignedLoc = new AlignLocation(senderLoc).getAlignedLocation();
         } else if (commandSender instanceof CommandBlock) {
             CommandBlock commBlock = (CommandBlock) commandSender;
-            loc = commBlock.getLocation();
-            alignedLoc = new Location(loc.getWorld(), loc.getChunk().getX() * 16, loc.getY(),
-            loc.getChunk().getZ() * 16);
+            senderLoc = commBlock.getLocation();
+            alignedLoc = new AlignLocation(senderLoc).getAlignedLocation();
         } else {
             commandSender.sendMessage("This command cannot be run from console!");
             return false;
@@ -88,7 +87,7 @@ public class Generate {
         return false;
     }
     
-    public boolean generateDungeon(int size, Location loc) throws IOException {
+    public boolean generateDungeon(int size, Location alignedLoc) throws IOException {
         arraySize = size * 2 + 3;
         int[][] usedChunks = new int[arraySize][arraySize];
         for (int i = 0; i < arraySize; i++) {
@@ -114,31 +113,31 @@ public class Generate {
         cornerMin.getY() - copyLoc.getY(),
         cornerMin.getZ() - copyLoc.getZ());
         BlockVector3 adjLoc = BlockVector3.at(
-        loc.getX() - offset.getX(),
-        loc.getY() - offset.getY(),
-        loc.getZ() - offset.getZ());
+        alignedLoc.getX() - offset.getX(),
+        alignedLoc.getY() - offset.getY(),
+        alignedLoc.getZ() - offset.getZ());
         absMinLocation = BlockVector3.at(
-        loc.getX() + (size * 16), 
-        loc.getY(), 
-        loc.getZ() + (size * 16));
+        alignedLoc.getX() + (size * 16),
+        alignedLoc.getY(),
+        alignedLoc.getZ() + (size * 16));
 
         try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
-        .getEditSession(new BukkitWorld(loc.getWorld()), -1)) {
+        .getEditSession(new BukkitWorld(alignedLoc.getWorld()), -1)) {
             Operation operation = new ClipboardHolder(clipboard).createPaste(editSession)
             .to(adjLoc)
             // Configure here.
             .build();
 
             Operations.complete(operation);
-            usedChunks = markUsedChunks(clipboard, loc, absMinLocation, usedChunks);
+            usedChunks = markUsedChunks(clipboard, alignedLoc, absMinLocation, usedChunks);
             printUsedChunks(usedChunks);
-            Doors doors = new Doors(clipboard, loc);
+            Doors doors = new Doors(clipboard, alignedLoc);
             if (hasNorthDoors(clipboard)) {
                 Location doorLoc;
                 Location[] northDoors = doors.getNorthDoors();
                 for (int i = 0; i < northDoors.length; i++) {
                     if (northDoors[i].getY() > -1) {
-                        doorLoc = new Location(loc.getWorld(), loc.getX() + (8 + (16 * i)), loc.getY() + northDoors[i].getY(), loc.getZ());
+                        doorLoc = new Location(alignedLoc.getWorld(), alignedLoc.getX() + (8 + (16 * i)), alignedLoc.getY() + northDoors[i].getY(), alignedLoc.getZ());
                         generateNorthRoom(typePath, doorLoc, usedChunks);
                     }
                 }

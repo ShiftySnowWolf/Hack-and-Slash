@@ -1,4 +1,4 @@
-package bonnett.tabCompleters;
+package bonnett.data;
 
 import bonnett.Main;
 import org.bukkit.command.Command;
@@ -8,7 +8,7 @@ import org.bukkit.command.TabCompleter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class generateTabCompleter implements TabCompleter {
+public class PluginTabCompleter implements TabCompleter {
     
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
