@@ -34,13 +34,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7c6618c-6ffb-4809-bd15-0002b3debf32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/commands/generate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/Generate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/commands/reloadTemplates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/commands/ReloadTemplates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/commandGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/CommandGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/selectRandomSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/SelectRandomSchematic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/tabCompleters/generateTabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/PluginTabCompleter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bonnett/data/SelectRandomSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bonnett/data/SelectRandomSchematic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585105692562</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Random schem rebuild">
+      <created>1585107861117</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1585107861117</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -375,7 +376,8 @@
     <MESSAGE value="Local Schematic getter implemented." />
     <MESSAGE value="Room schematics included" />
     <MESSAGE value="Cleanup phase 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup phase 1" />
+    <MESSAGE value="Random schem rebuild" />
+    <option name="LAST_COMMIT_MESSAGE" value="Random schem rebuild" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -403,10 +405,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="430" y="231" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.768@0.0.1366.768" timestamp="1584936956663" />
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1585105687676">
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2" timestamp="1585107857676">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585105687676" />
+    <state x="405" y="0" width="804" height="569" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585107857676" />
     <state x="441" y="99" key="DetectedRootsChooserDialog" timestamp="1584909899220">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -455,10 +457,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="152" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1585012707138" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1585105695132">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1585107864440">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585105695132" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585107864440" />
     <state x="92" y="92" width="1182" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584992707878">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -471,10 +473,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="391" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.768@0.0.1366.768" timestamp="1584909879359" />
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585107635689">
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585108032488">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1585107635689" />
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1585108032488" />
     <state x="0" y="0" width="607" height="768" key="find.popup" timestamp="1584673479776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

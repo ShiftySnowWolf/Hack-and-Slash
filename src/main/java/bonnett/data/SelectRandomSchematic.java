@@ -19,10 +19,7 @@ public class SelectRandomSchematic {
 
     public Clipboard getNext(String template, boolean isBoss) throws IOException {
         Clipboard returnSchem;
-        boolean isLocal = false;
         String temp = template.toUpperCase();
-        
-        if (temp.equals("TEMPLATE") || temp.equals("DEFAULT_EERIE") || temp.equals("DEFAULT_MINE") || temp.equals("DEFAULT_OVERGROWTH")) { isLocal = true; }
         
         if (isBoss) {
             returnSchem = selectBossRoom(template);
