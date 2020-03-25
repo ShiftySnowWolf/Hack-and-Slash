@@ -29,7 +29,7 @@ public class Main extends JavaPlugin {
     public static String[] validPalettes;
     public static File paletteList;
 
-    @SuppressWarnings({"ConstantConditions"})
+    @SuppressWarnings({"ConstantConditions", "Security"})
     @Override
     public void onEnable() {
         plugin = this;
@@ -73,6 +73,10 @@ public class Main extends JavaPlugin {
     }
 
     private void loadConfig() {
-        //config.getInt("");
+        config = this.getConfig();
+        generation_speed = config.getInt("generation_speed");
+        max_size = config.getInt("max_size");
+        min_size = config.getInt("min_size");
+        generate_peaceful = config.getBoolean("generate_peaceful");
     }
 }
