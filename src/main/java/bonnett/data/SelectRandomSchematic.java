@@ -19,7 +19,6 @@ public class SelectRandomSchematic {
 
     public Clipboard getNext(String template, boolean isBoss) throws IOException {
         Clipboard returnSchem;
-        String temp = template.toUpperCase();
         
         if (isBoss) {
             returnSchem = selectBossRoom(template);
