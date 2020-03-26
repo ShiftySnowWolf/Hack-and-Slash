@@ -5,6 +5,7 @@ import bonnett.commands.CommandGetter;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,7 +18,8 @@ import java.util.Arrays;
 public class Main extends JavaPlugin {
 
     //Soft dependencies
-    LuckPerms api;
+    public static LuckPerms api;
+    public static boolean isLuckPerms;
 
     //Configuration Files
     public static FileConfiguration config = null;
@@ -61,6 +63,8 @@ public class Main extends JavaPlugin {
 
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
         if (provider != null) { api = provider.getProvider(); }
+        Plugin softLuckPerms = Bukkit.getPluginManager().getPlugin("LuckPerms");
+        isLuckPerms = softLuckPerms != null;
 
         paletteList = new File(getDataFolder().toString() + File.separator + "dungeon_palettes");
         if (paletteList.isDirectory()) {
@@ -69,7 +73,7 @@ public class Main extends JavaPlugin {
         getLogger().info(">>> Loaded Templates:" + Arrays.toString(validPalettes));
     }
 
-    private void genDataFolder() {
+    public void genDataFolder() {
         //Location of the data folder
         Path dataFolder = Paths.get(String.valueOf(getDataFolder()));
         Path templateFolder = Paths.get(dataFolder + File.separator + "dungeon_palettes");
@@ -86,7 +90,7 @@ public class Main extends JavaPlugin {
         config = getConfig();
     }
 
-    private void loadConfig() {
+    public void loadConfig() {
         config = this.getConfig();
         generation_speed = config.getInt("generation_speed");
         max_size = config.getInt("max_size");
