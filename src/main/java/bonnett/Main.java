@@ -49,7 +49,7 @@ public class Main extends JavaPlugin {
         loadConfig();
         genDataFolder();
 
-        paletteList = new File(getDataFolder().toString() + File.separator + "dungeon_schematics");
+        paletteList = new File(getDataFolder().toString() + File.separator + "dungeon_palettes");
         if (paletteList.isDirectory()) {
             validPalettes = paletteList.list();
         }

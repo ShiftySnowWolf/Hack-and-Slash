@@ -1,4 +1,4 @@
-name: Chunk_Dungeons
+name: ChunkDungeons
 version: Dev-Re-1.0
 main: bonnett.Main
 api-version: "1.13"
@@ -11,6 +11,3 @@ commands:
   generatedungeon:
     description: Generates a dungeon.
     usage: /generatedungeon <TYPE> <SIZE>
-  generaterand:
-    description: Generates random schem from template
-    usage: /generaterand <TYPE>
