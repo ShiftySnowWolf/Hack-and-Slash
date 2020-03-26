@@ -3,20 +3,29 @@ package bonnett.data.math;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.Location;
+import org.bukkit.World;
 
 public class PasteLocation {
     Location pasteLocation;
+
+    /**
+      * Generates the location to paste a schematic so that the minLocation where blocks appear is at a given destination
+      */
 
     public PasteLocation(Location destination, Clipboard clipboard) {
         pasteLocation = findPasteLocation(destination, clipboard);
     }
 
-    public Location getPasteLocation() {
+    public Location toLocation() {
         return pasteLocation;
     }
 
     public BlockVector3 toBlockVector3() {
         return BlockVector3.at(pasteLocation.getX(), pasteLocation.getY(), pasteLocation.getZ());
+    }
+
+    public World getWorld() {
+        return pasteLocation.getWorld();
     }
 
     private Location findPasteLocation(Location destination, Clipboard clipboard) {
@@ -26,11 +35,10 @@ public class PasteLocation {
                 cornerMin.getX() - copyLoc.getX(),
                 cornerMin.getY() - copyLoc.getY(),
                 cornerMin.getZ() - copyLoc.getZ());
-        Location pasteLocation = new Location(destination.getWorld(),
+        return new Location(destination.getWorld(),
                 destination.getX() - offset.getX(),
                 destination.getY() - offset.getY(),
                 destination.getZ() - offset.getZ());
-        return pasteLocation;
     }
 
 }
