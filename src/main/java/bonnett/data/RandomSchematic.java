@@ -26,14 +26,14 @@ public class RandomSchematic {
             
             //Decision of which type of schematic to load.
             String path;
-            int roomOrHall = rand.nextInt(2); //Range: 0-1 >> 0 = Room | 1 = Hall
+            int roomOrHall = rand.nextInt(1); //Range: 0-1 >> 0 = Room | 1 = Hall
             int roomType; //Range: 0-4 >> 0 = One Chunk | 1 = Two Chunk | 2 = Three Chunk | 3 = Four Chunk | 4 = Six Chunk
             int hallType; //Range: 0-3 >> 0 = Straight | 1 = Two Way | 2 = Three Way | 3 = Corner
             String type;
             String subType = null;
             if (roomOrHall == 0) {
                 type = "rooms";
-                roomType = rand.nextInt(5);
+                roomType = rand.nextInt(1);
                 switch (roomType) {
                     case 0: { subType = "one_chunk";} break;
                     case 1: { subType = "two_chunk"; } break;

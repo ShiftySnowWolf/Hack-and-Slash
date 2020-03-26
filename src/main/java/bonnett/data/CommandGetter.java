@@ -13,21 +13,25 @@ import java.util.List;
 public class CommandGetter implements CommandExecutor {
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+    public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
 
-        List<String> entryRemover = new ArrayList<>(Arrays.asList(strings));
-        entryRemover.remove(0);
-        String[] newStrings = entryRemover.toArray(strings);
 
-        switch (strings[0]) {
+        commandSender.sendMessage(args[0]);
+        switch (args[0]) {
             case "generate": {
+                List<String> entryRemover = new ArrayList<>(Arrays.asList(args));
+                entryRemover.remove(0);
+                String[] newStrings = entryRemover.toArray(args);
                 Generate generate = new Generate();
-                generate.onCommand(commandSender, command, s, newStrings);
+                generate.onCommand(commandSender, command, label, newStrings);
             } break;
-            case "reloadTemplates": {
+            case "RELOADPALLETS": {
                 ReloadTemplates reload = new ReloadTemplates();
-                reload.onCommand(commandSender, command, s, newStrings);
+                reload.onCommand(commandSender, command, label, args);
             } break;
+            default: {
+                commandSender.sendMessage("You did it wrong fucker");
+            }
         }
 
         return false;

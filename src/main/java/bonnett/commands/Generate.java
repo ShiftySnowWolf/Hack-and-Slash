@@ -5,8 +5,8 @@ import bonnett.data.Doors;
 import bonnett.data.RandomSchematic;
 import bonnett.data.UsedChunks;
 import bonnett.data.math.*;
-
 import bonnett.generation.Room;
+
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.WorldEditException;
@@ -40,9 +40,10 @@ public class Generate {
     private String[] types = Main.validPalettes;
     private File paletteList = Main.paletteList;
     private File typePath;
+    private String type;
 
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        String type = strings[0];
+        type = strings[0];
         typePath = null;
         int size;
         Location senderLoc;
@@ -126,7 +127,7 @@ public class Generate {
                                 alignedLoc.getX() + (8 + (16 * i)),
                                 alignedLoc.getY() + northDoors[i].getY(),
                                 alignedLoc.getZ());
-                        Room northRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
+                        Room northRoom = new Room(new RandomSchematic().getNext(type, false),
                                 doorLoc, Direction.NORTH);
                     }
                 }
@@ -139,7 +140,7 @@ public class Generate {
                                 alignedLoc.getX() + (8 + (16 * i)),
                                 alignedLoc.getY() + southDoors[i].getY(),
                                 alignedLoc.getZ());
-                        Room northRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
+                        Room southRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
                                 doorLoc, Direction.SOUTH);
                     }
                 }
@@ -152,8 +153,8 @@ public class Generate {
                                 alignedLoc.getX() + (8 + (16 * i)),
                                 alignedLoc.getY() + eastDoors[i].getY(),
                                 alignedLoc.getZ());
-                        Room northRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
-                                doorLoc, Direction.NORTH);
+                        Room eastRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
+                                doorLoc, Direction.EAST);
                     }
                 }
             } else if (doors.hasWestDoors()) {
@@ -165,8 +166,8 @@ public class Generate {
                                 alignedLoc.getX() + (8 + (16 * i)),
                                 alignedLoc.getY() + westDoors[i].getY(),
                                 alignedLoc.getZ());
-                        Room northRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
-                                doorLoc, Direction.NORTH);
+                        Room westRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
+                                doorLoc, Direction.WEST);
                     }
                 }
             }

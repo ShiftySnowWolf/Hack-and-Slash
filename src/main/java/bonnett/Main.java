@@ -38,7 +38,7 @@ public class Main extends JavaPlugin {
         pluginSetup();
 
         //Commands initialization
-        this.getCommand("ChunkDungeons").setExecutor(new CommandGetter());
+        this.getCommand("chunkdungeons").setExecutor(new CommandGetter());
     }
 
     @Override

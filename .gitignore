@@ -3,6 +3,7 @@
 .settings/
 .vscode/
 target/
+.gradle/
 
 # Compiled class file
 *.class
