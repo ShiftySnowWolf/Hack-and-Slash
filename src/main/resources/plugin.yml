@@ -7,6 +7,7 @@ authors:
   - Bonn2
 depend:
   - WorldEdit
+  - LuckPerms
 commands:
   chunkdungeons:
     description: Main command
