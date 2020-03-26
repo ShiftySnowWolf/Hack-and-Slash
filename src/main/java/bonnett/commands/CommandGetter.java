@@ -1,7 +1,5 @@
 package bonnett.commands;
 
-import bonnett.commands.Generate;
-import bonnett.commands.Reload;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,8 +12,8 @@ import java.util.List;
 public class CommandGetter implements CommandExecutor {
 
     @Override
-    public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String label, String[] args) {
-
+    public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String label, @Nonnull String[] args) {
+        if (!sender.hasPermission("chunkdungeons.admin")) { return false; }
 
         switch (args[0]) {
             case "generate": {
@@ -35,7 +33,7 @@ public class CommandGetter implements CommandExecutor {
             } break;
             case "reloadconfig": {
                 Reload reload = new Reload();
-                reload.config();
+                reload.config(sender);
             } break;
             default: {
                 sender.sendMessage("You did it wrong fucker!");

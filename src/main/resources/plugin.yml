@@ -9,7 +9,13 @@ depend:
   - WorldEdit
 softdepend:
   - LuckPerms
+loadbefore:
+  - LuckPerms
 commands:
   chunkdungeons:
     description: Main command
-    usage: /chunkdungeons <generate/reloadpalettes>
+    aliases:
+      - cd
+    permission: chunkdungeons.admin
+    permission-message: You do not have permission to use this command!
+    usage: /chunkdungeons [generate|reload|reloadconfig|reloadpalettes]

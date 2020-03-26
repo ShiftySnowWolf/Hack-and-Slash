@@ -13,6 +13,7 @@ public class PluginTabCompleter implements TabCompleter {
     
     @Override
     public List<String> onTabComplete(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String alias, String[] args) {
+        if (!sender.hasPermission("chunkdungeons.admin")) { return null; }
         List<String> output;
         String[] validTypes = Main.validPalettes;
 

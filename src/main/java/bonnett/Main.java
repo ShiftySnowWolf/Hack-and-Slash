@@ -61,10 +61,14 @@ public class Main extends JavaPlugin {
         genDataFolder();
         loadConfig();
 
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null) { api = provider.getProvider(); }
         Plugin softLuckPerms = Bukkit.getPluginManager().getPlugin("LuckPerms");
         isLuckPerms = softLuckPerms != null;
+        if (isLuckPerms) {
+            RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+            if (provider != null) {
+                api = provider.getProvider();
+            }
+        }
 
         paletteList = new File(getDataFolder().toString() + File.separator + "dungeon_palettes");
         if (paletteList.isDirectory()) {
