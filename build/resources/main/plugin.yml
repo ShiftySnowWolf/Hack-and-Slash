@@ -1,0 +1,13 @@
+name: ChunkDungeons
+version: Dev-Re-1.0
+main: bonnett.Main
+api-version: "1.13"
+authors:
+  - ShiftySnowWolf
+  - Bonn2
+depend:
+  - WorldEdit
+commands:
+  generatedungeon:
+    description: Generates a dungeon.
+    usage: /generatedungeon <TYPE> <SIZE>
