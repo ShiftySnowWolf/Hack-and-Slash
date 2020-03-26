@@ -1,10 +1,10 @@
 package bonnett.commands;
 
 import bonnett.data.Doors;
-import bonnett.data.RandomSchematic;
+import bonnett.data.paletteHandlers.InvalidPalette;
+import bonnett.data.paletteHandlers.RandomSchematic;
 import bonnett.data.UsedChunks;
 import bonnett.data.math.*;
-import bonnett.data.verification.PaletteChecker;
 import bonnett.generation.Room;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
@@ -26,7 +26,7 @@ public class Generate {
 
     public static UsedChunks usedChunks;
 
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public void onCommand(CommandSender sender, String[] args) {
         String type = args[0];
         
         // Sender type detection and location getter.
@@ -42,14 +42,14 @@ public class Generate {
             alignedLoc = new AlignedLocation(senderLoc);
         } else {
             sender.sendMessage("This command cannot be run from console!");
-            return false;
+            return;
         }
 
         //Validate requested palette
-        PaletteChecker validate = new PaletteChecker();
-        if (!validate.check(type)) {
+        InvalidPalette invalid = new InvalidPalette();
+        if (!invalid.check(type)) {
             sender.sendMessage("That is not a valid palette!");
-            return false;
+            return;
         }
 
         // Size integer parsing.
@@ -58,20 +58,19 @@ public class Generate {
             size = Integer.parseInt(args[1]);
             if (size < 1) {
                 sender.sendMessage("Size must be greater than 0!");
-                return false;
+                return;
             }
         } catch (NumberFormatException e) {
             sender.sendMessage("Size entered was not a whole number!");
-            return false;
+            return;
         }
         
         try {
-            return generateDungeon(type, size, alignedLoc);
+            generateDungeon(type, size, alignedLoc);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        return false;
+
     }
     
     public boolean generateDungeon(String type, int size, AlignedLocation alignedLoc) throws IOException {

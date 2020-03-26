@@ -28,9 +28,10 @@ public class Main extends JavaPlugin {
     public static Main plugin;
     public static String[] invalidPalettes;
     public static String[] validPalettes;
+    public static String[] blacklist = new String[0];
     public static File paletteList;
 
-    @SuppressWarnings({"ConstantConditions", "Security"})
+    @SuppressWarnings({"ConstantConditions"})
     @Override
     public void onEnable() {
         plugin = this;
@@ -54,7 +55,7 @@ public class Main extends JavaPlugin {
         if (paletteList.isDirectory()) {
             validPalettes = paletteList.list();
         }
-        System.out.println(pluginName + " >>>> Loaded Templates: " + Arrays.toString(validPalettes));
+        getLogger().info(">>> Loaded Templates:" + Arrays.toString(validPalettes));
     }
 
     private void genDataFolder() {
@@ -64,8 +65,9 @@ public class Main extends JavaPlugin {
 
         //Generate files
         if (!Files.isDirectory(dataFolder)) {
-            dataFolder.toFile().mkdirs();
-            templateFolder.toFile().mkdirs();
+            if (!dataFolder.toFile().mkdirs() || templateFolder.toFile().mkdirs()) {
+                getLogger().warning("Failed to make data folder and or directories!");
+            }
         }
 
         //Generate config.

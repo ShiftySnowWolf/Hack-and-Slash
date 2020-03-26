@@ -1,4 +1,4 @@
-package bonnett.data.verification;
+package bonnett.data.paletteHandlers;
 
 import bonnett.Main;
 

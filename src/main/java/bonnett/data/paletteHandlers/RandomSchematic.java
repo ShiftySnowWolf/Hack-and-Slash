@@ -1,4 +1,4 @@
-package bonnett.data;
+package bonnett.data.paletteHandlers;
 
 import bonnett.Main;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
@@ -16,10 +16,10 @@ import java.util.Random;
 public class RandomSchematic {
     
     private Main plugin = Main.plugin;
+    private String[] invalid = Main.invalidPalettes;
+    private String[] blacklist = Main.blacklist;
     private Random rand = new Random();
     private String paletteFolder = plugin.getDataFolder().toString() + File.separator + "dungeon_palettes" + File.separator;
-
-    private static String[] blacklist = new String[0];
 
     public Clipboard getNext(String palette, boolean isBoss) {
         Clipboard returnSchem;
@@ -64,7 +64,8 @@ public class RandomSchematic {
     
     private Clipboard selectSubRoom(String palette, String path, int tries) {
         if (tries >= 4) {
-            System.err.println("Too many invalid schematics in the '" + palette.toUpperCase() + "' palette!");
+            plugin.getLogger().warning("Too many invalid schematics in the '" + palette.toUpperCase() + "' palette!\n" +
+                    "Disabling this palette! Please make sure your schematics are divisible by 16 on X and Z planes.");
             return null;
         }
 
