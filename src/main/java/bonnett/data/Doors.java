@@ -1,5 +1,6 @@
 package bonnett.data;
 
+import bonnett.data.math.AlignedLocation;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.world.block.BlockState;
@@ -20,11 +21,11 @@ public class Doors {
     boolean hasEastDoors;
     boolean hasWestDoors;
 
-    public Doors(Clipboard clipboard, Location minPasteLocation) {
-        northDoors = getNorthDoors(clipboard, minPasteLocation);
-        southDoors = getSouthDoors(clipboard, minPasteLocation);
-        eastDoors = getEastDoors(clipboard, minPasteLocation);
-        westDoors = getWestDoors(clipboard, minPasteLocation);
+    public Doors(Clipboard clipboard, AlignedLocation minPasteLocation) {
+        northDoors = getNorthDoors(clipboard, minPasteLocation.toLocation());
+        southDoors = getSouthDoors(clipboard, minPasteLocation.toLocation());
+        eastDoors = getEastDoors(clipboard, minPasteLocation.toLocation());
+        westDoors = getWestDoors(clipboard, minPasteLocation.toLocation());
         hasNorthDoors = hasDoors(northDoors);
         hasSouthDoors = hasDoors(southDoors);
         hasEastDoors = hasDoors(eastDoors);

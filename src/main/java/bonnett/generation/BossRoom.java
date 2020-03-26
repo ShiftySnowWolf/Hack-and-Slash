@@ -1,4 +1,4 @@
 package bonnett.generation;
 
-public class GenerateHall {
+public class BossRoom {
 }

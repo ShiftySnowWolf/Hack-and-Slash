@@ -3,6 +3,7 @@ package bonnett.data.math;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.Location;
+import org.bukkit.World;
 
 public class PasteLocation {
     Location pasteLocation;
@@ -21,6 +22,10 @@ public class PasteLocation {
 
     public BlockVector3 toBlockVector3() {
         return BlockVector3.at(pasteLocation.getX(), pasteLocation.getY(), pasteLocation.getZ());
+    }
+
+    public World getWorld() {
+        return pasteLocation.getWorld();
     }
 
     private Location findPasteLocation(Location destination, Clipboard clipboard) {

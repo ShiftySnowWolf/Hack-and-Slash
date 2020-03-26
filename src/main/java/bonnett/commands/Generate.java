@@ -2,12 +2,11 @@ package bonnett.commands;
 
 import bonnett.Main;
 import bonnett.data.Doors;
+import bonnett.data.RandomSchematic;
 import bonnett.data.UsedChunks;
-import bonnett.data.math.AlignedLocation;
-import bonnett.data.math.BossRoomMinLocation;
-import bonnett.data.math.DungeonMinLocation;
-import bonnett.data.math.PasteLocation;
+import bonnett.data.math.*;
 
+import bonnett.generation.Room;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.WorldEditException;
@@ -27,17 +26,18 @@ import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.graalvm.compiler.lir.LIRInstruction;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Generate {
-    
-    public AlignedLocation alignedLoc;
-    public DungeonMinLocation dungeonMinLocation;
-    public UsedChunks usedChunks;
-    
+
+    public static UsedChunks usedChunks;
+
+    private AlignedLocation alignedLoc;
+    private DungeonMinLocation dungeonMinLocation;
     private String[] types = Main.validPalettes;
     private File paletteList = Main.paletteList;
     private File typePath;
@@ -117,18 +117,59 @@ public class Generate {
 
             usedChunks.markUsedChunks(clipboard, alignedLoc);
             usedChunks.printUsedChunks();
-            Doors doors = new Doors(clipboard, alignedLoc.toLocation());
+            Doors doors = new Doors(clipboard, alignedLoc);
             if (doors.hasNorthDoors()) {
                 Location doorLoc;
                 Location[] northDoors = doors.getNorthDoors();
                 for (int i = 0; i < northDoors.length; i++) {
                     if (northDoors[i].getY() > -1) {
-                        doorLoc = new Location(alignedLoc.getWorld(), alignedLoc.getX() + (8 + (16 * i)), alignedLoc.getY() + northDoors[i].getY(), alignedLoc.getZ());
-                        generateNorthRoom(typePath, doorLoc);
+                        doorLoc = new Location(alignedLoc.getWorld(),
+                                alignedLoc.getX() + (8 + (16 * i)),
+                                alignedLoc.getY() + northDoors[i].getY(),
+                                alignedLoc.getZ());
+                        Room northRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
+                                doorLoc, Direction.NORTH);
                     }
                 }
             } else if (doors.hasSouthDoors()) {
-                
+                Location doorLoc;
+                Location[] southDoors = doors.getSouthDoors();
+                for (int i = 0; i < southDoors.length; i++) {
+                    if (southDoors[i].getY() > -1) {
+                        doorLoc = new Location(alignedLoc.getWorld(),
+                                alignedLoc.getX() + (8 + (16 * i)),
+                                alignedLoc.getY() + southDoors[i].getY(),
+                                alignedLoc.getZ());
+                        Room northRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
+                                doorLoc, Direction.SOUTH);
+                    }
+                }
+            } else if (doors.hasEastDoors()) {
+                Location doorLoc;
+                Location[] eastDoors = doors.getEastDoors();
+                for (int i = 0; i < eastDoors.length; i++) {
+                    if (eastDoors[i].getY() > -1) {
+                        doorLoc = new Location(alignedLoc.getWorld(),
+                                alignedLoc.getX() + (8 + (16 * i)),
+                                alignedLoc.getY() + eastDoors[i].getY(),
+                                alignedLoc.getZ());
+                        Room northRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
+                                doorLoc, Direction.NORTH);
+                    }
+                }
+            } else if (doors.hasWestDoors()) {
+                Location doorLoc;
+                Location[] westDoors = doors.getWestDoors();
+                for (int i = 0; i < westDoors.length; i++) {
+                    if (westDoors[i].getY() > -1) {
+                        doorLoc = new Location(alignedLoc.getWorld(),
+                                alignedLoc.getX() + (8 + (16 * i)),
+                                alignedLoc.getY() + westDoors[i].getY(),
+                                alignedLoc.getZ());
+                        Room northRoom = new Room(new RandomSchematic().getNext(typePath.toString(), false),
+                                doorLoc, Direction.NORTH);
+                    }
+                }
             }
         } catch (WorldEditException e) {
             e.printStackTrace();

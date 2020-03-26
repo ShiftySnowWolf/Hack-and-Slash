@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Random;
 
-public class SelectRandomSchematic {
+public class RandomSchematic {
     
     private Main plugin = Main.plugin;
     private Random rand = new Random();
