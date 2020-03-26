@@ -1,7 +1,7 @@
 package bonnett.data;
 
 import bonnett.commands.Generate;
-import bonnett.commands.ReloadTemplates;
+import bonnett.commands.ReloadPalettes;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -26,7 +26,7 @@ public class CommandGetter implements CommandExecutor {
                 generate.onCommand(sender, newStrings);
             } break;
             case "reloadpalettes": {
-                ReloadTemplates reload = new ReloadTemplates();
+                ReloadPalettes reload = new ReloadPalettes();
                 reload.onCommand(sender);
             } break;
             default: {

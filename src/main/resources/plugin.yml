@@ -10,4 +10,4 @@ depend:
 commands:
   chunkdungeons:
     description: Main command
-    usage: /chunkdungeons <generate/reloadtemplates>
+    usage: /chunkdungeons <generate/reloadpalettes>
