@@ -6,6 +6,7 @@ import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.world.block.BlockState;
 import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Location;
+import org.bukkit.block.Block;
 
 public class Doors {
     Location[] northDoors;
@@ -37,10 +38,10 @@ public class Doors {
         southDoorsNoLoc= getSouthDoorsNoLoc(clipboard);
         eastDoorsNoLoc = getEastDoorsNoLoc(clipboard);
         westDoorsNoLoc = getWestDoorsNoLoc(clipboard);
-        hasNorthDoors = hasDoors(northDoors);
-        hasSouthDoors = hasDoors(southDoors);
-        hasEastDoors = hasDoors(eastDoors);
-        hasWestDoors = hasDoors(westDoors);
+        hasNorthDoors = hasDoorsNoLoc(northDoorsNoLoc);
+        hasSouthDoors = hasDoorsNoLoc(southDoorsNoLoc);
+        hasEastDoors = hasDoorsNoLoc(eastDoorsNoLoc);
+        hasWestDoors = hasDoorsNoLoc(westDoorsNoLoc);
     }
 
     public Location[] getNorthDoors() {
@@ -98,6 +99,13 @@ public class Doors {
         return false;
     }
 
+    private boolean hasDoorsNoLoc(BlockVector3[] doors) {
+        for (BlockVector3 door : doors) {
+            if (door.getY() > -1) {return true;}
+        }
+        return false;
+    }
+
     private Location[] getNorthDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         Location[] doorLocations = new Location[arraySize];
@@ -110,15 +118,16 @@ public class Doors {
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
-            doorLocations[i].setWorld(minPasteLocation.getWorld());
-            doorLocations[i].setY(-1);
-            doorLocations[i].setX(minPasteLocation.getX() + xOffset);
-            doorLocations[i].setZ(minPasteLocation.getZ());
+            doorLocations[i] = new Location(
+                    minPasteLocation.getWorld(),
+                    minPasteLocation.getX() + xOffset,
+                    -1,
+                    minPasteLocation.getZ());
             for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
-                    doorLocations[i].setY(yLocation - startingYLocation);
+                    doorLocations[i].setY(yLocation - startingYLocation + minPasteLocation.getBlockY());
                     break;
                 }
             }
@@ -142,15 +151,17 @@ public class Doors {
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
-            doorLocations[i].setWorld(minPasteLocation.getWorld());
-            doorLocations[i].setY(-1);
-            doorLocations[i].setX(minPasteLocation.getX() + xOffset);
-            doorLocations[i].setZ(minPasteLocation.getZ());
+            doorLocations[i] = new Location(
+                    minPasteLocation.getWorld(),
+                    minPasteLocation.getX() + xOffset,
+                    -1,
+                    minPasteLocation.getZ());
+
             for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
-                    doorLocations[i].setY(yLocation - startingYLocation);
+                    doorLocations[i].setY(yLocation - startingYLocation + minPasteLocation.getBlockY());
                     break;
                 }
             }
@@ -173,15 +184,16 @@ public class Doors {
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
-            doorLocations[i].setWorld(minPasteLocation.getWorld());
-            doorLocations[i].setY(-1);
-            doorLocations[i].setX(minPasteLocation.getX());
-            doorLocations[i].setZ(minPasteLocation.getZ() + zOffset);
+            doorLocations[i] = new Location(minPasteLocation.getWorld(),
+                    minPasteLocation.getX(),
+                    -1,
+                    minPasteLocation.getZ() + zOffset);
+
             for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
-                    doorLocations[i].setY(yLocation - startingYLocation);
+                    doorLocations[i].setY(yLocation - startingYLocation + minPasteLocation.getBlockY());
                     break;
                 }
             }
@@ -205,15 +217,16 @@ public class Doors {
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
-            doorLocations[i].setWorld(minPasteLocation.getWorld());
-            doorLocations[i].setY(-1);
-            doorLocations[i].setX(minPasteLocation.getX());
-            doorLocations[i].setZ(minPasteLocation.getZ() + zOffset);
+            doorLocations[i] = new Location(minPasteLocation.getWorld(),
+                    minPasteLocation.getX(),
+                    -1,
+                    minPasteLocation.getZ() + zOffset);
+
             for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
-                    doorLocations[i].setY(yLocation - startingYLocation);
+                    doorLocations[i].setY(yLocation - startingYLocation + minPasteLocation.getBlockY());
                     break;
                 }
             }
@@ -236,9 +249,7 @@ public class Doors {
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
-            doorLocations[i] = doorLocations[i].withY(-1);
-            doorLocations[i] = doorLocations[i].withX(xOffset);
-            doorLocations[i] = doorLocations[i].withZ(0);
+            doorLocations[i] = BlockVector3.at(xOffset, -1, 0);
             for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
@@ -267,9 +278,7 @@ public class Doors {
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
-            doorLocations[i] = doorLocations[i].withY(-1);
-            doorLocations[i] = doorLocations[i].withX(xOffset);
-            doorLocations[i] = doorLocations[i].withZ(0);
+            doorLocations[i] = BlockVector3.at(xOffset, -1, 0);
             for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
@@ -297,9 +306,7 @@ public class Doors {
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
-            doorLocations[i] = doorLocations[i].withY(-1);
-            doorLocations[i] = doorLocations[i].withX(0);
-            doorLocations[i] = doorLocations[i].withZ(zOffset);
+            doorLocations[i] = BlockVector3.at(0, -1, zOffset);
             for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
@@ -328,9 +335,7 @@ public class Doors {
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
-            doorLocations[i] = doorLocations[i].withY(-1);
-            doorLocations[i] = doorLocations[i].withX(0);
-            doorLocations[i] = doorLocations[i].withZ(zOffset);
+            doorLocations[i] = BlockVector3.at(0, -1, zOffset);
             for (int startingYLocation = cornerMin.getY(); yLocation < startingYLocation + clipboardHeight; yLocation++) {
                 BlockVector3 checkLoc = BlockVector3.at(xLocation, yLocation, zLocation);
                 BlockState checkBlock = clipboard.getBlock(checkLoc);

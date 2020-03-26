@@ -33,6 +33,7 @@ public class Room {
 
     public Room(Clipboard clipboard, Location doorLocation, Direction generateDirection) {
         clip = clipboard;
+        System.out.println(clip.getDimensions().toString());
         clipHolder = new ClipboardHolder(clip);
         startingLocation = doorLocation;
         Direction[] validDirections = new Direction[]{Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST};
@@ -40,22 +41,22 @@ public class Room {
 
         switch (generateDirection) {
             case NORTH: {
-                findClipRotation(validDirections, Direction.NORTH);
+                rotation = findClipRotation(validDirections, Direction.NORTH);
                 generateNorth();
                 break;
             }
             case SOUTH: {
-                findClipRotation(validDirections, Direction.SOUTH);
+                rotation = findClipRotation(validDirections, Direction.SOUTH);
                 generateSouth();
                 break;
             }
             case EAST: {
-                findClipRotation(validDirections, Direction.EAST);
+                rotation = findClipRotation(validDirections, Direction.EAST);
                 generateEast();
                 break;
             }
             case WEST: {
-                findClipRotation(validDirections, Direction.WEST);
+                rotation = findClipRotation(validDirections, Direction.WEST);
                 generateWest();
                 break;
             }
@@ -194,7 +195,7 @@ public class Room {
     }
 
     private Direction intToDirectionMapping(int num, Direction[] validDirections) {
-        return validDirections[num - 1];
+        return validDirections[num];
     }
 
     private void generateNorth() {
@@ -344,6 +345,7 @@ public class Room {
     private void generateWest() {
         AlignedLocation alignedLocation;
         PasteLocation pasteLocation;
+        System.out.println("Rotation: " + rotation);
         switch (rotation) {
             case 0:
             case 180: {
@@ -373,8 +375,11 @@ public class Room {
             }
         }
         pasteLocation = new PasteLocation(alignedLocation.toLocation(), clip);
+        System.out.println(pasteLocation.toBlockVector3().getX());
+        System.out.println(pasteLocation.toBlockVector3().getY());
+        System.out.println(pasteLocation.toBlockVector3().getZ());
 
-        clipHolder.setTransform(new AffineTransform().rotateY(rotation));
+        clipHolder.setTransform(new AffineTransform().rotateY(-rotation));
 
         try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
                 .getEditSession(new BukkitWorld(pasteLocation.getWorld()), -1)) {

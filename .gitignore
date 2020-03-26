@@ -4,6 +4,7 @@
 .vscode/
 target/
 .gradle/
+build/
 
 # Compiled class file
 *.class

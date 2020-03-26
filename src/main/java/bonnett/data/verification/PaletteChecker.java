@@ -12,11 +12,13 @@ public class PaletteChecker {
 
     public boolean check(String palette) {
         boolean exit;
-        if (!(exit = Arrays.asList(invalid).contains(palette))) {
+        if (invalid == null || !(exit = Arrays.asList(invalid).contains(palette))) {
             if (!(exit = Arrays.asList(valid).contains(palette))) {
-                List<String> addNewInvalidType = Arrays.asList(invalid);
-                addNewInvalidType.add(palette);
-                invalid = addNewInvalidType.toArray(String[]::new);
+                if (invalid != null) {
+                    List<String> addNewInvalidType = Arrays.asList(invalid);
+                    addNewInvalidType.add(palette);
+                    invalid = addNewInvalidType.toArray(String[]::new);
+                } else { invalid = new String[]{palette}; }
             }
         }
         return exit;

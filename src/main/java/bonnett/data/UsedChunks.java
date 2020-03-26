@@ -45,8 +45,8 @@ public class UsedChunks {
                 clipboard.getDimensions().getY(),
                 clipboard.getDimensions().getZ() / 16);
         BlockVector2 distanceFromMin = BlockVector2.at(
-                dungeonMinLocation.getX() - alignedLocation.getX(),
-                dungeonMinLocation.getZ() - alignedLocation.getZ());
+                alignedLocation.getX() - dungeonMinLocation.getX(),
+                alignedLocation.getZ() - dungeonMinLocation.getZ());
         BlockVector2 chunkDistFromMin = distanceFromMin.divide(16);
 
         for (int i = 0; i < sizeInChunks.getX(); i++) {
@@ -65,8 +65,8 @@ public class UsedChunks {
                         clipboard.getDimensions().getY(),
                         clipboard.getDimensions().getZ() / 16);
                 BlockVector2 distanceFromMin = BlockVector2.at(
-                        dungeonMinLocation.getX() - alignedLocation.getX(),
-                        dungeonMinLocation.getZ() - alignedLocation.getZ());
+                        alignedLocation.getX() - dungeonMinLocation.getX(),
+                        alignedLocation.getZ() - dungeonMinLocation.getZ());
                 BlockVector2 chunkDistFromMin = distanceFromMin.divide(16);
 
                 for (int i = 0; i < sizeInChunks.getX(); i++) {
@@ -83,8 +83,8 @@ public class UsedChunks {
                         clipboard.getDimensions().getY(),
                         clipboard.getDimensions().getX() / 16);
                 BlockVector2 distanceFromMin = BlockVector2.at(
-                        dungeonMinLocation.getX() - alignedLocation.getX(),
-                        dungeonMinLocation.getZ() - alignedLocation.getZ());
+                        alignedLocation.getX() - dungeonMinLocation.getX(),
+                        alignedLocation.getZ() - dungeonMinLocation.getZ());
                 BlockVector2 chunkDistFromMin = distanceFromMin.divide(16);
 
                 for (int i = 0; i < sizeInChunks.getX(); i++) {
