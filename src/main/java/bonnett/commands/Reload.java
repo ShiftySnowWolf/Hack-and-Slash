@@ -48,10 +48,14 @@ public class Reload {
 
     private void softDependencies() {
         //LuckPerms
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null) { Main.api = provider.getProvider(); }
         Plugin softLuckPerms = Bukkit.getPluginManager().getPlugin("LuckPerms");
         Main.isLuckPerms = softLuckPerms != null;
+        if (Main.isLuckPerms) {
+            RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+            if (provider != null) {
+                Main.api = provider.getProvider();
+            }
+        }
 
         //Add more below
     }
