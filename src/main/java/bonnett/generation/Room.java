@@ -360,6 +360,9 @@ public class Room {
             }
             case 90:
             case 270: {
+                System.out.println("Starting location X: " + startingLocation.getX());
+                System.out.println("Starting location Y: " + startingLocation.getBlockY());
+                System.out.println("Starting location Z: " + startingLocation.getZ());
                 alignedLocation = new AlignedLocation(
                         new Location(startingLocation.getWorld(),
                                 startingLocation.getBlockX() - clip.getDimensions().getZ(),
@@ -374,7 +377,8 @@ public class Room {
                 return;
             }
         }
-        pasteLocation = new PasteLocation(alignedLocation.toLocation(), clip);
+        System.out.println("Aligned location: " + alignedLocation.getY());
+        pasteLocation = new PasteLocation(alignedLocation.toLocation(), clip, rotation, Direction.WEST);
         System.out.println(pasteLocation.toBlockVector3().getX());
         System.out.println(pasteLocation.toBlockVector3().getY());
         System.out.println(pasteLocation.toBlockVector3().getZ());
