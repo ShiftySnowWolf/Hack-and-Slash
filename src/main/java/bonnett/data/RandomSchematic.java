@@ -9,6 +9,8 @@ import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class RandomSchematic {
@@ -17,11 +19,13 @@ public class RandomSchematic {
     private Random rand = new Random();
     private String paletteFolder = plugin.getDataFolder().toString() + File.separator + "dungeon_palettes" + File.separator;
 
-    public Clipboard getNext(String template, boolean isBoss) throws IOException {
+    private static String[] blacklist = new String[0];
+
+    public Clipboard getNext(String palette, boolean isBoss) {
         Clipboard returnSchem;
         
         if (isBoss) {
-            returnSchem = selectBossRoom(template);
+            returnSchem = selectBossRoom(palette, 0);
         } else {
             
             //Decision of which type of schematic to load.
@@ -51,46 +55,67 @@ public class RandomSchematic {
                     case 3: { subType = "corner"; } break;
                 }
             }
-            path = template + File.separator + type + File.separator + subType;
-            returnSchem =  selectSubRoom(path);
+            path = palette + File.separator + type + File.separator + subType;
+            returnSchem =  selectSubRoom(palette, path, 0);
         }
         
         return returnSchem;
     }
     
-    private Clipboard selectSubRoom(String path) {
+    private Clipboard selectSubRoom(String palette, String path, int tries) {
+        if (tries >= 4) {
+            System.err.println("Too many invalid schematics in the '" + palette.toUpperCase() + "' palette!");
+            return null;
+        }
+
         Clipboard schematic;
+        String[] subSchem;
+        int selection;
 
         //Grabs the designated schematic.
         File schemLocation = new File(paletteFolder + path);
         if (schemLocation.isDirectory()) {
-            String[] subSchem = schemLocation.list();
+            subSchem = schemLocation.list();
             assert subSchem != null;
-            int selection = rand.nextInt(subSchem.length);
+            selection = rand.nextInt(subSchem.length);
             schemLocation = new File(schemLocation + File.separator + subSchem[selection]);
-        } else { return null; }
+        } else {
+            return null;
+        }
 
         ClipboardFormat format = ClipboardFormats.findByFile(schemLocation);
 
         assert format != null;
         try (ClipboardReader reader = format.getReader(new FileInputStream(schemLocation))) {
             schematic = reader.read();
+
+            if (Arrays.asList(blacklist).contains(subSchem[selection]) || sizeChecker(schematic, subSchem[selection])) {
+                selectSubRoom(palette, path, tries + 1);
+            }
+
             return schematic;
         } catch (IOException e) { e.printStackTrace(); }
 
         return null;
     }
-    
-    private Clipboard selectBossRoom(String template) {
-        String path = template + File.separator + "rooms" + File.separator + "boss";
+
+    private Clipboard selectBossRoom(String palette, int tries) {
+        if (tries >= 4) {
+            System.err.println("Too many invalid schematics in the '" + palette.toUpperCase() + "' palette!");
+            return null;
+        }
+
+        String path = palette + File.separator + "rooms" + File.separator + "boss";
         Clipboard schematic;
+        String[] subSchem;
+        int selection;
 
         //Grabs the designated schematic.
         File schemLocation = new File(paletteFolder + path);
         if (schemLocation.isDirectory()) {
-            String[] subSchem = schemLocation.list();
+            subSchem = schemLocation.list();
             assert subSchem != null;
-            int selection = rand.nextInt(subSchem.length);
+            selection = rand.nextInt(subSchem.length);
             schemLocation = new File(schemLocation + File.separator + subSchem[selection]);
         } else { return null; }
 
@@ -99,9 +124,29 @@ public class RandomSchematic {
         assert format != null;
         try (ClipboardReader reader = format.getReader(new FileInputStream(schemLocation))) {
             schematic = reader.read();
+
+            if (Arrays.asList(blacklist).contains(subSchem[selection]) || sizeChecker(schematic, subSchem[selection])) {
+                selectBossRoom(palette, tries + 1);
+            }
+
             return schematic;
         } catch (IOException e) { e.printStackTrace(); }
 
         return null;
+    }
+
+    private boolean sizeChecker(Clipboard clipboard, String selected) {
+        boolean exit = false;
+
+        double checkX = (double) clipboard.getDimensions().getX() / 16;
+        double checkZ = (double) clipboard.getDimensions().getZ() / 16;
+        if ((checkX % 1) == 0 && (checkZ % 1) == 0) { exit = true; }
+        if (!exit) {
+            List<String> addBlacklist = Arrays.asList(blacklist);
+            addBlacklist.add(selected);
+            blacklist = addBlacklist.toArray(String[]::new);
+        }
+
+        return !exit;
     }
 }
