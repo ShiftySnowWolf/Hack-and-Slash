@@ -46,8 +46,8 @@ public class Main extends JavaPlugin {
     }
 
     private void pluginSetup() {
-        loadConfig();
         genDataFolder();
+        loadConfig();
 
         paletteList = new File(getDataFolder().toString() + File.separator + "dungeon_palettes");
         if (paletteList.isDirectory()) {
@@ -61,15 +61,15 @@ public class Main extends JavaPlugin {
         Path dataFolder = Paths.get(String.valueOf(getDataFolder()));
         Path templateFolder = Paths.get(dataFolder + File.separator + "dungeon_palettes");
 
-        //Generate config.
-        saveResource("config.yml", false);
-        config = getConfig();
-
         //Generate files
         if (!Files.isDirectory(dataFolder)) {
             dataFolder.toFile().mkdirs();
             templateFolder.toFile().mkdirs();
         }
+
+        //Generate config.
+        saveResource("config.yml", false);
+        config = getConfig();
     }
 
     private void loadConfig() {

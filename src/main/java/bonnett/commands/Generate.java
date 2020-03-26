@@ -26,7 +26,6 @@ import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.graalvm.compiler.lir.LIRInstruction;
 
 import java.io.File;
 import java.io.FileInputStream;

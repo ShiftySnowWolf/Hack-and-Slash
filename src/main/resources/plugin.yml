@@ -8,6 +8,6 @@ authors:
 depend:
   - WorldEdit
 commands:
-  generatedungeon:
-    description: Generates a dungeon.
-    usage: /generatedungeon <TYPE> <SIZE>
+  chunkdungeons:
+    description: Main command
+    usage: /chunkdungeons <generate/reloadtemplates>
