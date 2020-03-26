@@ -66,7 +66,7 @@ public class RandomSchematic {
         if (schemLocation.isDirectory()) {
             String[] subSchem = schemLocation.list();
             assert subSchem != null;
-            int selection = rand.nextInt(subSchem.length + 1);
+            int selection = rand.nextInt(subSchem.length);
             schemLocation = new File(schemLocation + File.separator + subSchem[selection]);
         } else { return null; }
 
@@ -90,7 +90,7 @@ public class RandomSchematic {
         if (schemLocation.isDirectory()) {
             String[] subSchem = schemLocation.list();
             assert subSchem != null;
-            int selection = rand.nextInt(subSchem.length + 1);
+            int selection = rand.nextInt(subSchem.length);
             schemLocation = new File(schemLocation + File.separator + subSchem[selection]);
         } else { return null; }
 

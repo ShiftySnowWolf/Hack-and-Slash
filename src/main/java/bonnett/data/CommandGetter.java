@@ -16,7 +16,6 @@ public class CommandGetter implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
 
 
-        commandSender.sendMessage(args[0]);
         switch (args[0]) {
             case "generate": {
                 List<String> entryRemover = new ArrayList<>(Arrays.asList(args));
@@ -25,9 +24,12 @@ public class CommandGetter implements CommandExecutor {
                 Generate generate = new Generate();
                 generate.onCommand(commandSender, command, label, newStrings);
             } break;
-            case "RELOADPALLETS": {
+            case "reloadpalettes": {
+                List<String> entryRemover = new ArrayList<>(Arrays.asList(args));
+                entryRemover.remove(0);
+                String[] newStrings = entryRemover.toArray(args);
                 ReloadTemplates reload = new ReloadTemplates();
-                reload.onCommand(commandSender, command, label, args);
+                reload.onCommand(commandSender, command, label, newStrings);
             } break;
             default: {
                 commandSender.sendMessage("You did it wrong fucker");

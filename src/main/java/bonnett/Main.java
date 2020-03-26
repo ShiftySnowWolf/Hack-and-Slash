@@ -13,19 +13,20 @@ import java.util.Arrays;
 public class Main extends JavaPlugin {
 
     //Configuration Files
-    public FileConfiguration config = null;
+    public static FileConfiguration config = null;
 
     //Configuration
-    public int generation_speed;
-    public int max_size;
-    public int min_size;
-    public boolean generate_peaceful;
-    public boolean include_template;
+    public static int generation_speed;
+    public static int max_size;
+    public static int min_size;
+    public static boolean generate_peaceful;
+    public static boolean include_template;
 
     //Plugin Info
     public static String pluginName = "[ChunkDungeons]";
 
     public static Main plugin;
+    public static String[] invalidPalettes;
     public static String[] validPalettes;
     public static File paletteList;
 
