@@ -1,4 +1,4 @@
-package bonnett.data;
+package bonnett.commands;
 
 import bonnett.Main;
 import org.bukkit.command.Command;

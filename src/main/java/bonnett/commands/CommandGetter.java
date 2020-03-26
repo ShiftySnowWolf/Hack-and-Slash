@@ -1,7 +1,7 @@
-package bonnett.data;
+package bonnett.commands;
 
 import bonnett.commands.Generate;
-import bonnett.commands.ReloadPalettes;
+import bonnett.commands.Reload;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -25,9 +25,17 @@ public class CommandGetter implements CommandExecutor {
                 Generate generate = new Generate();
                 generate.onCommand(sender, newStrings);
             } break;
+            case "reload": {
+                Reload reload = new Reload();
+                reload.all();
+            }
             case "reloadpalettes": {
-                ReloadPalettes reload = new ReloadPalettes();
-                reload.onCommand(sender);
+                Reload reload = new Reload();
+                reload.palettes(sender);
+            } break;
+            case "reloadconfig": {
+                Reload reload = new Reload();
+                reload.config();
             } break;
             default: {
                 sender.sendMessage("You did it wrong fucker!");

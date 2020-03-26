@@ -10,12 +10,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class ReloadPalettes {
+public class Reload {
+    Main plugin = Main.plugin;
 
-    private String[] valid = Main.validPalettes;
-    private File paletteList = Main.paletteList;
+    public void all() {
 
-    public void onCommand(CommandSender sender) {
+    }
+
+    public void palettes(CommandSender sender) {
+        String[] valid = Main.validPalettes;
+        File paletteList = Main.paletteList;
+
         if (paletteList.isDirectory()) {
             if (!(valid == null)) {
                 List<String> validList = new ArrayList<>(Arrays.asList(valid));
@@ -24,5 +29,13 @@ public class ReloadPalettes {
             } else { valid = paletteList.list();}
             sender.sendMessage(Color.LIME + "Reloaded all palettes!");
         } else { sender.sendMessage(Color.RED + "Could not find any palettes!"); }
+    }
+
+    public void config() {
+
+    }
+
+    private void softDependencies() {
+
     }
 }

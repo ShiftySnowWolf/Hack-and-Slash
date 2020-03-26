@@ -1,7 +1,11 @@
 package bonnett;
 
-import bonnett.data.CommandGetter;
+import bonnett.commands.PluginTabCompleter;
+import bonnett.commands.CommandGetter;
+import net.luckperms.api.LuckPerms;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -11,6 +15,9 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 
 public class Main extends JavaPlugin {
+
+    //Soft dependencies
+    LuckPerms api;
 
     //Configuration Files
     public static FileConfiguration config = null;
@@ -41,6 +48,7 @@ public class Main extends JavaPlugin {
 
         //Commands initialization
         this.getCommand("chunkdungeons").setExecutor(new CommandGetter());
+        this.getCommand("chunkdungeons").setTabCompleter(new PluginTabCompleter());
     }
 
     @Override
@@ -50,6 +58,9 @@ public class Main extends JavaPlugin {
     private void pluginSetup() {
         genDataFolder();
         loadConfig();
+
+        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+        if (provider != null) { api = provider.getProvider(); }
 
         paletteList = new File(getDataFolder().toString() + File.separator + "dungeon_palettes");
         if (paletteList.isDirectory()) {

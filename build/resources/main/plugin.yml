@@ -7,7 +7,9 @@ authors:
   - Bonn2
 depend:
   - WorldEdit
+softdepend:
+  - LuckPerms
 commands:
-  generatedungeon:
-    description: Generates a dungeon.
-    usage: /generatedungeon <TYPE> <SIZE>
+  chunkdungeons:
+    description: Main command
+    usage: /chunkdungeons <generate/reloadpalettes>
