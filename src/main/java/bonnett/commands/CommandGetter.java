@@ -27,7 +27,7 @@ public class CommandGetter implements CommandExecutor {
             } break;
             case "reload": {
                 Reload reload = new Reload();
-                reload.all();
+                reload.all(sender);
             }
             case "reloadpalettes": {
                 Reload reload = new Reload();
