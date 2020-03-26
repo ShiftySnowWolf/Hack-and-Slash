@@ -18,4 +18,5 @@ repositories {
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT'
     implementation 'com.sk89q.worldedit:worldedit-bukkit:7.0.0-SNAPSHOT'
+    implementation 'net.luckperms:api:5.0'
 }
