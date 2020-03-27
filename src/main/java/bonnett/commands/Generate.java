@@ -105,10 +105,7 @@ public class Generate {
             Location[] northDoors = doors.getNorthDoors();
             for (int i = 0; i < northDoors.length; i++) {
                 if (northDoors[i].getY() > -1) {
-                    doorLoc = new Location(alignedLoc.getWorld(),
-                            alignedLoc.getX() + (8 + (16 * i)),
-                            alignedLoc.getY() + northDoors[i].getY(),
-                            alignedLoc.getZ());
+                    doorLoc = northDoors[i];
                     Room northRoom = new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.NORTH);
                 }
@@ -118,10 +115,7 @@ public class Generate {
             Location[] southDoors = doors.getSouthDoors();
             for (int i = 0; i < southDoors.length; i++) {
                 if (southDoors[i].getY() > -1) {
-                    doorLoc = new Location(alignedLoc.getWorld(),
-                            alignedLoc.getX() + (8 + (16 * i)),
-                            alignedLoc.getY() + southDoors[i].getY(),
-                            alignedLoc.getZ());
+                    doorLoc = southDoors[i];
                     Room southRoom = new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.SOUTH);
                 }
@@ -131,10 +125,7 @@ public class Generate {
             Location[] eastDoors = doors.getEastDoors();
             for (int i = 0; i < eastDoors.length; i++) {
                 if (eastDoors[i].getY() > -1) {
-                    doorLoc = new Location(alignedLoc.getWorld(),
-                            alignedLoc.getX() + (8 + (16 * i)),
-                            alignedLoc.getY() + eastDoors[i].getY(),
-                            alignedLoc.getZ());
+                    doorLoc = eastDoors[i];
                     Room eastRoom = new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.EAST);
                 }
@@ -144,10 +135,7 @@ public class Generate {
             Location[] westDoors = doors.getWestDoors();
             for (int i = 0; i < westDoors.length; i++) {
                 if (westDoors[i].getY() > -1) {
-                    doorLoc = new Location(alignedLoc.getWorld(),
-                            alignedLoc.getX() + (8 + (16 * i)),
-                            alignedLoc.getY() + westDoors[i].getY(),
-                            alignedLoc.getZ());
+                    doorLoc = westDoors[i];
                     Room westRoom = new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.WEST);
                 }
