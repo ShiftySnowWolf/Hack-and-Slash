@@ -37,7 +37,7 @@ public class RandomSchematic {
             String subType = null;
             if (roomOrHall == 0) {
                 type = "rooms";
-                roomType = rand.nextInt(1);
+                roomType = rand.nextInt(2);
                 switch (roomType) {
                     case 0: { subType = "one_chunk";} break;
                     case 1: { subType = "two_chunk"; } break;

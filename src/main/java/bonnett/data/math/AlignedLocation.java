@@ -1,5 +1,6 @@
 package bonnett.data.math;
 
+import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.Location;
 import org.bukkit.World;
 
@@ -16,6 +17,10 @@ public class AlignedLocation {
         return alignedLocation;
     }
 
+    public BlockVector3 toBlockVector3() {
+        return BlockVector3.at(alignedLocation.getX(), alignedLocation.getY(), alignedLocation.getZ());
+    }
+
     public World getWorld() {
         return alignedLocation.getWorld();
     }
@@ -30,6 +35,18 @@ public class AlignedLocation {
 
     public int getZ() {
         return alignedLocation.getBlockZ();
+    }
+
+    public void add(int x, int y, int z) {
+        alignedLocation.setX(alignedLocation.getX() + x);
+        alignedLocation.setY(alignedLocation.getY() + y);
+        alignedLocation.setZ(alignedLocation.getZ() + z);
+    }
+
+    public void subtract(int x, int y, int z) {
+        alignedLocation.setX(alignedLocation.getX() - x);
+        alignedLocation.setY(alignedLocation.getY() - y);
+        alignedLocation.setZ(alignedLocation.getZ() - z);
     }
 
     public double getStartingX() {

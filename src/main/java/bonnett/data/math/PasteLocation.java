@@ -4,6 +4,8 @@ import bonnett.Main;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.math.BlockVector2;
 import com.sk89q.worldedit.math.BlockVector3;
+import com.sk89q.worldedit.math.transform.AffineTransform;
+import com.sk89q.worldedit.session.ClipboardHolder;
 import org.bukkit.Location;
 import org.bukkit.World;
 
@@ -35,62 +37,29 @@ public class PasteLocation {
     }
 
     private Location findPasteLocation(Location destination, Clipboard clipboard, int rotation, Direction pasteDirection) {
+        clipboard.setOrigin(BlockVector3.at(
+                clipboard.getRegion().getCenter().getX(),
+                clipboard.getRegion().getCenter().getY(),
+                clipboard.getRegion().getCenter().getZ()));
         switch (rotation) {
             case 0: {
-                BlockVector3 copyLoc = clipboard.getOrigin();
-                BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
-                BlockVector3 offset = BlockVector3.at(
-                        cornerMin.getX() - copyLoc.getX(),
-                        cornerMin.getY() - copyLoc.getY(),
-                        cornerMin.getZ() - copyLoc.getZ());
-                return new Location(destination.getWorld(),
-                        destination.getX() - offset.getX(),
-                        destination.getY() - offset.getY(),
-                        destination.getZ() - offset.getZ());
+
             }
-            case 90: {/*
-                BlockVector3 copyLoc = clipboard.getOrigin();
-                BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
-                BlockVector3 clipCenter = BlockVector3.at(
-                        clipboard.getRegion().getCenter().getX(),
-                        clipboard.getRegion().getCenter().getY(),
-                        clipboard.getRegion().getCenter().getZ());
-                BlockVector2 offsetFromCenter = BlockVector2.at(
-                        clipCenter.getX() - copyLoc.getX(),
-                        clipCenter.getZ() - copyLoc.getZ());
-                BlockVector3 offset = BlockVector3.at(
-                        cornerMin.getX() - copyLoc.getX(),
-                        cornerMin.getY() - copyLoc.getY(),
-                        cornerMin.getZ() - copyLoc.getZ());
-                Location unRotated = new Location(destination.getWorld(),
-                        destination.getX() - offset.getX(),
-                        destination.getY() - offset.getY(),
-                        destination.getZ() - offset.getZ());
+            case 90: {
                 switch (pasteDirection) {
-                    case WEST: {
-                        return new Location(destination.getWorld(),
-                                unRotated.getX() + clipboard.getDimensions().getZ(),
-                                unRotated.getY(),
-                                unRotated.getZ() - 2 * (offsetFromCenter.getX()));
+                    case NORTH: {
+
                     }
-                }*/
-                BlockVector3 copyLoc = clipboard.getOrigin();
-                BlockVector3 cornerMin = clipboard.getRegion().getMinimumPoint();
-                BlockVector3 clipCenter = BlockVector3.at(
-                        clipboard.getRegion().getCenter().getX(),
-                        clipboard.getRegion().getCenter().getY(),
-                        clipboard.getRegion().getCenter().getZ());
-                BlockVector2 offsetFromCenter = BlockVector2.at(
-                        clipCenter.getX() - copyLoc.getX(),
-                        clipCenter.getZ() - copyLoc.getZ());
-                BlockVector3 offset = BlockVector3.at(
-                        cornerMin.getX() - copyLoc.getX(),
-                        cornerMin.getY() - copyLoc.getY(),
-                        cornerMin.getZ() - copyLoc.getZ());
-                return new Location(destination.getWorld(),
-                        destination.getX() - offset.getX() + ((2 * offsetFromCenter.getZ()) + 1),
-                        destination.getY() - offset.getY(),
-                        destination.getZ() - offset.getZ());
+                    case SOUTH: {
+
+                    }
+                    case EAST: {
+
+                    }
+                    case WEST: {
+
+                    }
+                }
             }
             case 180: {
                 System.out.println("Unimplemented 180");
