@@ -1,10 +1,11 @@
 package bonnett.commands;
 
+import bonnett.Main;
 import bonnett.data.Doors;
-import bonnett.data.paletteHandlers.InvalidPalette;
-import bonnett.data.paletteHandlers.RandomSchematic;
 import bonnett.data.UsedChunks;
 import bonnett.data.math.*;
+import bonnett.data.paletteHandlers.InvalidPalette;
+import bonnett.data.paletteHandlers.RandomSchematic;
 import bonnett.generation.Room;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
@@ -14,19 +15,21 @@ import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.function.operation.Operation;
 import com.sk89q.worldedit.function.operation.Operations;
 import com.sk89q.worldedit.session.ClipboardHolder;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.block.CommandBlock;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.io.IOException;
 
 public class Generate {
 
     public static UsedChunks usedChunks;
+    private boolean peace = Main.generate_peaceful;
+    private int min = Main.min_size;
+    private int max = Main.max_size;
 
     public void onCommand(CommandSender sender, String[] args) {
+        String diff;
         String type = args[0];
         
         // Sender type detection and location getter.
@@ -36,14 +39,18 @@ public class Generate {
             Player player = (Player) sender;
             senderLoc = player.getLocation();
             alignedLoc = new AlignedLocation(senderLoc);
+            diff = player.getWorld().getDifficulty().toString();
         } else if (sender instanceof CommandBlock) {
             CommandBlock commBlock = (CommandBlock) sender;
             senderLoc = commBlock.getLocation();
             alignedLoc = new AlignedLocation(senderLoc);
+            diff = commBlock.getWorld().getDifficulty().toString();
         } else {
             sender.sendMessage("This command cannot be run from console!");
             return;
         }
+
+        if (!peace && diff.equals("difficulty.peaceful")) { return; }
 
         //Validate requested palette
         InvalidPalette invalid = new InvalidPalette();
@@ -56,24 +63,20 @@ public class Generate {
         int size;
         try {
             size = Integer.parseInt(args[1]);
-            if (size < 1) {
-                sender.sendMessage("Size must be greater than 0!");
+            if (size < min || size > max || size < 1) {
+                sender.sendMessage(Color.RED + "Size must be: " + min + "-" + max + " and greater than 0.");
                 return;
             }
         } catch (NumberFormatException e) {
             sender.sendMessage("Size entered was not a whole number!");
             return;
         }
-        
-        try {
-            generateDungeon(type, size, alignedLoc);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        generateDungeon(type, size, alignedLoc);
 
     }
     
-    public boolean generateDungeon(String type, int size, AlignedLocation alignedLoc) throws IOException {
+    public void generateDungeon(String type, int size, AlignedLocation alignedLoc) {
 
         // Get random boss room
         RandomSchematic randomSchematic = new RandomSchematic();
@@ -94,7 +97,7 @@ public class Generate {
             Operations.complete(operation);
         } catch (WorldEditException e) {
             e.printStackTrace();
-            return false;
+            return;
         }
 
         usedChunks.markUsedChunks(clipboard, alignedLoc);
@@ -103,9 +106,9 @@ public class Generate {
         if (doors.hasNorthDoors()) {
             Location doorLoc;
             Location[] northDoors = doors.getNorthDoors();
-            for (int i = 0; i < northDoors.length; i++) {
-                if (northDoors[i].getY() > -1) {
-                    doorLoc = northDoors[i];
+            for (Location northDoor : northDoors) {
+                if (northDoor.getY() > -1) {
+                    doorLoc = northDoor;
                     Room northRoom = new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.NORTH);
                 }
@@ -113,9 +116,9 @@ public class Generate {
         } else if (doors.hasSouthDoors()) {
             Location doorLoc;
             Location[] southDoors = doors.getSouthDoors();
-            for (int i = 0; i < southDoors.length; i++) {
-                if (southDoors[i].getY() > -1) {
-                    doorLoc = southDoors[i];
+            for (Location southDoor : southDoors) {
+                if (southDoor.getY() > -1) {
+                    doorLoc = southDoor;
                     Room southRoom = new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.SOUTH);
                 }
@@ -123,9 +126,9 @@ public class Generate {
         } else if (doors.hasEastDoors()) {
             Location doorLoc;
             Location[] eastDoors = doors.getEastDoors();
-            for (int i = 0; i < eastDoors.length; i++) {
-                if (eastDoors[i].getY() > -1) {
-                    doorLoc = eastDoors[i];
+            for (Location eastDoor : eastDoors) {
+                if (eastDoor.getY() > -1) {
+                    doorLoc = eastDoor;
                     Room eastRoom = new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.EAST);
                 }
@@ -133,14 +136,13 @@ public class Generate {
         } else if (doors.hasWestDoors()) {
             Location doorLoc;
             Location[] westDoors = doors.getWestDoors();
-            for (int i = 0; i < westDoors.length; i++) {
-                if (westDoors[i].getY() > -1) {
-                    doorLoc = westDoors[i];
+            for (Location westDoor : westDoors) {
+                if (westDoor.getY() > -1) {
+                    doorLoc = westDoor;
                     Room westRoom = new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.WEST);
                 }
             }
         }
-        return true;
     }
 }
