@@ -250,7 +250,7 @@ public class Room {
                 }
                 System.out.println(door.getX());
                 if (clip.getDimensions().getX() > 16) {
-                    alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
+                    alignedLocation.add(clip.getDimensions().getZ(), 0, clip.getDimensions().getX() - 17);
                 }
                 try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
                         .getEditSession(new BukkitWorld(alignedLocation.getWorld()), -1)) {
@@ -365,27 +365,114 @@ public class Room {
     }
 
     private void generateEast() {
+        // Currently set like west, needs to be adjusted
         AlignedLocation alignedLocation;
         clip.setOrigin(clip.getMinimumPoint());
         alignedLocation = new AlignedLocation(
                 new Location(startingLocation.getWorld(),
                         startingLocation.getBlockX(),
                         startingLocation.getBlockY(),
-                        startingLocation.getZ()));
+                        startingLocation.getBlockZ()));
         usedChunks.markUsedChunks(clip, alignedLocation, rotation);
         usedChunks.printUsedChunks();
 
-        clipHolder.setTransform(new AffineTransform().rotateY(rotation));
+        clipHolder.setTransform(new AffineTransform().rotateY(-rotation));
 
-        try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
-                .getEditSession(new BukkitWorld(alignedLocation.getWorld()), -1)) {
-            Operation operation = clipHolder.createPaste(editSession)
-                    .to(alignedLocation.toBlockVector3().add(1, 0, 0))
-                    .build();
+        Doors doors = new Doors(clip);
+        BlockVector3 door = BlockVector3.at(0,0,0);
+        switch (rotation) {
+            case 0: {
+                System.out.println("west");
+                if (clip.getDimensions().getZ() > 16) {
+                    alignedLocation.add(0, 0, clip.getDimensions().getZ() - 17);
+                }
+                for (BlockVector3 d : doors.getEastDoorsNoLoc()) {
+                    if (d.getY() > -1) {
+                        door = d;
+                        break;
+                    }
+                }
+                try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
+                        .getEditSession(new BukkitWorld(alignedLocation.getWorld()), -1)) {
+                    Operation operation = clipHolder.createPaste(editSession)
+                            .to(alignedLocation.toBlockVector3().subtract(1, 0, door.getZ() - 8))
+                            .build();
 
-            Operations.complete(operation);
-        } catch (WorldEditException e) {
-            e.printStackTrace();
+                    Operations.complete(operation);
+                } catch (WorldEditException e) {
+                    e.printStackTrace();
+                }
+                return;
+            }
+            case 180: {
+                System.out.println("east");
+                for (BlockVector3 d : doors.getWestDoorsNoLoc()) {
+                    if (d.getY() > -1) {
+                        door = d;
+                        break;
+                    }
+                }
+                if (clip.getDimensions().getZ() > 16) {
+                    alignedLocation.add(0, 0, clip.getDimensions().getZ() - 17);
+                }
+                try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
+                        .getEditSession(new BukkitWorld(alignedLocation.getWorld()), -1)) {
+                    Operation operation = clipHolder.createPaste(editSession)
+                            .to(alignedLocation.toBlockVector3().subtract(1, 0, door.getZ() - 8))
+                            .build();
+
+                    Operations.complete(operation);
+                } catch (WorldEditException e) {
+                    e.printStackTrace();
+                }
+                return;
+            }
+            case 90: {
+                System.out.println("south");
+                if (clip.getDimensions().getZ() > 16) {
+                    alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
+                }
+                for (BlockVector3 d : doors.getNorthDoorsNoLoc()) {
+                    if (d.getY() > -1) {
+                        door = d;
+                        break;
+                    }
+                }
+                try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
+                        .getEditSession(new BukkitWorld(alignedLocation.getWorld()), -1)) {
+                    Operation operation = clipHolder.createPaste(editSession)
+                            .to(alignedLocation.toBlockVector3().subtract(1, 0, door.getX() - 8))
+                            .build();
+
+                    Operations.complete(operation);
+                } catch (WorldEditException e) {
+                    e.printStackTrace();
+                }
+                return;
+            }
+            case 270: {
+                System.out.println("north");
+                if (clip.getDimensions().getZ() > 16) {
+                    alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
+                }
+                for (BlockVector3 d : doors.getSouthDoorsNoLoc()) {
+                    if (d.getY() > -1) {
+                        door = d;
+                        break;
+                    }
+                }
+                try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
+                        .getEditSession(new BukkitWorld(alignedLocation.getWorld()), -1)) {
+                    Operation operation = clipHolder.createPaste(editSession)
+                            .to(alignedLocation.toBlockVector3().subtract(1, 0, door.getX() - 8))
+                            .build();
+
+                    Operations.complete(operation);
+                } catch (WorldEditException e) {
+                    e.printStackTrace();
+                }
+                return;
+            }
         }
 
     }

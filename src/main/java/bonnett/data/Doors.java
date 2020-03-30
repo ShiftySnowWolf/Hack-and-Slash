@@ -115,6 +115,7 @@ public class Doors {
         int xLocation = cornerMin.getX() + xOffset;
         int yLocation = cornerMin.getY();
         int zLocation = cornerMin.getZ();
+        System.out.println("cornermin x: " + minPasteLocation.getX());
 
         // First run offsets 8. Subsequent runs offset 16.
         for (int i = 0; i < arraySize; i++) {
@@ -128,6 +129,9 @@ public class Doors {
                 BlockState checkBlock = clipboard.getBlock(checkLoc);
                 if (checkBlock.getBlockType().equals(new BlockType("minecraft:iron_block"))) {
                     doorLocations[i].setY(yLocation - startingYLocation + minPasteLocation.getBlockY());
+                    System.out.println("door x: " + doorLocations[i].getX());
+                    System.out.println("door y: " + doorLocations[i].getY());
+                    System.out.println("door z: " + doorLocations[i].getZ());
                     break;
                 }
             }
