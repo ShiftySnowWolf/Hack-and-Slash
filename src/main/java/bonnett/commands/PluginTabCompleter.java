@@ -38,8 +38,16 @@ public class PluginTabCompleter implements TabCompleter {
                 commands.add("reloadpalettes");
                 StringUtil.copyPartialMatches(args[0], commands, completion);
             } break;
-            case 2: { if (isGenerate) { commands.addAll(Arrays.asList(validTypes)); }} break;
-            case 3: { if (isGenerate && Arrays.asList(validTypes).contains(args[1])) { commands.addAll(range); }} break;
+
+            case 2: {
+                if (isGenerate) { commands.addAll(Arrays.asList(validTypes)); }
+                StringUtil.copyPartialMatches(args[1], commands, completion);
+            } break;
+
+            case 3: {
+                if (isGenerate) { commands.addAll(range); }
+                StringUtil.copyPartialMatches(args[2], commands, completion);
+            } break;
         }
         Collections.sort(completion);
         return completion;

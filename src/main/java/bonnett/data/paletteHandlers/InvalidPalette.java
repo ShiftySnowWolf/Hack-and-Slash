@@ -7,13 +7,13 @@ import java.util.List;
 
 public class InvalidPalette {
 
-    String[] valid = Main.validPalettes;
-    String[] invalid = Main.invalidPalettes;
+    static String[] valid = Main.validPalettes;
+    static String[] invalid = Main.invalidPalettes;
 
     public boolean check(String palette) {
         boolean exit;
         if (invalid == null || !(exit = Arrays.asList(invalid).contains(palette))) {
-            if (!(exit = Arrays.asList(valid).contains(palette))) {
+            if (!(exit = !Arrays.asList(valid).contains(palette))) {
                 if (invalid != null) {
                     List<String> addNewInvalidType = Arrays.asList(invalid);
                     addNewInvalidType.add(palette);
@@ -23,7 +23,7 @@ public class InvalidPalette {
         }
         return exit;
     }
-    public void add(String palette) {
+    public static void add(String palette) {
         if (invalid != null) {
             List<String> addNewInvalidType = Arrays.asList(invalid);
             addNewInvalidType.add(palette);

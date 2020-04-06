@@ -1,8 +1,8 @@
 package bonnett.commands;
 
 import bonnett.Main;
-import bonnett.data.Doors;
 import bonnett.data.UsedChunks;
+import bonnett.data.doors.DoorHandler;
 import bonnett.data.math.*;
 import bonnett.data.paletteHandlers.InvalidPalette;
 import bonnett.data.paletteHandlers.RandomSchematic;
@@ -20,6 +20,8 @@ import org.bukkit.Location;
 import org.bukkit.block.CommandBlock;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import static bonnett.data.doors.DoorHandler.*;
 
 public class Generate {
 
@@ -54,10 +56,7 @@ public class Generate {
 
         //Validate requested palette
         InvalidPalette invalid = new InvalidPalette();
-        if (!invalid.check(type)) {
-            sender.sendMessage("That is not a valid palette!");
-            return;
-        }
+        if (invalid.check(type)) { sender.sendMessage("That is not a valid palette!"); return; }
 
         // Size integer parsing.
         int size;
@@ -102,44 +101,40 @@ public class Generate {
 
         usedChunks.markUsedChunks(clipboard, alignedLoc);
         usedChunks.printUsedChunks();
-        Doors doors = new Doors(clipboard, alignedLoc);
-        if (doors.hasNorthDoors()) {
+        new DoorHandler(clipboard, alignedLoc);
+        if (hasNorthDoors) {
             Location doorLoc;
-            Location[] northDoors = doors.getNorthDoors();
             for (Location northDoor : northDoors) {
-                if (northDoor.getY() > -1) {
+                if (northDoor.getY() >= 0) {
                     doorLoc = northDoor;
-                    Room northRoom = new Room(new RandomSchematic().getNext(type, false),
+                    new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.NORTH);
                 }
             }
-        } else if (doors.hasSouthDoors()) {
+        } else if (hasEastDoors) {
             Location doorLoc;
-            Location[] southDoors = doors.getSouthDoors();
-            for (Location southDoor : southDoors) {
-                if (southDoor.getY() > -1) {
-                    doorLoc = southDoor;
-                    Room southRoom = new Room(new RandomSchematic().getNext(type, false),
-                            doorLoc, Direction.SOUTH);
-                }
-            }
-        } else if (doors.hasEastDoors()) {
-            Location doorLoc;
-            Location[] eastDoors = doors.getEastDoors();
             for (Location eastDoor : eastDoors) {
-                if (eastDoor.getY() > -1) {
+                if (eastDoor.getY() >= 0) {
                     doorLoc = eastDoor;
-                    Room eastRoom = new Room(new RandomSchematic().getNext(type, false),
+                    new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.EAST);
                 }
             }
-        } else if (doors.hasWestDoors()) {
+        } else if (hasSouthDoors) {
             Location doorLoc;
-            Location[] westDoors = doors.getWestDoors();
+            for (Location southDoor : southDoors) {
+                if (southDoor.getY() >= 0) {
+                    doorLoc = southDoor;
+                    new Room(new RandomSchematic().getNext(type, false),
+                            doorLoc, Direction.SOUTH);
+                }
+            }
+        } else if (hasWestDoors) {
+            Location doorLoc;
             for (Location westDoor : westDoors) {
-                if (westDoor.getY() > -1) {
+                if (westDoor.getY() >= 0) {
                     doorLoc = westDoor;
-                    Room westRoom = new Room(new RandomSchematic().getNext(type, false),
+                    new Room(new RandomSchematic().getNext(type, false),
                             doorLoc, Direction.WEST);
                 }
             }

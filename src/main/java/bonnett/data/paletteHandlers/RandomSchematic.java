@@ -16,7 +16,6 @@ import java.util.Random;
 public class RandomSchematic {
     
     private Main plugin = Main.plugin;
-    private String[] invalid = Main.invalidPalettes;
     private String[] blacklist = Main.blacklist;
     private Random rand = new Random();
     private String paletteFolder = plugin.getDataFolder().toString() + File.separator + "dungeon_palettes" + File.separator;
@@ -64,6 +63,7 @@ public class RandomSchematic {
     
     private Clipboard selectSubRoom(String palette, String path, int tries) {
         if (tries >= 4) {
+            InvalidPalette.add(palette);
             plugin.getLogger().warning("Too many invalid schematics in the '" + palette.toUpperCase() + "' palette!\n" +
                     "Disabling this palette! Please make sure your schematics are divisible by 16 on X and Z planes.");
             return null;
@@ -102,7 +102,8 @@ public class RandomSchematic {
 
     private Clipboard selectBossRoom(String palette, int tries) {
         if (tries >= 4) {
-            System.err.println("Too many invalid schematics in the '" + palette.toUpperCase() + "' palette!");
+            InvalidPalette.add(palette);
+            plugin.getLogger().warning("Too many invalid schematics in the '" + palette.toUpperCase() + "' palette!\nDisabling this palette! Please make sure your schematics are divisible by 16 on X and Z planes.");
             return null;
         }
 
@@ -148,6 +149,6 @@ public class RandomSchematic {
             blacklist = addBlacklist.toArray(String[]::new);
         }
 
-        return !exit;
+        return exit;
     }
 }

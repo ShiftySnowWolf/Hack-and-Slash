@@ -2,7 +2,7 @@ package bonnett.generation;
 
 import bonnett.Main;
 import bonnett.commands.Generate;
-import bonnett.data.Doors;
+import bonnett.data.doors.DoorHandler;
 import bonnett.data.UsedChunks;
 import bonnett.data.math.AlignedLocation;
 
@@ -19,8 +19,11 @@ import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.math.transform.AffineTransform;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import org.bukkit.Location;
+import org.bukkit.material.Door;
 
 import java.util.Random;
+
+import static bonnett.data.doors.DoorHandler.*;
 
 public class Room {
     Clipboard clip;
@@ -34,6 +37,7 @@ public class Room {
 
     public Room(Clipboard clipboard, Location doorLocation, Direction generateDirection) {
         clip = clipboard;
+        new DoorHandler(clipboard);
         System.out.println(clip.getDimensions().toString());
         clipHolder = new ClipboardHolder(clip);
         startingLocation = doorLocation;
@@ -64,8 +68,8 @@ public class Room {
         }
     }
 
-    public Doors getDoors() {
-        return new Doors(clip, alignedLocation);
+    public DoorHandler getDoors() {
+        return new DoorHandler(clip, alignedLocation);
     }
 
     public int getClipboardRotation() {
@@ -84,11 +88,11 @@ public class Room {
                         case NORTH: {
                             return 180;
                         }
-                        case SOUTH: {
-                            return 0;
-                        }
                         case EAST: {
                             return 270;
+                        }
+                        case SOUTH: {
+                            return 0;
                         }
                         case WEST: {
                             return 90;
@@ -213,7 +217,7 @@ public class Room {
 
         clipHolder.setTransform(new AffineTransform().rotateY(-rotation));
 
-        Doors doors = new Doors(clip);
+        new DoorHandler(clip);
         BlockVector3 door = BlockVector3.at(0,0,0);
         switch (rotation) {
             case 0: {
@@ -221,7 +225,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
                 }
-                for (BlockVector3 d : doors.getSouthDoorsNoLoc()) {
+                for (BlockVector3 d : southDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -242,7 +246,7 @@ public class Room {
             }
             case 180: {
                 System.out.println("north");
-                for (BlockVector3 d : doors.getNorthDoorsNoLoc()) {
+                for (BlockVector3 d : northDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -269,7 +273,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getZ() - 17);
                 }
-                for (BlockVector3 d : doors.getEastDoorsNoLoc()) {
+                for (BlockVector3 d : eastDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -293,7 +297,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getZ() - 17);
                 }
-                for (BlockVector3 d : doors.getWestDoorsNoLoc()) {
+                for (BlockVector3 d : westDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -310,7 +314,6 @@ public class Room {
                 } catch (WorldEditException e) {
                     e.printStackTrace();
                 }
-                return;
             }
         }
 
@@ -378,7 +381,7 @@ public class Room {
 
         clipHolder.setTransform(new AffineTransform().rotateY(-rotation));
 
-        Doors doors = new Doors(clip);
+        new DoorHandler(clip);
         BlockVector3 door = BlockVector3.at(0,0,0);
         switch (rotation) {
             case 0: {
@@ -386,7 +389,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getZ() - 17);
                 }
-                for (BlockVector3 d : doors.getEastDoorsNoLoc()) {
+                for (BlockVector3 d : eastDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -406,7 +409,7 @@ public class Room {
             }
             case 180: {
                 System.out.println("east");
-                for (BlockVector3 d : doors.getWestDoorsNoLoc()) {
+                for (BlockVector3 d : westDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -432,7 +435,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
                 }
-                for (BlockVector3 d : doors.getNorthDoorsNoLoc()) {
+                for (BlockVector3 d : northDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -455,7 +458,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
                 }
-                for (BlockVector3 d : doors.getSouthDoorsNoLoc()) {
+                for (BlockVector3 d : southDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -471,7 +474,6 @@ public class Room {
                 } catch (WorldEditException e) {
                     e.printStackTrace();
                 }
-                return;
             }
         }
 
@@ -490,7 +492,7 @@ public class Room {
 
         clipHolder.setTransform(new AffineTransform().rotateY(-rotation));
 
-        Doors doors = new Doors(clip);
+        new DoorHandler(clip);
         BlockVector3 door = BlockVector3.at(0,0,0);
         switch (rotation) {
             case 0: {
@@ -498,7 +500,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getZ() - 17);
                 }
-                for (BlockVector3 d : doors.getEastDoorsNoLoc()) {
+                for (BlockVector3 d : eastDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -518,7 +520,7 @@ public class Room {
             }
             case 180: {
                 System.out.println("west");
-                for (BlockVector3 d : doors.getWestDoorsNoLoc()) {
+                for (BlockVector3 d : westDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -544,7 +546,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
                 }
-                for (BlockVector3 d : doors.getNorthDoorsNoLoc()) {
+                for (BlockVector3 d : northDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -567,7 +569,7 @@ public class Room {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
                 }
-                for (BlockVector3 d : doors.getSouthDoorsNoLoc()) {
+                for (BlockVector3 d : southDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
                         break;
@@ -583,25 +585,28 @@ public class Room {
                 } catch (WorldEditException e) {
                     e.printStackTrace();
                 }
-                return;
             }
         }
 
     }
 
     private boolean clipHasNorthDoors() {
-        return new Doors(clip).hasNorthDoors();
+        new DoorHandler(clip);
+        return hasNorthDoors;
     }
 
     private boolean clipHasSouthDoors() {
-        return new Doors(clip).hasSouthDoors();
+        new DoorHandler(clip);
+        return hasSouthDoors;
     }
 
     private boolean clipHasEastDoors() {
-        return new Doors(clip).hasEastDoors();
+        new DoorHandler(clip);
+        return hasEastDoors;
     }
 
     private boolean clipHasWestDoors() {
-        return new Doors(clip).hasWestDoors();
+        new DoorHandler(clip);
+        return hasWestDoors;
     }
 }
