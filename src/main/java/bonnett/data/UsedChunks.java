@@ -12,8 +12,8 @@ import static bonnett.Main.plugin;
 
 public class UsedChunks {
     public static int[][] usedChunks;
-    int arraySize;
-    BlockVector3 dungeonMinLocation;
+    public static int arraySize;
+    public static BlockVector3 dungeonMinLocation;
 
     public UsedChunks(int dungeonSize, DungeonMinLocation minLocation) {
         dungeonMinLocation = minLocation.toBlockVector3();
@@ -26,18 +26,18 @@ public class UsedChunks {
         }
     }
 
-    public void printUsedChunks() {
+    public static void printUsedChunks() {
         plugin.getLogger().info("Printing used chunks array:");
         for (int i = 0; i < arraySize; i++) {
-            String line = "";
+            StringBuilder line = new StringBuilder();
             for (int j = 0; j < arraySize; j++) {
-                line = line + usedChunks[i][j] + " ";
+                line.append(usedChunks[i][j]).append(" ");
             }
-            plugin.getLogger().info(line);
+            plugin.getLogger().info(line.toString());
         }
     }
 
-    public void markUsedChunks(Clipboard clipboard, AlignedLocation alignedLocation) {
+    public static void markUsedChunks(Clipboard clipboard, AlignedLocation alignedLocation) {
         BlockVector3 sizeInChunks = BlockVector3.at(
                 clipboard.getDimensions().getX() / 16,
                 clipboard.getDimensions().getY(),
@@ -54,7 +54,7 @@ public class UsedChunks {
         }
     }
 
-    public void markUsedChunks(Clipboard clipboard, AlignedLocation alignedLocation, int rotation) {
+    public static void markUsedChunks(Clipboard clipboard, AlignedLocation alignedLocation, int rotation) {
         switch (rotation) {
             case 0:
             case 180: {
@@ -96,8 +96,5 @@ public class UsedChunks {
                 plugin.getLogger().warning("Invalid rotation used for mark used chunks");
             }
         }
-
-
     }
-
 }
