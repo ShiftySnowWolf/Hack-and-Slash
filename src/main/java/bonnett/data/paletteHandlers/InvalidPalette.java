@@ -5,29 +5,28 @@ import bonnett.Main;
 import java.util.Arrays;
 import java.util.List;
 
-public class InvalidPalette {
+import static bonnett.Main.*;
 
-    static String[] valid = Main.validPalettes;
-    static String[] invalid = Main.invalidPalettes;
+public class InvalidPalette {
 
     public boolean check(String palette) {
         boolean exit;
-        if (invalid == null || !(exit = Arrays.asList(invalid).contains(palette))) {
-            if (!(exit = !Arrays.asList(valid).contains(palette))) {
-                if (invalid != null) {
-                    List<String> addNewInvalidType = Arrays.asList(invalid);
+        if (invalidPalettes == null || !(exit = Arrays.asList(invalidPalettes).contains(palette))) {
+            if (!(exit = !Arrays.asList(validPalettes).contains(palette))) {
+                if (invalidPalettes != null) {
+                    List<String> addNewInvalidType = Arrays.asList(invalidPalettes);
                     addNewInvalidType.add(palette);
-                    invalid = addNewInvalidType.toArray(String[]::new);
-                } else { invalid = new String[]{palette}; }
+                    invalidPalettes = addNewInvalidType.toArray(String[]::new);
+                } else { invalidPalettes = new String[]{palette}; }
             }
         }
         return exit;
     }
     public static void add(String palette) {
-        if (invalid != null) {
-            List<String> addNewInvalidType = Arrays.asList(invalid);
+        if (invalidPalettes != null) {
+            List<String> addNewInvalidType = Arrays.asList(invalidPalettes);
             addNewInvalidType.add(palette);
-            invalid = addNewInvalidType.toArray(String[]::new);
-        } else { invalid = new String[]{palette}; }
+            invalidPalettes = addNewInvalidType.toArray(String[]::new);
+        } else { invalidPalettes = new String[]{palette}; }
     }
 }

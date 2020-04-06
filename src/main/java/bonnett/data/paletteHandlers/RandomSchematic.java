@@ -13,10 +13,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import static bonnett.Main.*;
+
 public class RandomSchematic {
-    
-    private Main plugin = Main.plugin;
-    private String[] blacklist = Main.blacklist;
+
     private Random rand = new Random();
     private String paletteFolder = plugin.getDataFolder().toString() + File.separator + "dungeon_palettes" + File.separator;
 

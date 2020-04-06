@@ -8,9 +8,11 @@ import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.math.BlockVector2;
 import com.sk89q.worldedit.math.BlockVector3;
 
+import static bonnett.Main.plugin;
+
 public class UsedChunks {
+    public static int[][] usedChunks;
     int arraySize;
-    int[][] usedChunks;
     BlockVector3 dungeonMinLocation;
 
     public UsedChunks(int dungeonSize, DungeonMinLocation minLocation) {
@@ -24,30 +26,14 @@ public class UsedChunks {
         }
     }
 
-    //Old: isChunkAvailable, but should now require the chunk that just generated.
-    //Now returns a specific number depending on what size room can fit in the given area.
-    //Also takes the direction you are checking for.
-    public int availableGenerationChunks(int x, int z, String dir) {
-        if (usedChunks[x][z] == 1) { return 0; }
-        switch (dir) {
-            case "N": {
-
-            } break;
-            case "E": {} break;
-            case "S": {} break;
-            case "W": {} break;
-        }
-        return 0;
-    }
-
     public void printUsedChunks() {
-        Main.plugin.getLogger().info("Printing used chunks array:");
+        plugin.getLogger().info("Printing used chunks array:");
         for (int i = 0; i < arraySize; i++) {
             String line = "";
             for (int j = 0; j < arraySize; j++) {
                 line = line + usedChunks[i][j] + " ";
             }
-            Main.plugin.getLogger().info(line);
+            plugin.getLogger().info(line);
         }
     }
 
@@ -107,7 +93,7 @@ public class UsedChunks {
                 break;
             }
             default: {
-                Main.plugin.getLogger().warning("Invalid rotation used for mark used chunks");
+                plugin.getLogger().warning("Invalid rotation used for mark used chunks");
             }
         }
 
