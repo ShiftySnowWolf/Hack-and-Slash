@@ -1,12 +1,7 @@
 package bonnett.commands;
 
 import bonnett.Main;
-import net.luckperms.api.LuckPerms;
-import org.bukkit.Bukkit;
-import org.bukkit.Color;
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -14,16 +9,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import static bonnett.Main.plugin;
+
 public class Reload {
-    Main plugin = Main.plugin;
 
     public void all(CommandSender sender) {
-        sender.sendMessage(Color.YELLOW + "Reloading plugin...");
+        sender.sendMessage("Reloading plugin...");
         softDependencies();
         palettes(sender);
         config(sender);
         plugin.genDataFolder();
-        sender.sendMessage(Color.LIME + "Plugin reloaded.");
+        sender.sendMessage("Plugin reloaded.");
     }
 
     public void palettes(CommandSender sender) {
@@ -36,26 +32,26 @@ public class Reload {
                 validList.addAll(Arrays.asList(Objects.requireNonNull(paletteList.list())));
                 valid = validList.toArray(valid);
             } else { valid = paletteList.list();}
-            sender.sendMessage(Color.LIME + "Reloaded all palettes.");
-            sender.sendMessage(Color.LIME + "Valid palettes: " + Arrays.toString(valid));
-        } else { sender.sendMessage(Color.RED + "Could not find any palettes!"); }
+            sender.sendMessage("Reloaded all palettes.");
+            sender.sendMessage("Valid palettes: " + Arrays.toString(valid));
+        } else { sender.sendMessage("Could not find any palettes!"); }
     }
 
     public void config(CommandSender sender) {
         plugin.loadConfig();
-        sender.sendMessage(Color.LIME + "Reloaded configuration file.");
+        sender.sendMessage("Reloaded configuration file.");
     }
 
     private void softDependencies() {
         //LuckPerms
-        Plugin softLuckPerms = Bukkit.getPluginManager().getPlugin("LuckPerms");
+        /*Plugin softLuckPerms = Bukkit.getPluginManager().getPlugin("LuckPerms");
         Main.isLuckPerms = softLuckPerms != null;
         if (Main.isLuckPerms) {
             RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
             if (provider != null) {
                 Main.api = provider.getProvider();
             }
-        }
+        }*/
 
         //Add more below
     }

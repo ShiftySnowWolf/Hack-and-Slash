@@ -6,19 +6,7 @@ import com.sk89q.worldedit.world.block.BlockState;
 import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Location;
 
-import static bonnett.data.doors.DoorHandler.*;
-
 public class SouthDoors {
-    public static Location[] getSouthDoors() {
-        return southDoors;
-    }
-    public static BlockVector3[] getSouthDoorsNoLoc() {
-        return southDoorsNoLoc;
-    }
-    public static boolean hasSouthDoors() {
-        return hasSouthDoors;
-    }
-
     public static Location[] getSouthDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         Location[] doorLocations = new Location[arraySize];

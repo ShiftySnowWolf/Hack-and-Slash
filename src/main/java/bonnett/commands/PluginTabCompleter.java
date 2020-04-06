@@ -1,6 +1,5 @@
 package bonnett.commands;
 
-import bonnett.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -12,9 +11,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class PluginTabCompleter implements TabCompleter {
+import static bonnett.Main.*;
 
-    Main plugin = Main.plugin;
+public class PluginTabCompleter implements TabCompleter {
     
     @Override
     public List<String> onTabComplete(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String alias, @ Nonnull String[] args) {
@@ -23,10 +22,10 @@ public class PluginTabCompleter implements TabCompleter {
         List<String> completion = new ArrayList<>();
         boolean isGenerate = args[0].equalsIgnoreCase("generate");
 
-        String[] validTypes = Main.validPalettes;
+        String[] validTypes = validPalettes;
 
-        int min = Main.min_size;
-        int max = Main.max_size;
+        int min = min_size;
+        int max = max_size;
         List<String> range = new ArrayList<>(0);
         for (int count = min; count <= max; count++) { range.add(String.valueOf(count)); }
 

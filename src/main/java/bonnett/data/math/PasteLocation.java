@@ -1,13 +1,11 @@
 package bonnett.data.math;
 
-import bonnett.Main;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
-import com.sk89q.worldedit.math.BlockVector2;
 import com.sk89q.worldedit.math.BlockVector3;
-import com.sk89q.worldedit.math.transform.AffineTransform;
-import com.sk89q.worldedit.session.ClipboardHolder;
 import org.bukkit.Location;
 import org.bukkit.World;
+
+import static bonnett.Main.plugin;
 
 public class PasteLocation {
     Location pasteLocation;
@@ -68,7 +66,7 @@ public class PasteLocation {
                 System.out.println("Unimplemented 270");
             }
             default: {
-                Main.plugin.getLogger().warning("Invalid rotation");
+                plugin.getLogger().warning("Invalid rotation");
                 return null;
             }
         }

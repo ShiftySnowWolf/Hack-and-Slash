@@ -7,7 +7,6 @@ import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Location;
 
 public class NorthDoors {
-
     public static Location[] getNorthDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         Location[] doorLocations = new Location[arraySize];

@@ -1,6 +1,5 @@
 package bonnett.commands;
 
-import bonnett.Main;
 import bonnett.data.UsedChunks;
 import bonnett.data.doors.DoorHandler;
 import bonnett.data.math.*;
@@ -21,14 +20,15 @@ import org.bukkit.block.CommandBlock;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static bonnett.Main.*;
 import static bonnett.data.doors.DoorHandler.*;
 
 public class Generate {
 
     public static UsedChunks usedChunks;
-    private boolean peace = Main.generate_peaceful;
-    private int min = Main.min_size;
-    private int max = Main.max_size;
+    private boolean peace = generate_peaceful;
+    private int min = min_size;
+    private int max = max_size;
 
     public void onCommand(CommandSender sender, String[] args) {
         String diff;
