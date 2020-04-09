@@ -1,9 +1,7 @@
 package bonnett.data;
 
-import bonnett.Main;
 import bonnett.data.math.AlignedLocation;
 import bonnett.data.math.DungeonMinLocation;
-
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.math.BlockVector2;
 import com.sk89q.worldedit.math.BlockVector3;
@@ -26,7 +24,7 @@ public class UsedChunks {
         }
     }
 
-    public static void printUsedChunks() {
+    public void printUsedChunks() {
         plugin.getLogger().info("Printing used chunks array:");
         for (int i = 0; i < arraySize; i++) {
             StringBuilder line = new StringBuilder();
@@ -37,7 +35,7 @@ public class UsedChunks {
         }
     }
 
-    public static void markUsedChunks(Clipboard clipboard, AlignedLocation alignedLocation) {
+    public void markUsedChunks(Clipboard clipboard, AlignedLocation alignedLocation) {
         BlockVector3 sizeInChunks = BlockVector3.at(
                 clipboard.getDimensions().getX() / 16,
                 clipboard.getDimensions().getY(),
@@ -54,7 +52,7 @@ public class UsedChunks {
         }
     }
 
-    public static void markUsedChunks(Clipboard clipboard, AlignedLocation alignedLocation, int rotation) {
+    public void markUsedChunks(Clipboard clipboard, AlignedLocation alignedLocation, int rotation) {
         switch (rotation) {
             case 0:
             case 180: {

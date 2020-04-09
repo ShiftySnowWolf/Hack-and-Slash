@@ -7,7 +7,9 @@ import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Location;
 
 public class NorthDoors {
-    public static Location[] getNorthDoors(Clipboard clipboard, Location minPasteLocation) {
+
+
+    public static Location[] findNorthDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         Location[] doorLocations = new Location[arraySize];
         int clipboardHeight = clipboard.getDimensions().getY();
@@ -43,7 +45,7 @@ public class NorthDoors {
         return doorLocations;
     }
 
-    public static BlockVector3[] getNorthDoorsNoLoc(Clipboard clipboard) {
+    public static BlockVector3[] findNorthDoorsNoLoc(Clipboard clipboard) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         BlockVector3[] doorLocations = new BlockVector3[arraySize];
         int clipboardHeight = clipboard.getDimensions().getY();

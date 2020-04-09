@@ -21,7 +21,7 @@ public class Generate {
         String diff;
         String type = args[0];
         
-        // Sender type detection and location getter.
+        // Detect the sender type and gets the location of the sender.
         Location senderLoc;
         AlignedLocation alignedLoc;
         if (sender instanceof Player) {

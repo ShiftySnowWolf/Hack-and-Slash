@@ -11,24 +11,24 @@ import static bonnett.data.doors.SouthDoors.*;
 import static bonnett.data.doors.WestDoors.*;
 
 public class DoorHandler {
-    public static Location[] northDoors;
-    public static Location[] southDoors;
-    public static Location[] eastDoors;
-    public static Location[] westDoors;
-    public static BlockVector3[] northDoorsNoLoc;
-    public static BlockVector3[] southDoorsNoLoc;
-    public static BlockVector3[] eastDoorsNoLoc;
-    public static BlockVector3[] westDoorsNoLoc;
-    public static boolean hasNorthDoors;
-    public static boolean hasSouthDoors;
-    public static boolean hasEastDoors;
-    public static boolean hasWestDoors;
+    private static Location[] northDoors;
+    private static Location[] southDoors;
+    private static Location[] eastDoors;
+    private static Location[] westDoors;
+    private static BlockVector3[] northDoorsNoLoc;
+    private static BlockVector3[] southDoorsNoLoc;
+    private static BlockVector3[] eastDoorsNoLoc;
+    private static BlockVector3[] westDoorsNoLoc;
+    private static boolean hasNorthDoors;
+    private static boolean hasSouthDoors;
+    private static boolean hasEastDoors;
+    private static boolean hasWestDoors;
 
     public DoorHandler(Clipboard clipboard, AlignedLocation minPasteLocation) {
-        northDoors = getNorthDoors(clipboard, minPasteLocation.toLocation());
-        eastDoors = getEastDoors(clipboard, minPasteLocation.toLocation());
-        southDoors = getSouthDoors(clipboard, minPasteLocation.toLocation());
-        westDoors = getWestDoors(clipboard, minPasteLocation.toLocation());
+        northDoors = findNorthDoors(clipboard, minPasteLocation.toLocation());
+        eastDoors = findEastDoors(clipboard, minPasteLocation.toLocation());
+        southDoors = findSouthDoors(clipboard, minPasteLocation.toLocation());
+        westDoors = findWestDoors(clipboard, minPasteLocation.toLocation());
         hasNorthDoors = hasDoors(northDoors);
         hasEastDoors = hasDoors(eastDoors);
         hasSouthDoors = hasDoors(southDoors);
@@ -36,15 +36,30 @@ public class DoorHandler {
     }
 
     public DoorHandler(Clipboard clipboard) {
-        northDoorsNoLoc = getNorthDoorsNoLoc(clipboard);
-        eastDoorsNoLoc = getEastDoorsNoLoc(clipboard);
-        southDoorsNoLoc= getSouthDoorsNoLoc(clipboard);
-        westDoorsNoLoc = getWestDoorsNoLoc(clipboard);
+        northDoorsNoLoc = findNorthDoorsNoLoc(clipboard);
+        eastDoorsNoLoc = findEastDoorsNoLoc(clipboard);
+        southDoorsNoLoc= findSouthDoorsNoLoc(clipboard);
+        westDoorsNoLoc = findWestDoorsNoLoc(clipboard);
         hasNorthDoors = hasDoorsNoLoc(northDoorsNoLoc);
         hasEastDoors = hasDoorsNoLoc(eastDoorsNoLoc);
         hasSouthDoors = hasDoorsNoLoc(southDoorsNoLoc);
         hasWestDoors = hasDoorsNoLoc(westDoorsNoLoc);
     }
+
+    public boolean hasNorthDoors() {return hasNorthDoors;}
+    public boolean hasEastDoors() {return hasEastDoors;}
+    public boolean hasSouthDoors() {return hasSouthDoors;}
+    public boolean hasWestDoors() {return hasWestDoors;}
+
+    public Location[] getNorthDoors() {return northDoors;}
+    public Location[] getEastDoors() {return eastDoors;}
+    public Location[] getSouthDoors() {return southDoors;}
+    public Location[] getWestDoors() {return westDoors;}
+
+    public BlockVector3[] getNorthDoorsNoLoc() {return northDoorsNoLoc;}
+    public BlockVector3[] getEastDoorsNoLoc() {return eastDoorsNoLoc;}
+    public BlockVector3[] getSouthDoorsNoLoc() {return southDoorsNoLoc;}
+    public BlockVector3[] getWestDoorsNoLoc() {return westDoorsNoLoc;}
 
     private boolean hasDoors(Location[] doors) {
         for (Location door : doors) { if (door.getY() >= 0) { return true; }}

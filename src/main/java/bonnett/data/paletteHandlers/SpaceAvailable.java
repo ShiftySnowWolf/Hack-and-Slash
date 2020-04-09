@@ -5,7 +5,18 @@ import bonnett.data.math.Direction;
 import static bonnett.data.UsedChunks.usedChunks;
 
 public class SpaceAvailable {
-    public static int availableSpace(int x, int z, Direction dir) {
+
+    private int x;
+    private int z;
+    private Direction dir;
+
+    public SpaceAvailable(int X, int Z, Direction direction) {
+        x = X;
+        z = Z;
+        dir = direction;
+    }
+
+    public int getSpace() {
         int space = 0;
         if (usedChunks[x][z] != 0) { return -1; }
         switch (dir) {
