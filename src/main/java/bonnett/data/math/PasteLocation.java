@@ -1,5 +1,6 @@
 package bonnett.data.math;
 
+import bonnett.data.enums.Direction;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.Location;

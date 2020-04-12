@@ -15,16 +15,21 @@ public class Reload {
 
     public void all(CommandSender sender) {
         sender.sendMessage("Reloading plugin...");
-        softDependencies();
         palettes(sender);
         config(sender);
         plugin.genDataFolder();
         sender.sendMessage("Plugin reloaded.");
     }
 
+    public void palettes() {
+        List<String> validList = Arrays.asList(Main.validPalettes);
+        for (String invalid : Main.invalidPalettes) { validList.remove(invalid); }
+        Main.validPalettes = validList.toArray(Main.validPalettes);
+    }
+
     public void palettes(CommandSender sender) {
         String[] valid = Main.validPalettes;
-        File paletteList = Main.paletteList;
+        File paletteList = Main.paletteFolder;
 
         if (paletteList.isDirectory()) {
             if (!(valid == null)) {
@@ -40,19 +45,5 @@ public class Reload {
     public void config(CommandSender sender) {
         plugin.loadConfig();
         sender.sendMessage("Reloaded configuration file.");
-    }
-
-    private void softDependencies() {
-        //LuckPerms
-        /*Plugin softLuckPerms = Bukkit.getPluginManager().getPlugin("LuckPerms");
-        Main.isLuckPerms = softLuckPerms != null;
-        if (Main.isLuckPerms) {
-            RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-            if (provider != null) {
-                Main.api = provider.getProvider();
-            }
-        }*/
-
-        //Add more below
     }
 }

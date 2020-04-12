@@ -2,11 +2,7 @@ package bonnett;
 
 import bonnett.commands.PluginTabCompleter;
 import bonnett.commands.CommandGetter;
-import net.luckperms.api.LuckPerms;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -16,10 +12,6 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 
 public class Main extends JavaPlugin {
-
-    //Soft dependencies
-    public static LuckPerms api;
-    public static boolean isLuckPerms;
 
     //Configuration Files
     public static FileConfiguration config = null;
@@ -32,13 +24,10 @@ public class Main extends JavaPlugin {
     public static boolean include_template;
 
     //Plugin Info
-    public static String pluginName = "[ChunkDungeons]";
-
     public static Main plugin;
     public static String[] invalidPalettes;
     public static String[] validPalettes;
-    public static String[] blacklist = new String[0];
-    public static File paletteList;
+    public static File paletteFolder;
 
     @SuppressWarnings({"ConstantConditions"})
     @Override
@@ -48,6 +37,8 @@ public class Main extends JavaPlugin {
         //Plugin setup.
         pluginSetup();
 
+        // /chunkdungeons generate Template 1
+        // "/chunkdungeons generate <Type> <Size>"
         //Commands initialization
         this.getCommand("chunkdungeons").setExecutor(new CommandGetter());
         this.getCommand("chunkdungeons").setTabCompleter(new PluginTabCompleter());
@@ -61,20 +52,11 @@ public class Main extends JavaPlugin {
         genDataFolder();
         loadConfig();
 
-        Plugin softLuckPerms = Bukkit.getPluginManager().getPlugin("LuckPerms");
-        isLuckPerms = softLuckPerms != null;
-        if (isLuckPerms) {
-            RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-            if (provider != null) {
-                api = provider.getProvider();
-            }
+        paletteFolder = new File(getDataFolder().toString() + File.separator + "dungeon_palettes");
+        if (paletteFolder.isDirectory()) {
+            validPalettes = paletteFolder.list();
         }
-
-        paletteList = new File(getDataFolder().toString() + File.separator + "dungeon_palettes");
-        if (paletteList.isDirectory()) {
-            validPalettes = paletteList.list();
-        }
-        getLogger().info(">>> Loaded Templates:" + Arrays.toString(validPalettes));
+        getLogger().info("Loaded Templates:" + Arrays.toString(validPalettes));
     }
 
     public void genDataFolder() {

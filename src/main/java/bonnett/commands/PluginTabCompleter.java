@@ -30,20 +30,18 @@ public class PluginTabCompleter implements TabCompleter {
         for (int count = min; count <= max; count++) { range.add(String.valueOf(count)); }
 
         switch (args.length) {
-            case 1: {
+            case 1: { // Completes '/chunkdungeons [HERE]'
                 commands.add("generate");
                 commands.add("reload");
                 commands.add("reloadconfig");
                 commands.add("reloadpalettes");
                 StringUtil.copyPartialMatches(args[0], commands, completion);
             } break;
-
-            case 2: {
+            case 2: { // Completes '/chunkdungeons generate [HERE]'
                 if (isGenerate) { commands.addAll(Arrays.asList(validTypes)); }
                 StringUtil.copyPartialMatches(args[1], commands, completion);
             } break;
-
-            case 3: {
+            case 3: { // Completes '/chunkdungeons generate <palette> [HERE]'
                 if (isGenerate) { commands.addAll(range); }
                 StringUtil.copyPartialMatches(args[2], commands, completion);
             } break;

@@ -24,28 +24,28 @@ public class Generate {
         // Detect the sender type and gets the location of the sender.
         Location senderLoc;
         AlignedLocation alignedLoc;
-        if (sender instanceof Player) {
+        if (sender instanceof Player) { // Sender is a player.
             Player player = (Player) sender;
             senderLoc = player.getLocation();
             alignedLoc = new AlignedLocation(senderLoc);
             diff = player.getWorld().getDifficulty().toString();
-        } else if (sender instanceof CommandBlock) {
+        } else if (sender instanceof CommandBlock) { // Sender is a command block.
             CommandBlock commBlock = (CommandBlock) sender;
             senderLoc = commBlock.getLocation();
             alignedLoc = new AlignedLocation(senderLoc);
             diff = commBlock.getWorld().getDifficulty().toString();
-        } else {
+        } else { // Sender is the console
             sender.sendMessage("This command cannot be run from console!");
             return;
         }
 
         if (!peace && diff.equals("difficulty.peaceful")) { return; }
 
-        //Validate requested palette
+        // Check if the requested palette is of a valid type.
         InvalidPalette invalid = new InvalidPalette();
         if (invalid.check(type)) { sender.sendMessage("That is not a valid palette!"); return; }
 
-        // Size integer parsing.
+        // Check if the requested dungeon size is within acceptable parameters.
         int size;
         try {
             size = Integer.parseInt(args[1]);

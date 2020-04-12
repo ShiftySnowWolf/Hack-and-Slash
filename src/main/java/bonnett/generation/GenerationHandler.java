@@ -2,6 +2,7 @@ package bonnett.generation;
 
 import bonnett.data.UsedChunks;
 import bonnett.data.doors.DoorHandler;
+import bonnett.data.enums.Direction;
 import bonnett.data.math.*;
 import bonnett.data.paletteHandlers.SchematicHandler;
 import com.sk89q.worldedit.EditSession;
