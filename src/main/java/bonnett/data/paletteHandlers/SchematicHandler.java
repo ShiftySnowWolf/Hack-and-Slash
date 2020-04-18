@@ -8,7 +8,6 @@ import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
-import com.sk89q.worldedit.session.ClipboardHolder;
 import org.bukkit.Location;
 
 import java.io.File;
@@ -109,18 +108,18 @@ public class SchematicHandler {
         path = path + type + File.separator + subType;
 
         // Grabs the a random schematic from the randomized path.
-        File schemLocation = new File(paletteFolder + path);
-        if (schemLocation.isDirectory()) {
-            subSchem = schemLocation.list();
+        File saveLoc = new File(paletteFolder + path);
+        if (saveLoc.isDirectory()) {
+            subSchem = saveLoc.list();
             assert subSchem != null;
             selection = rand.nextInt(subSchem.length);
-            schemLocation = new File(schemLocation + File.separator + subSchem[selection]);
+            saveLoc = new File(saveLoc + File.separator + subSchem[selection]);
         } else { return; }
 
-        ClipboardFormat format = ClipboardFormats.findByFile(schemLocation);
+        ClipboardFormat format = ClipboardFormats.findByFile(saveLoc);
 
         assert format != null;
-        try (ClipboardReader reader = format.getReader(new FileInputStream(schemLocation))) {
+        try (ClipboardReader reader = format.getReader(new FileInputStream(saveLoc))) {
             schematic = reader.read();
 
             if (sizeChecker(schematic, subSchem[selection])) {
@@ -138,6 +137,7 @@ public class SchematicHandler {
 
     public Clipboard getSchematic() { return clip; }
     public RoomType getRoom() { return roomReturn; }
+    public Orientation getOrientation() { return orientation; }
 
     // Checks if the schematic is evenly divisible by a chunk.
     private boolean sizeChecker(Clipboard clipboard, String palette) {
@@ -153,15 +153,26 @@ public class SchematicHandler {
         }
     }
 
-    private void oblongOrientation(Clipboard schematic, Direction dir) {
-        ClipboardHolder holder = new ClipboardHolder(schematic);
+    private void oblongOrientation(Clipboard clip, Direction dir) {
+        double z = (double) clip.getDimensions().getZ() / 16;
+        double x = (double) clip.getDimensions().getX() / 16;
+        if (z > x) { orientation = Orientation.NS;
+        } else if (z < x) { orientation = Orientation.WE;
+        } else { orientation = Orientation.SQUARE; }
         switch (dir) {
             case NORTH:
-            case EAST:
             case SOUTH:
+                switch (orientation) {
+                    case NS: orientation = Orientation.LONG; break;
+                    case WE: orientation = Orientation.WIDE; break;
+                } break;
+            case EAST:
             case WEST:
+                switch (orientation) {
+                    case NS: orientation = Orientation.WIDE; break;
+                    case WE: orientation = Orientation.LONG; break;
+                } break;
         }
-        clip = schematic;
     }
 
     // Check generating area in chunks for what rooms can be generated there.

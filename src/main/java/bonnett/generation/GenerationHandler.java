@@ -1,9 +1,15 @@
 package bonnett.generation;
 
 import bonnett.data.UsedChunks;
-import bonnett.data.doors.DoorHandler;
+import bonnett.data.doors.EastDoors;
+import bonnett.data.doors.NorthDoors;
+import bonnett.data.doors.SouthDoors;
+import bonnett.data.doors.WestDoors;
 import bonnett.data.enums.Direction;
-import bonnett.data.math.*;
+import bonnett.data.math.AlignedLocation;
+import bonnett.data.math.BossRoomMinLocation;
+import bonnett.data.math.DungeonMinLocation;
+import bonnett.data.math.PasteLocation;
 import bonnett.data.paletteHandlers.SchematicHandler;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
@@ -16,24 +22,24 @@ import com.sk89q.worldedit.session.ClipboardHolder;
 import org.bukkit.Location;
 
 public class GenerationHandler {
-    public static UsedChunks usedChunks;
+    private UsedChunks usedChunks;
 
-    public GenerationHandler(String type, int size, AlignedLocation alignedLoc) {
+    public GenerationHandler(String type, int size, AlignedLocation alignedLocation) {
+        Location alignedLoc = alignedLocation.getAlignedLocation();
         SchematicHandler schematicHandler = new SchematicHandler(type);
         Clipboard clipboard = schematicHandler.getSchematic();
 
         //Generate dungeon
-        PasteLocation pasteLoc = new PasteLocation(alignedLoc.toLocation(), clipboard);
-        BossRoomMinLocation bRMin = new BossRoomMinLocation(alignedLoc);
+        PasteLocation pasteLoc = new PasteLocation(alignedLocation.toLocation(), clipboard);
+        BossRoomMinLocation bRMin = new BossRoomMinLocation(alignedLocation);
         DungeonMinLocation dungeonMinLocation = new DungeonMinLocation(bRMin, size);
         usedChunks = new UsedChunks(size, dungeonMinLocation);
 
         try (EditSession editSession = WorldEdit.getInstance().getEditSessionFactory()
-                .getEditSession(new BukkitWorld(alignedLoc.getWorld()), -1)) {
+                .getEditSession(new BukkitWorld(alignedLocation.getWorld()), -1)) {
             assert false;
             Operation operation = new ClipboardHolder(clipboard).createPaste(editSession)
                     .to(pasteLoc.toBlockVector3())
-                    // Configure here.
                     .build();
             Operations.complete(operation);
         } catch (WorldEditException e) {
@@ -41,35 +47,34 @@ public class GenerationHandler {
             return;
         }
 
-        usedChunks.markUsedChunks(clipboard, alignedLoc);
+        usedChunks.markUsedChunks(clipboard, alignedLocation);
         usedChunks.printUsedChunks();
-        DoorHandler doorHandler = new DoorHandler(clipboard, alignedLoc);
-        if (doorHandler.hasNorthDoors()) {
-            Location[] northDoors = doorHandler.getNorthDoors();
+        if (new NorthDoors(clipboard, alignedLoc).hasDoors()) {
+            Location[] northDoors = new NorthDoors(clipboard, alignedLoc).getDoors();
             for (Location doorLoc : northDoors) {
                 if (doorLoc.getY() >= 0) {
                     schematicHandler = new SchematicHandler(type, doorLoc, Direction.NORTH);
                     new Room(schematicHandler.getSchematic(), doorLoc, Direction.NORTH);
                 }
             }
-        } else if (doorHandler.hasEastDoors()) {
-            Location[] eastDoors = doorHandler.getEastDoors();
+        } else if (new EastDoors(clipboard, alignedLoc).hasDoors()) {
+            Location[] eastDoors = new EastDoors(clipboard, alignedLoc).getDoors();
             for (Location doorLoc : eastDoors) {
                 if (doorLoc.getY() >= 0) {
                     schematicHandler = new SchematicHandler(type, doorLoc, Direction.EAST);
                     new Room(schematicHandler.getSchematic(), doorLoc, Direction.EAST);
                 }
             }
-        } else if (doorHandler.hasSouthDoors()) {
-            Location[] southDoors = doorHandler.getSouthDoors();
+        } else if (new SouthDoors(clipboard, alignedLoc).hasDoors()) {
+            Location[] southDoors = new SouthDoors(clipboard, alignedLoc).getDoors();
             for (Location doorLoc : southDoors) {
                 if (doorLoc.getY() >= 0) {
                     schematicHandler = new SchematicHandler(type, doorLoc, Direction.SOUTH);
                     new Room(schematicHandler.getSchematic(), doorLoc, Direction.SOUTH);
                 }
             }
-        } else if (doorHandler.hasWestDoors()) {
-            Location[] westDoors = doorHandler.getWestDoors();
+        } else if (new WestDoors(clipboard, alignedLoc).hasDoors()) {
+            Location[] westDoors = new WestDoors(clipboard, alignedLoc).getDoors();
             for (Location doorLoc : westDoors) {
                 if (doorLoc.getY() >= 0) {
                     schematicHandler = new SchematicHandler(type, doorLoc, Direction.WEST);

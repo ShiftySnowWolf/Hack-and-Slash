@@ -9,7 +9,7 @@ import org.bukkit.World;
 import static bonnett.Main.plugin;
 
 public class PasteLocation {
-    Location pasteLocation;
+    private Location pasteLocation;
 
     /**
       * Generates the location to paste a schematic so that the minLocation where blocks appear is at a given destination
@@ -80,10 +80,12 @@ public class PasteLocation {
                 cornerMin.getX() - copyLoc.getX(),
                 cornerMin.getY() - copyLoc.getY(),
                 cornerMin.getZ() - copyLoc.getZ());
-        return new Location(destination.getWorld(),
+        return new Location(
+                destination.getWorld(),
                 destination.getX() - offset.getX(),
                 destination.getY() - offset.getY(),
-                destination.getZ() - offset.getZ());
+                destination.getZ() - offset.getZ()
+        );
     }
 
 }

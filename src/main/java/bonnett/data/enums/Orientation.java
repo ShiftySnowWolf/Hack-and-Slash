@@ -1,5 +1,5 @@
 package bonnett.data.enums;
 
 public enum Orientation {
-    LONG, WIDE
+    LONG, WIDE, NS, WE, SQUARE
 }

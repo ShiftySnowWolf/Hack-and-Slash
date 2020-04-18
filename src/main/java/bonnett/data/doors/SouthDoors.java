@@ -6,8 +6,12 @@ import com.sk89q.worldedit.world.block.BlockState;
 import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Location;
 
-public class SouthDoors {
-    public static Location[] findSouthDoors(Clipboard clipboard, Location minPasteLocation) {
+public class SouthDoors extends DoorHandler {
+    public SouthDoors(Clipboard clipboard) { findDoorsNoLoc(clipboard); }
+    public SouthDoors(Clipboard clipboard, Location location) { findDoors(clipboard, location); }
+
+    @Override
+    void findDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         Location[] doorLocations = new Location[arraySize];
         int clipboardHeight = clipboard.getDimensions().getY();
@@ -38,10 +42,10 @@ public class SouthDoors {
             xOffset += 16;
             yLocation = cornerMin.getY();
         }
-        return doorLocations;
     }
 
-    public static BlockVector3[] findSouthDoorsNoLoc(Clipboard clipboard) {
+    @Override
+    void findDoorsNoLoc(Clipboard clipboard) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         BlockVector3[] doorLocations = new BlockVector3[arraySize];
         int clipboardHeight = clipboard.getDimensions().getY();
@@ -67,6 +71,5 @@ public class SouthDoors {
             xOffset += 16;
             yLocation = cornerMin.getY();
         }
-        return doorLocations;
     }
 }

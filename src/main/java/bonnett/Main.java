@@ -28,6 +28,7 @@ public class Main extends JavaPlugin {
     public static String[] invalidPalettes;
     public static String[] validPalettes;
     public static File paletteFolder;
+    public static String fs = File.separator;
 
     @SuppressWarnings({"ConstantConditions"})
     @Override

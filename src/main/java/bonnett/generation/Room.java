@@ -1,7 +1,7 @@
 package bonnett.generation;
 
 import bonnett.Main;
-import bonnett.data.doors.DoorHandler;
+import bonnett.data.doors.*;
 import bonnett.data.math.AlignedLocation;
 import bonnett.data.enums.Direction;
 import bonnett.data.math.direction.East;
@@ -58,7 +58,7 @@ public class Room {
         }
     }
 
-    public DoorHandler getDoors() { return new DoorHandler(clip, alignedLocation); }
+    //public DoorHandler getDoors() { return new DoorHandler(clip, alignedLocation); }
 
     public int getClipboardRotation() { return rotation; }
 
@@ -190,22 +190,18 @@ public class Room {
     }
 
     private boolean clipHasNorthDoors() {
-        DoorHandler doorHandler = new DoorHandler(clip);
-        return doorHandler.hasNorthDoors();
+        return new NorthDoors(clip).hasDoors();
     }
 
     private boolean clipHasSouthDoors() {
-        DoorHandler doorHandler = new DoorHandler(clip);
-        return doorHandler.hasSouthDoors();
+        return new SouthDoors(clip).hasDoors();
     }
 
     private boolean clipHasEastDoors() {
-        DoorHandler doorHandler = new DoorHandler(clip);
-        return doorHandler.hasEastDoors();
+        return new EastDoors(clip).hasDoors();
     }
 
     private boolean clipHasWestDoors() {
-        DoorHandler doorHandler = new DoorHandler(clip);
-        return doorHandler.hasWestDoors();
+        return new WestDoors(clip).hasDoors();
     }
 }

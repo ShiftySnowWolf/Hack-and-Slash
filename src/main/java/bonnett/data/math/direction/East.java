@@ -1,8 +1,10 @@
 package bonnett.data.math.direction;
 
-import bonnett.data.doors.DoorHandler;
+import bonnett.data.doors.EastDoors;
+import bonnett.data.doors.NorthDoors;
+import bonnett.data.doors.SouthDoors;
+import bonnett.data.doors.WestDoors;
 import bonnett.data.math.AlignedLocation;
-import bonnett.generation.GenerationHandler;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.WorldEditException;
@@ -39,12 +41,10 @@ public class East {
                         startLoc.getBlockX(),
                         startLoc.getBlockY(),
                         startLoc.getBlockZ()));
-        GenerationHandler.usedChunks.markUsedChunks(clip, alignedLocation, rotation);
-        GenerationHandler.usedChunks.printUsedChunks();
+//        GenerationHandler.usedChunks.markUsedChunks(clip, alignedLocation, rotation);
+//        GenerationHandler.usedChunks.printUsedChunks();
 
         clipHolder.setTransform(new AffineTransform().rotateY(-rotation));
-
-        DoorHandler doorHandler = new DoorHandler(clip);
         BlockVector3 door = BlockVector3.at(0,0,0);
         switch (rotation) {
             case 0: {
@@ -52,7 +52,7 @@ public class East {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getZ() - 17);
                 }
-                BlockVector3[] eastDoorsNoLoc = doorHandler.getEastDoorsNoLoc();
+                BlockVector3[] eastDoorsNoLoc = new EastDoors(clip).getDoorsNoLoc();
                 for (BlockVector3 d : eastDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
@@ -73,7 +73,7 @@ public class East {
             }
             case 180: {
                 System.out.println("east");
-                BlockVector3[] westDoorsNoLoc = doorHandler.getWestDoorsNoLoc();
+                BlockVector3[] westDoorsNoLoc = new WestDoors(clip).getDoorsNoLoc();
                 for (BlockVector3 d : westDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
@@ -100,7 +100,7 @@ public class East {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
                 }
-                BlockVector3[] northDoorsNoLoc = doorHandler.getNorthDoorsNoLoc();
+                BlockVector3[] northDoorsNoLoc = new NorthDoors(clip).getDoorsNoLoc();
                 for (BlockVector3 d : northDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;
@@ -124,7 +124,7 @@ public class East {
                 if (clip.getDimensions().getZ() > 16) {
                     alignedLocation.add(0, 0, clip.getDimensions().getX() - 17);
                 }
-                BlockVector3[] southDoorsNoLoc = doorHandler.getSouthDoorsNoLoc();
+                BlockVector3[] southDoorsNoLoc = new SouthDoors(clip).getDoorsNoLoc();
                 for (BlockVector3 d : southDoorsNoLoc) {
                     if (d.getY() > -1) {
                         door = d;

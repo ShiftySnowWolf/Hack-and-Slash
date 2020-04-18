@@ -6,10 +6,12 @@ import com.sk89q.worldedit.world.block.BlockState;
 import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Location;
 
-public class NorthDoors {
+public class NorthDoors extends DoorHandler {
+    public NorthDoors(Clipboard clipboard) { findDoorsNoLoc(clipboard); }
+    public NorthDoors(Clipboard clipboard, Location location) { findDoors(clipboard, location); }
 
-
-    public static Location[] findNorthDoors(Clipboard clipboard, Location minPasteLocation) {
+    @Override
+    void findDoors(Clipboard clipboard, Location minPasteLocation) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         Location[] doorLocations = new Location[arraySize];
         int clipboardHeight = clipboard.getDimensions().getY();
@@ -42,10 +44,15 @@ public class NorthDoors {
             xOffset += 16;
             yLocation = cornerMin.getY();
         }
-        return doorLocations;
+        setDoors(doorLocations);
+        for (Location door : doorLocations) {
+            if (door.getY() >= 0) { setHasDoors(true);
+            } else { setHasDoors(false); }
+        }
     }
 
-    public static BlockVector3[] findNorthDoorsNoLoc(Clipboard clipboard) {
+    @Override
+    void findDoorsNoLoc(Clipboard clipboard) {
         int arraySize = clipboard.getDimensions().getX() / 16;
         BlockVector3[] doorLocations = new BlockVector3[arraySize];
         int clipboardHeight = clipboard.getDimensions().getY();
@@ -70,6 +77,10 @@ public class NorthDoors {
             xOffset += 16;
             yLocation = cornerMin.getY();
         }
-        return doorLocations;
+        setDoorsNoLoc(doorLocations);
+        for (BlockVector3 door : doorLocations) {
+            if (door.getY() >= 0) { setHasDoors(true);
+            } else { setHasDoors(false); }
+        }
     }
 }

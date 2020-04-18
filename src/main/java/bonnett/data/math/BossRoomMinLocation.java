@@ -4,7 +4,7 @@ import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.Location;
 
 public class BossRoomMinLocation {
-    Location bossRoomMinLocation;
+    private Location bossRoomMinLocation;
 
     public BossRoomMinLocation(AlignedLocation location) {
         bossRoomMinLocation = location.toLocation();

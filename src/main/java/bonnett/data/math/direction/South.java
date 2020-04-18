@@ -39,8 +39,8 @@ public class South {
                                 startLoc.getBlockX(),
                                 startLoc.getBlockY(),
                                 startLoc.getZ() + clip.getDimensions().getZ()));
-                GenerationHandler.usedChunks.markUsedChunks(clip, alignedLocation, rotation);
-                GenerationHandler.usedChunks.printUsedChunks();
+//                GenerationHandler.usedChunks.markUsedChunks(clip, alignedLocation, rotation);
+//                GenerationHandler.usedChunks.printUsedChunks();
                 break;
             }
             case 90:
@@ -50,8 +50,8 @@ public class South {
                                 startLoc.getBlockX(),
                                 startLoc.getBlockY(),
                                 startLoc.getZ() + clip.getDimensions().getX()));
-                GenerationHandler.usedChunks.markUsedChunks(clip, alignedLocation, rotation);
-                GenerationHandler.usedChunks.printUsedChunks();
+//                GenerationHandler.usedChunks.markUsedChunks(clip, alignedLocation, rotation);
+//                GenerationHandler.usedChunks.printUsedChunks();
                 break;
             }
             default: {

@@ -22,23 +22,35 @@ public class Reload {
     }
 
     public void palettes() {
-        List<String> validList = Arrays.asList(Main.validPalettes);
-        for (String invalid : Main.invalidPalettes) { validList.remove(invalid); }
-        Main.validPalettes = validList.toArray(Main.validPalettes);
+        File paletteList = Main.paletteFolder;
+        if (paletteList.isDirectory()) {
+            if (!(Main.validPalettes == null)) {
+                List<String> validList = new ArrayList<>(Arrays.asList(Main.validPalettes));
+                validList.addAll(Arrays.asList(Objects.requireNonNull(paletteList.list())));
+                Main.validPalettes = validList.toArray(Main.validPalettes);
+            } else { Main.validPalettes = paletteList.list();}
+            assert false;
+            List<String> validList = Arrays.asList(Main.validPalettes);
+            for (String invalid : Main.invalidPalettes) { validList.remove(invalid); }
+            Main.validPalettes = validList.toArray(Main.validPalettes);
+        }
     }
 
-    public void palettes(CommandSender sender) {
-        String[] valid = Main.validPalettes;
-        File paletteList = Main.paletteFolder;
 
+    public void palettes(CommandSender sender) {
+        File paletteList = Main.paletteFolder;
         if (paletteList.isDirectory()) {
-            if (!(valid == null)) {
-                List<String> validList = new ArrayList<>(Arrays.asList(valid));
+            if (!(Main.validPalettes == null)) {
+                List<String> validList = new ArrayList<>(Arrays.asList(Main.validPalettes));
                 validList.addAll(Arrays.asList(Objects.requireNonNull(paletteList.list())));
-                valid = validList.toArray(valid);
-            } else { valid = paletteList.list();}
+                Main.validPalettes = validList.toArray(Main.validPalettes);
+            } else { Main.validPalettes = paletteList.list();}
+            assert false;
+            List<String> validList = Arrays.asList(Main.validPalettes);
+            for (String invalid : Main.invalidPalettes) { validList.remove(invalid); }
+            Main.validPalettes = validList.toArray(Main.validPalettes);
             sender.sendMessage("Reloaded all palettes.");
-            sender.sendMessage("Valid palettes: " + Arrays.toString(valid));
+            sender.sendMessage("Valid palettes: " + Arrays.toString(Main.validPalettes));
         } else { sender.sendMessage("Could not find any palettes!"); }
     }
 
