@@ -1,7 +1,9 @@
 package bonnett;
 
-import bonnett.commands.PluginTabCompleter;
 import bonnett.commands.CommandGetter;
+import bonnett.commands.PluginTabCompleter;
+import bonnett.events.ClickEvent;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,6 +27,7 @@ public class Main extends JavaPlugin {
 
     //Plugin Info
     public static Main plugin;
+    public static String chatID = ChatColor.DARK_PURPLE + "[" + ChatColor.DARK_AQUA + "ChunkDungeons" + ChatColor.DARK_PURPLE + "]" + ChatColor.WHITE;
     public static String[] invalidPalettes;
     public static String[] validPalettes;
     public static File paletteFolder;
@@ -43,6 +46,8 @@ public class Main extends JavaPlugin {
         //Commands initialization
         this.getCommand("chunkdungeons").setExecutor(new CommandGetter());
         this.getCommand("chunkdungeons").setTabCompleter(new PluginTabCompleter());
+
+        getServer().getPluginManager().registerEvents(new ClickEvent(), this);
     }
 
     @Override

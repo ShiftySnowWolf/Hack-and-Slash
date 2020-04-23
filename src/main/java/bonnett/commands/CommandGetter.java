@@ -4,6 +4,7 @@ import com.sk89q.worldedit.EmptyClipboardException;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -14,6 +15,9 @@ public class CommandGetter implements CommandExecutor {
 
     @Override
     public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String label, @Nonnull String[] args) {
+        Player player = null;
+        boolean senderIsPlayer = false;
+        if (sender instanceof Player) { player = (Player) sender; senderIsPlayer = true; }
         if (!sender.hasPermission("chunkdungeons.admin")) { return false; }
 
         switch (args[0]) {
@@ -82,6 +86,13 @@ public class CommandGetter implements CommandExecutor {
             case "reloadconfig":{
                 Reload reload = new Reload();
                 reload.config(sender);
+                return true;
+            }
+            case "gui": {
+                if (senderIsPlayer) {
+                    GUI gui = new GUI(sender);
+                    gui.openMainGUI();
+                }
                 return true;
             }
             default: sender.sendMessage("You did it wrong fucker!");

@@ -18,7 +18,7 @@ public class Reload {
         palettes(sender);
         config(sender);
         plugin.genDataFolder();
-        sender.sendMessage("Plugin reloaded.");
+        sender.sendMessage(Main.chatID + " Plugin has been reloaded!");
     }
 
     public void palettes() {
@@ -49,13 +49,13 @@ public class Reload {
             List<String> validList = Arrays.asList(Main.validPalettes);
             for (String invalid : Main.invalidPalettes) { validList.remove(invalid); }
             Main.validPalettes = validList.toArray(Main.validPalettes);
-            sender.sendMessage("Reloaded all palettes.");
-            sender.sendMessage("Valid palettes: " + Arrays.toString(Main.validPalettes));
-        } else { sender.sendMessage("Could not find any palettes!"); }
+            sender.sendMessage(Main.chatID + " Reloaded all palettes.");
+            sender.sendMessage(Main.chatID + " Valid palettes: " + Arrays.toString(Main.validPalettes));
+        } else { sender.sendMessage(Main.chatID + " Could not find any palettes!"); }
     }
 
     public void config(CommandSender sender) {
         plugin.loadConfig();
-        sender.sendMessage("Reloaded configuration file.");
+        sender.sendMessage(Main.chatID + " Reloaded configuration file.");
     }
 }

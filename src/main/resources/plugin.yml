@@ -18,4 +18,3 @@ commands:
       - cd
     permission: chunkdungeons.admin
     permission-message: You do not have permission to use this command!
-    usage: /chunkdungeons [generate|reload|reloadconfig|reloadpalettes]
