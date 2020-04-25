@@ -1,6 +1,6 @@
 name: ChunkDungeons
 version: Dev-Re-1.0
-main: bonnett.Main
+main: ssw.Main
 api-version: "1.13"
 authors:
   - ShiftySnowWolf

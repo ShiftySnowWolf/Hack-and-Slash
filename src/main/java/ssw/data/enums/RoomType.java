@@ -1,0 +1,7 @@
+package ssw.data.enums;
+
+public enum RoomType {
+    SMALL_BOSS, LARGE_BOSS,
+    ONE_CHUNK, TWO_CHUNK, THREE_CHUNK, FOUR_CHUNK, SIX_CHUNK,
+    STRAIGHT_HALL, THREE_WAY_HALL, FOUR_WAY_HALL, CORNER_HALL
+}
