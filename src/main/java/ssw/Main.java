@@ -1,6 +1,7 @@
 package ssw;
 
 import ssw.commands.CommandGetter;
+import ssw.commands.GUI;
 import ssw.commands.PluginTabCompleter;
 import ssw.events.ClickEvent;
 import org.bukkit.ChatColor;
@@ -12,6 +13,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class Main extends JavaPlugin {
 
@@ -32,6 +36,8 @@ public class Main extends JavaPlugin {
     public static String[] validPalettes;
     public static File paletteFolder;
     public static String fs = File.separator;
+
+    public static Map<UUID, GUI> playerGUI = new HashMap<>();
 
     @SuppressWarnings({"ConstantConditions"})
     @Override

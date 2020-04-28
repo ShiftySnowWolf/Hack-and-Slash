@@ -14,7 +14,7 @@ import java.util.*;
 import static ssw.Main.*;
 
 public class PluginTabCompleter implements TabCompleter {
-    
+
     @Override
     public List<String> onTabComplete(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String alias, @ Nonnull String[] args) {
         if (!sender.hasPermission("chunkdungeons.admin")) { return null; }

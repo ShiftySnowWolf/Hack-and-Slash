@@ -1,0 +1,5 @@
+package ssw.data.enums;
+
+public enum GUIType {
+  MAIN, PALETTES, SCHEMATICS, VALIDPALETTES, INVALIDPALETTES, GENERATE
+}
